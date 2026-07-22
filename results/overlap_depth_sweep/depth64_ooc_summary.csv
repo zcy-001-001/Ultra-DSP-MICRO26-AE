@@ -1,0 +1,6 @@
+project,depth,freq_mhz,impl_status,impl_worst_path_slack_ns,impl_tns_ns,impl_setup_failing_endpoints,impl_target_period_ns,impl_lut,impl_ff,impl_dsp,impl_bram,impl_uram,impl_failure_reason,impl_required_lut_as_logic,impl_available_lut_as_logic,impl_required_slice_luts,impl_available_slice_luts,synth_wns_ns,synth_lut,synth_ff,synth_dsp,post_synth_status,post_synth_cp_required_ns,post_synth_cp_achieved_ns,post_synth_lut,post_synth_ff,post_synth_dsp,post_synth_bram
+W4A4_Depth4_64_64,4,160,not_met,-0.472,-180.822,1149,6.250,626356,567131,4096,25.5,0,,,,,,3.374,676242,662895,4096,met,6.250,2.876,676242,662895,4096,51
+W4A4_Depth4_64_64,4,170,,,,,,,,,,,,,,,,,,,,,,,,,,
+W4A4_Depth4_64_64,4,200,not_met,-0.971,-2710.620,7453,5.000,626565,567316,4096,25.5,0,,,,,,2.376,676376,662952,4096,not_met,5.000,2.624,626565,567316,4096,51
+W4A4_Depth5_64_64,5,200,place_drc_slice_luts_overutilized,,,,,,,,,,place_drc_slice_luts_overutilized,1309238,1303680,1312195,1303680,1.659,1312633,1416167,4096,,,,,,,
+W4A4_Depth6_64_64,6,200,place_drc_slice_luts_overutilized,,,,,,,,,,place_drc_slice_luts_overutilized,1309238,1303680,1312195,1303680,1.659,1312633,1416167,4096,,,,,,,

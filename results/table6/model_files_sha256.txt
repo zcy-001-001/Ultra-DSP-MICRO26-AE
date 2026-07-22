@@ -1,0 +1,30 @@
+# Licensed external model file SHA-256
+# Model files are not redistributed. Source and execution-copy hashes matched file-by-file.
+
+[llama2_7b]
+de079647c87b2806074fd1614680f8b416b61c7792d72101c08d91aa1bd7431a  ./config.json
+dfbf1d6403235b70efa8fc7a6ebf225aeb886b9d89ad09e2178c422cede8abc2  ./generation_config.json
+f141ed9aef5938c0add75c40402fad4d1cea3b1b7bac72d5d67bfea03f790871  ./model-00001-of-00003.safetensors
+206a7c14919e274e319a72f664694190faa2a73cf0bb53c137811bab9890b2ef  ./model-00002-of-00003.safetensors
+23556eb8dde4a20617bec38e50711c68fd1fdcfae328ddb07d5325a0f5d4b2bf  ./model-00003-of-00003.safetensors
+091fdb60b8ee3713df38fd6f9849c3aa82d7eeeb5f6d224a77139543b1db8652  ./model.safetensors.index.json
+6fa06efa2785e450051989a6f8fb4416b10149ded485ddd3f127a40734f5cfd0  ./special_tokens_map.json
+3e1c2b69bfc5ff1a4ec64e9d6abf711094c23d4cf21b66e72ac79a7f77062824  ./tokenizer_config.json
+e6be5af2db80db5a82837c3bb31706e8b6ca193e19b981fc7b08a3a9fc44e9ae  ./tokenizer.json
+9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347  ./tokenizer.model
+
+[llama3_8b]
+2430cee764b6530ff8673cf9ba8561e1d5a33152d503cd0de909ff5718261441  ./config.json
+93caf96e269e32b9ee33ad78b0d76d910408d11a63a8b2c49241030836759311  ./generation_config.json
+11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361  ./.gitattributes
+475211637354ce4c14b9c3dacccbefbaba735fe1b0db97d6c4fd11cd1356819f  ./LICENSE
+f2c144103072514542e327fa8080bd375cb300f2d453fba9ca3aea81d0d4cf33  ./model-00001-of-00004.safetensors
+d9eee5f23d94405d90b7e9ff88b9443fee42f8528a658f54214c2aba7530d80c  ./model-00002-of-00004.safetensors
+4b8fbc5e113f69768dd8de84661ea20af8a32b734a9976144b4236c447b40ccc  ./model-00003-of-00004.safetensors
+5dc34e6bdf2da9e35f0d93b5c333c870f3677dc43dc3a91ea3a8ad28a1fe1acb  ./model-00004-of-00004.safetensors
+146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b  ./model.safetensors.index.json
+3cbad75113f9c1d99d215598c624c96c8beead2852e5b3a6a3e40238c03676e9  ./README.md
+462d91939dbc37178aa5a3eae7068d1990ccc92e09f288cc71f42cdf139d69cc  ./special_tokens_map.json
+690727b4fed286383df1c7ca5e805124cb70c6eb4529f807c7b2e60ff741da7e  ./tokenizer_config.json
+e134af98b985517b4f068e3755ae90d4e9cd2d45d328325dc503f1c6b2d06cc7  ./tokenizer.json
+003513f595a20b7d63c609dfe80879531acb9caef6376fcc109bf0827471f3d1  ./USE_POLICY.md

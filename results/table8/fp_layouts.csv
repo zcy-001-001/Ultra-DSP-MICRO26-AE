@@ -1,0 +1,25 @@
+format,format_label,product_kind,product_width,design,max_result_overlap,nx,ny,products_per_dsp,cost,x_pos,y_pos,result_starts,max_adjacent_result_overlap,max_pointwise_result_overlap,valid,notes
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,1,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,1,NormalNonOverlap,0,9,2,18,-7.0,0 2 4 6 8 10 12 14 16,0 25,0 2 4 6 8 10 12 14 16 25 27 29 31 33 35 37 39 41,0,1,1,sanity baseline
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,1,UltraDSP-Packing,3,12,3,36,34.0,0 1 2 3 4 5 6 7 8 9 10 11,0 13 25,0 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36,1,2,1,correction-backed overpacking layout
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,2,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,2,NormalNonOverlap,0,3,3,9,0.0,0 4 8,0 12 24,0 4 8 12 16 20 24 28 32,0,1,1,sanity baseline
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,2,UltraDSP-Packing,3,6,3,18,34.0,0 2 4 6 8 10,0 12 24,0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34,2,2,1,correction-backed overpacking layout
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,3,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,3,NormalNonOverlap,0,3,2,6,-7.0,0 7 14,0 23,0 7 14 23 30 37,0,1,1,sanity baseline
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,3,UltraDSP-Packing,3,5,2,10,17.0,0 4 8 11 14,0 23,0 4 8 11 14 23 27 31 34 37,3,2,1,correction-backed overpacking layout
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,2,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,2,NormalNonOverlap,0,3,3,9,0.0,0 4 8,0 12 24,0 4 8 12 16 20 24 28 32,0,1,1,sanity baseline
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,2,UltraDSP-Packing,3,6,3,18,34.0,0 2 4 6 8 10,0 12 24,0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34,2,2,1,correction-backed overpacking layout
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,4,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,4,NormalNonOverlap,0,2,2,4,-11.0,0 13,0 22,0 13 22 35,0,1,1,sanity baseline
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,4,UltraDSP-Packing,3,3,2,6,5.0,0 7 13,0 22,0 7 13 22 29 35,2,2,1,correction-backed overpacking layout
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,5,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,5,NormalNonOverlap,0,2,2,4,-2.0,0 11,0 21,0 11 21 32,0,1,1,sanity baseline
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,5,UltraDSP-Packing,3,1,4,4,-3.0,0,0 7 14 21,0 7 14 21,3,2,1,correction-backed overpacking layout
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,5,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,5,NormalNonOverlap,0,2,2,4,-2.0,0 11,0 21,0 11 21 32,0,1,1,sanity baseline
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,5,UltraDSP-Packing,3,1,4,4,-3.0,0,0 7 14 21,0 7 14 21,3,2,1,correction-backed overpacking layout
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,1,NoPackingScalar,0,1,1,1,0,0,0,0,0,1,1,scalar one-product-per-DSP baseline
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,1,NormalNonOverlap,0,9,2,18,-7.0,0 2 4 6 8 10 12 14 16,0 25,0 2 4 6 8 10 12 14 16 25 27 29 31 33 35 37 39 41,0,1,1,sanity baseline
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,1,UltraDSP-Packing,3,12,3,36,34.0,0 1 2 3 4 5 6 7 8 9 10 11,0 13 25,0 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36,1,2,1,correction-backed overpacking layout

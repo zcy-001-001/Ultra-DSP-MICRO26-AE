@@ -1,0 +1,17 @@
+run_id=table6-symmetric-a800-20260720-v2
+evidence_scope=formal two-model W4A4KV4 narrow-symmetric rerun
+accelerator=NVIDIA A800-SXM4-80GB
+accelerator_memory=81920 MiB
+driver=570.86.10
+Python 3.10.20
+torch==2.5.1+cu121
+transformers==4.57.6
+tokenizers==0.22.2
+datasets==4.8.5
+lm_eval==0.4.12
+qtorch==0.3.0
+
+The package lock was recorded independently for both formal model runs. The
+two records agreed on the accelerator, Python runtime, and package versions
+listed above. Private hosts, scheduler identifiers, account names, model
+locations, cache locations, and run directories are intentionally omitted.

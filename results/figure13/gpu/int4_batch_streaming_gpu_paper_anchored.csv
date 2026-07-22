@@ -1,0 +1,6 @@
+platform,dtype,batch_size,latency_ms,tops,power_avg_w,energy_mj,tops_per_w,source,kernel_family,weight_policy,working_set_mb,pool_size
+RTX 6000 Ada,INT4,1,0.0191,1.7590,236.13,4.5045,0.007449,original_GEMV_results_int4_gemv_energy_csv,original GEMV CUTLASS INT4 small-M,streaming_weight_bank_paper_matched,1024.0,128
+RTX 6000 Ada,INT4,4,0.0190,7.0610,221.76,4.2153,0.031841,new_batch_streaming_measurement,original GEMV CUTLASS INT4 small-M,streaming_weight_bank_paper_matched,1024.0,128
+RTX 6000 Ada,INT4,16,0.0193,27.8708,233.36,4.4952,0.119433,new_batch_streaming_measurement,original GEMV CUTLASS INT4 small-M,streaming_weight_bank_paper_matched,1024.0,128
+RTX 6000 Ada,INT4,64,0.0181,118.7443,280.65,5.0755,0.423105,new_batch_streaming_measurement,Ada6000/opt CUTLASS INT4 GEMM large-M,streaming_weight_bank_paper_matched,1024.0,128
+RTX 6000 Ada,INT4,256,0.0216,397.8861,296.05,6.3914,1.343983,new_batch_streaming_measurement,Ada6000/opt CUTLASS INT4 GEMM large-M,streaming_weight_bank_paper_matched,1024.0,128

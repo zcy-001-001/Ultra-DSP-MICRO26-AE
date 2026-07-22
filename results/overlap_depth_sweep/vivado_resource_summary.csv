@@ -1,0 +1,5 @@
+top_module,clb_luts,lut_as_logic,lut_as_memory,ff,clb_registers,dsp,wns_ns,timing_status,utilization_report,timing_report
+w4a4_overlap_depth3_hybrid,91,91,0,114,114,1,NA,NA,out\vivado_resource\w4a4_overlap_depth3_hybrid_utilization_synth.rpt,out\vivado_resource\w4a4_overlap_depth3_hybrid_timing_synth.rpt
+w4a4_overlap_depth4_hybrid,130,130,0,165,165,1,NA,NA,out\vivado_resource\w4a4_overlap_depth4_hybrid_utilization_synth.rpt,out\vivado_resource\w4a4_overlap_depth4_hybrid_timing_synth.rpt
+w4a4_overlap_depth5_hybrid,261,261,0,324,324,1,NA,NA,out\vivado_resource\w4a4_overlap_depth5_hybrid_utilization_synth.rpt,out\vivado_resource\w4a4_overlap_depth5_hybrid_timing_synth.rpt
+w4a4_overlap_depth6_hybrid,261,261,0,324,324,1,NA,NA,out\vivado_resource\w4a4_overlap_depth6_hybrid_utilization_synth.rpt,out\vivado_resource\w4a4_overlap_depth6_hybrid_timing_synth.rpt

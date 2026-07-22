@@ -1,0 +1,2 @@
+depth,prefill_layout,decode_layout,prefill_T,decode_T,pe_count,target_frequency_mhz,wns_ns,tns_ns,estimated_fmax_mhz,lut,ff,dsp,timing_met,figure18_selected_point,evidence_class
+3,3x3,1x7,9,7,4096,210,0.138,0.0,216.267,387215,291297,4096,True,True,RECOMPUTED_FROM_LOGS

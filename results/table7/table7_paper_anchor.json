@@ -1,0 +1,10 @@
+[
+  {"format": "W5A5", "geomean": 68.86, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W4A5", "geomean": 68.11, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W4A4", "geomean": 66.78, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W5A4", "geomean": 65.92, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W3A5", "geomean": 63.81, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W3A4", "geomean": 60.78, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W5A3", "geomean": 45.94, "source_kind": "PAPER_ANCHOR"},
+  {"format": "W4A3", "geomean": 44.40, "source_kind": "PAPER_ANCHOR"}
+]

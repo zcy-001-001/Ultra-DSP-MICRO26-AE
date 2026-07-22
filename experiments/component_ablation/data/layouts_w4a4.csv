@@ -1,0 +1,11 @@
+variant,short_name,phase,product_width,packing,a_positions,b_positions,product_offsets,step_logic,layout_type
+V0,NormalSigned,P,8,"4 eff / 2 lanes","A:w1@0 D:w2@8","B:(a1+a2)@0","0 8","normal signed two's-complement: two physical lanes; activation pre-add makes four effective MACs; high lane adds low-lane sign correction",normal_signed_reference
+V0,NormalSigned,D,8,2,"A:w1@0 D:w2@8","B:a1@0","0 8","same signed A/D layout; B carries one signed activation",normal_signed_reference
+V1,SignMagnitude,P,6,6,"0 12 24","0 6","0 6 12 18 24 30","non-overlap: product offsets step by 6",manual_non_overlap
+V1,SignMagnitude,D,6,5,"0 6 12 18 24","0","0 6 12 18 24","non-overlap: A step is 6",manual_non_overlap
+V2,OverlapNoCorr,P,6,8,"0 6 12 18","0 9","0 6 9 12 15 18 21 27","hand tuned: A step 6, B step 9; sorted product steps 6/3/3/3/3/3/6",hand_tuned_overlap
+V2,OverlapNoCorr,D,6,6,"0 5 10 15 20 24","0","0 5 10 15 20 24","hand tuned: mostly A step 5, final step 4 to fit A[26:0]",hand_tuned_overlap
+V3,FullCorrection,P,6,8,"0 6 12 18","0 9","0 6 9 12 15 18 21 27","same hand-tuned layout as V2; C-port subtracts low 3 bits at offsets 9/12/15/18/21",hand_tuned_corrected
+V3,FullCorrection,D,6,6,"0 5 10 15 20 24","0","0 5 10 15 20 24","same hand-tuned layout as V2; C-port subtracts low 1/1/1/1/2 bits",hand_tuned_corrected
+V4,FullUltraDSP,P,6,9,"0 11 23","0 4 8","0 4 8 11 15 19 23 27 31","ILP layout: product steps 4/4/3/4/4/4/4/4",ilp_layout
+V4,FullUltraDSP,D,6,7,"0 4 8 11 15 19 23","0","0 4 8 11 15 19 23","ILP layout: product steps 4/4/3/4/4/4",ilp_layout

@@ -1,0 +1,16 @@
+
+****** xsim v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_reviewd_rtl_single_pe_sim/xsim_script.tcl
+# xsim {tb_reviewd_rtl_single_pe_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+ReviewD D-only RTL single-PE check passed
+$finish called at time : 397500 ps : File "<REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/W4A4_D1x7_only_64_64/src/tb_reviewd_rtl_single_pe.v" Line 60
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Jun 10 15:59:38 2026...

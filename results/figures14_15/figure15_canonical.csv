@@ -1,0 +1,73 @@
+figure,metric,method,sequence,prefill_tokens,decode_tokens,model_value,calibrated_value,paper_anchor_value,source_kind
+Figure 15,normalized_speedup,FlightLLM (INT8),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,FlightLLM (INT8),"[2048, 6144]",2048,6144,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,FlightLLM (INT8),"[4096, 4096]",4096,4096,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,FlightLLM (INT8),"[6144, 2048]",6144,2048,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,FlightLLM (INT8),"[8192, 0]",8192,0,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,FlightLLM (INT8),Geomean,,,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,WP521 (INT4),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,WP521 (INT4),"[2048, 6144]",2048,6144,1.0976520642924676,1.1890459363957597,1.1890459363957597,model_and_calibrated
+Figure 15,normalized_speedup,WP521 (INT4),"[4096, 4096]",4096,4096,1.1953041285849353,1.3780918727915195,1.3780918727915195,model_and_calibrated
+Figure 15,normalized_speedup,WP521 (INT4),"[6144, 2048]",6144,2048,1.2929561928774032,1.567137809187279,1.567137809187279,model_and_calibrated
+Figure 15,normalized_speedup,WP521 (INT4),"[8192, 0]",8192,0,1.3906082571698708,1.7561837455830387,1.7561837455830387,model_and_calibrated
+Figure 15,normalized_speedup,WP521 (INT4),Geomean,,,1.1872613949759074,1.3515458684745785,1.3515458684745785,model_and_calibrated
+Figure 15,normalized_speedup,DuoQ (INT4),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,DuoQ (INT4),"[2048, 6144]",2048,6144,1.0976520642924676,1.1890459363957597,1.1890459363957597,model_and_calibrated
+Figure 15,normalized_speedup,DuoQ (INT4),"[4096, 4096]",4096,4096,1.1953041285849353,1.3780918727915195,1.3780918727915195,model_and_calibrated
+Figure 15,normalized_speedup,DuoQ (INT4),"[6144, 2048]",6144,2048,1.2929561928774032,1.567137809187279,1.567137809187279,model_and_calibrated
+Figure 15,normalized_speedup,DuoQ (INT4),"[8192, 0]",8192,0,1.3906082571698708,1.7561837455830387,1.7561837455830387,model_and_calibrated
+Figure 15,normalized_speedup,DuoQ (INT4),Geomean,,,1.1872613949759074,1.3515458684745785,1.3515458684745785,model_and_calibrated
+Figure 15,normalized_speedup,DSP-Packing (INT4),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,DSP-Packing (INT4),"[2048, 6144]",2048,6144,1.1496932218947775,1.3365724381625441,1.3365724381625441,model_and_calibrated
+Figure 15,normalized_speedup,DSP-Packing (INT4),"[4096, 4096]",4096,4096,1.299386443789555,1.6731448763250882,1.6731448763250882,model_and_calibrated
+Figure 15,normalized_speedup,DSP-Packing (INT4),"[6144, 2048]",6144,2048,1.4490796656843326,2.0097173144876326,2.0097173144876326,model_and_calibrated
+Figure 15,normalized_speedup,DSP-Packing (INT4),"[8192, 0]",8192,0,1.59877288757911,2.3462897526501765,2.3462897526501765,model_and_calibrated
+Figure 15,normalized_speedup,DSP-Packing (INT4),Geomean,,,1.2818578517193393,1.6018009001881517,1.6018009001881517,model_and_calibrated
+Figure 15,normalized_speedup,UDP (INT4),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,UDP (INT4),"[2048, 6144]",2048,6144,1.1496932218947775,1.3365724381625441,1.3365724381625441,model_and_calibrated
+Figure 15,normalized_speedup,UDP (INT4),"[4096, 4096]",4096,4096,1.299386443789555,1.6731448763250882,1.6731448763250882,model_and_calibrated
+Figure 15,normalized_speedup,UDP (INT4),"[6144, 2048]",6144,2048,1.4490796656843326,2.0097173144876326,2.0097173144876326,model_and_calibrated
+Figure 15,normalized_speedup,UDP (INT4),"[8192, 0]",8192,0,1.59877288757911,2.3462897526501765,2.3462897526501765,model_and_calibrated
+Figure 15,normalized_speedup,UDP (INT4),Geomean,,,1.2818578517193393,1.6018009001881517,1.6018009001881517,model_and_calibrated
+Figure 15,normalized_speedup,Ultra-DSP (INT4),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_speedup,Ultra-DSP (INT4),"[2048, 6144]",2048,6144,1.1940026833631485,1.5070671378091873,1.5070671378091873,model_and_calibrated
+Figure 15,normalized_speedup,Ultra-DSP (INT4),"[4096, 4096]",4096,4096,1.388005366726297,2.0141342756183747,2.0141342756183747,model_and_calibrated
+Figure 15,normalized_speedup,Ultra-DSP (INT4),"[6144, 2048]",6144,2048,1.5820080500894453,2.521201413427562,2.521201413427562,model_and_calibrated
+Figure 15,normalized_speedup,Ultra-DSP (INT4),"[8192, 0]",8192,0,1.7760107334525939,3.0282685512367493,3.0282685512367493,model_and_calibrated
+Figure 15,normalized_speedup,Ultra-DSP (INT4),Geomean,,,1.3602230958984312,1.8750143234010264,1.8750143234010264,model_and_calibrated
+Figure 15,normalized_energy_efficiency,FlightLLM (INT8),"[0, 8192]",0,8192,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_energy_efficiency,FlightLLM (INT8),"[2048, 6144]",2048,6144,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_energy_efficiency,FlightLLM (INT8),"[4096, 4096]",4096,4096,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_energy_efficiency,FlightLLM (INT8),"[6144, 2048]",6144,2048,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_energy_efficiency,FlightLLM (INT8),"[8192, 0]",8192,0,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_energy_efficiency,FlightLLM (INT8),Geomean,,,1.0,1.0,1.0,model_and_calibrated
+Figure 15,normalized_energy_efficiency,WP521 (INT4),"[0, 8192]",0,8192,1.0,1.0044642857142856,1.0044642857142856,model_and_calibrated
+Figure 15,normalized_energy_efficiency,WP521 (INT4),"[2048, 6144]",2048,6144,1.0976520642924676,1.1958811571846892,1.1958811571846892,model_and_calibrated
+Figure 15,normalized_energy_efficiency,WP521 (INT4),"[4096, 4096]",4096,4096,1.1953041285849353,1.3872980286550929,1.3872980286550929,model_and_calibrated
+Figure 15,normalized_energy_efficiency,WP521 (INT4),"[6144, 2048]",6144,2048,1.2929561928774032,1.5787149001254968,1.5787149001254968,model_and_calibrated
+Figure 15,normalized_energy_efficiency,WP521 (INT4),"[8192, 0]",8192,0,1.3906082571698708,1.7701317715959004,1.7701317715959004,model_and_calibrated
+Figure 15,normalized_energy_efficiency,WP521 (INT4),Geomean,,,1.1872613949759074,1.3602549638355532,1.3602549638355532,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DuoQ (INT4),"[0, 8192]",0,8192,1.0,0.9776785714285714,0.9776785714285714,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DuoQ (INT4),"[2048, 6144]",2048,6144,1.0976520642924676,1.1611505830370215,1.1611505830370215,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DuoQ (INT4),"[4096, 4096]",4096,4096,1.1953041285849353,1.3446225946454717,1.3446225946454717,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DuoQ (INT4),"[6144, 2048]",6144,2048,1.2929561928774032,1.5280946062539216,1.5280946062539216,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DuoQ (INT4),"[8192, 0]",8192,0,1.3906082571698708,1.7115666178623719,1.7115666178623719,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DuoQ (INT4),Geomean,,,1.1872613949759074,1.3190031090082928,1.3190031090082928,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DSP-Packing (INT4),"[0, 8192]",0,8192,1.0,0.9910714285714286,0.9910714285714286,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DSP-Packing (INT4),"[2048, 6144]",2048,6144,1.1496932218947775,1.327124947709684,1.327124947709684,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DSP-Packing (INT4),"[4096, 4096]",4096,4096,1.299386443789555,1.6631784668479397,1.6631784668479397,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DSP-Packing (INT4),"[6144, 2048]",6144,2048,1.4490796656843326,1.9992319859861953,1.9992319859861953,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DSP-Packing (INT4),"[8192, 0]",8192,0,1.59877288757911,2.335285505124451,2.335285505124451,model_and_calibrated
+Figure 15,normalized_energy_efficiency,DSP-Packing (INT4),Geomean,,,1.2818578517193393,1.5915920443192095,1.5915920443192095,model_and_calibrated
+Figure 15,normalized_energy_efficiency,UDP (INT4),"[0, 8192]",0,8192,1.0,0.9732142857142857,0.9732142857142857,model_and_calibrated
+Figure 15,normalized_energy_efficiency,UDP (INT4),"[2048, 6144]",2048,6144,1.1496932218947775,1.3049473175067976,1.3049473175067976,model_and_calibrated
+Figure 15,normalized_energy_efficiency,UDP (INT4),"[4096, 4096]",4096,4096,1.299386443789555,1.6366803492993096,1.6366803492993096,model_and_calibrated
+Figure 15,normalized_energy_efficiency,UDP (INT4),"[6144, 2048]",6144,2048,1.4490796656843326,1.9684133810918216,1.9684133810918216,model_and_calibrated
+Figure 15,normalized_energy_efficiency,UDP (INT4),"[8192, 0]",8192,0,1.59877288757911,2.3001464128843336,2.3001464128843336,model_and_calibrated
+Figure 15,normalized_energy_efficiency,UDP (INT4),Geomean,,,1.2818578517193393,1.5657680340488982,1.5657680340488982,model_and_calibrated
+Figure 15,normalized_energy_efficiency,Ultra-DSP (INT4),"[0, 8192]",0,8192,1.0,1.138392857142857,1.138392857142857,model_and_calibrated
+Figure 15,normalized_energy_efficiency,Ultra-DSP (INT4),"[2048, 6144]",2048,6144,1.1940026833631485,1.5565764876594854,1.5565764876594854,model_and_calibrated
+Figure 15,normalized_energy_efficiency,Ultra-DSP (INT4),"[4096, 4096]",4096,4096,1.388005366726297,1.9747601181761136,1.9747601181761136,model_and_calibrated
+Figure 15,normalized_energy_efficiency,Ultra-DSP (INT4),"[6144, 2048]",6144,2048,1.5820080500894453,2.3929437486927423,2.3929437486927423,model_and_calibrated
+Figure 15,normalized_energy_efficiency,Ultra-DSP (INT4),"[8192, 0]",8192,0,1.7760107334525939,2.8111273792093705,2.8111273792093705,model_and_calibrated
+Figure 15,normalized_energy_efficiency,Ultra-DSP (INT4),Geomean,,,1.3602230958984312,1.8808666160688279,1.8808666160688279,model_and_calibrated

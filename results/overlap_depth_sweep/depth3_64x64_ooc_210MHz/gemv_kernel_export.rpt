@@ -1,0 +1,24 @@
+
+
+Implementation tool: Xilinx Vivado v.2023.2
+Project:             freq_210MHz
+Solution:            hls
+Device target:       xcu55c-fsvh2892-2L-e
+Report date:         Mon Mar 16 20:42:34 CST 2026
+
+#=== Post-Implementation Resource usage ===
+SLICE:            0
+LUT:         387215
+FF:          291297
+DSP:           4096
+BRAM:            49
+URAM:             0
+LATCH:            0
+SRL:          29769
+CLB:          65929
+
+#=== Final timing ===
+CP required:                     4.762
+CP achieved post-synthesis:      2.915
+CP achieved post-implementation: 4.624
+Timing met

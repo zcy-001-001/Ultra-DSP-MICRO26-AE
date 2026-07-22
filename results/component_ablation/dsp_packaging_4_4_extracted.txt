@@ -1,0 +1,634 @@
+
+--- page 1 ---
+1
+DSP-Packing: Squeezing Low-precision Arithmetic
+into FPGA DSP Blocks
+Jan Sommer, Akif ¨Ozkan, Oliver Keszocze, Member, IEEE J¨urgen Teich, Fellow, IEEE
+Abstract —The number of Digital Signal Processor (DSP) re-
+sources available in Field Programmable Gate Arrays (FPGAs)
+is often quite limited. Therefore, full utilization of available DSP
+resources for the computationally intensive parts of an algorithm
+is paramount for optimizing the non-functional properties of an
+implementation (i.e., performance, power, and area). The DSPs
+available in Xilinx devices implement large bit width operators
+(i.e. a 48-bit accumulator or a 1827multiplier). However,
+using such a DSP for low-precision quantized data (as is common
+in image processing or machine learning applications) leaves
+the DSP resources underutilized. As a remedy, A method has
+been proposed to pack and compute four 4-bit multiplications
+on a single DSP in a single clock cycle. This paper presents a
+generalization of this scheme to arbitrary bit widths and number
+of multiplications. We also demonstrate that the previously
+proposed approach leads to errors (Mean Absolute Error (MAE)
+= 0.37). Furthermore, we explain where these errors come
+from and how they can be corrected. On top, we introduce a
+novel approximate method called “Overpacking” which allows to
+squeeze even more multiplications into a single DSP at the cost
+of small errors (MAE = 0.47). Overpacking allows to squeeze
+six 4-bit multiplications into a single DSP compared to just four
+in the literature. Finally, we introduce an alternative method
+for packing multiple small-bit width additions into a single 48-
+bit accumulator for use in applications such as Spiking Neural
+Networks.
+Index Terms —Digital Signal Processing (DSP), Field-
+Programmable Gate Array (FPGA), Approximate Computing.
+I. I NTRODUCTION
+Modern FPGAs have a heterogeneous architecture. They
+consist of programmable fabric, i.e., Lookup Tables (LUTs)
+and Flip-Flops (FFs), as well as non-programmable hard
+blocks like dedicated Digital Signal Processors (DSPs). The
+micro-architecture of such a DSP-block is vendor-dependent.
+The DSP48E2 that is present in Xilinx UltraScale FPGAs
+features a 27 bit preadder, a 1827bit multiplier and a 48
+bit accumulator [1]. A single DSP48E2 block can implement
+functions of the form
+P=B(A+D) +C+Pin (1)
+as shown in Fig. 1.
+The DSP hard blocks can be used to implement arithmetic
+circuits that achieve a much better performance (in terms of
+speed, area and energy efﬁciency) compared to implementa-
+tions that use the standard programmable FPGA fabric. There-
+fore, when designing arithmetic circuits for optimal results,
+maximal usage of the available DSP blocks is important [2].
+The authors are with the Friedrich-Alexander-Universit ¨at Erlangen-
+N¨urnberg, 91054 Erlangen, Germany. E-mail: fjan.sommer, oliver.kescoeze,
+akif.oezkang@fau.de, teich@cs.fau.de.
+D
+27
+C48B18A27
+48 48
+48P
+PinPcout
+27Fig. 1: Schematic architecture and dataﬂow of the Xilinx
+DSP48E2.
+Since the DSP blocks are a scarce resource on an FPGA
+chip, it is important to use them as efﬁciently as possible.
+This is a problem for small bit width arithmetic, because
+implementing such a function on a DSP block would leave
+most of the DSP’s resources unused. Applications in the
+domain of image processing or machine learning typically
+operate on quantized data with small bit widths of 8 bit
+or less [3], [4]. To improve the utilization of the DSP’s
+resources for low-precision arithmetic, some techniques have
+been proposed to map multiple small bit width multiplications
+to a single DSP [3], [4]. An even better utilization can be
+achieved when applying Approximate Computing principles.
+Approximate Computing is an emerging paradigm where non-
+functional requirements like chip area, latency or energy
+efﬁciency are traded of for computational accuracy [5], [6].
+Our contributions are as follows:
+We generalize the multiplication packing technique pro-
+posed by Xilinx Inc. [3], [4] to arbitrary bit widths and
+arbitrary number of multiplications independent of the
+DSP’s architecture.
+We show how multiplication packing technique proposed
+by Xilinx Inc. [3], [4] leads to small errors and how these
+errors can be corrected.
+We present a novel packing strategy called “Overpacking”
+to squeeze more (logical) values into one (physical) DSP
+input such that partially incorrect results are produced.
+We show techniques how the erroneous results can be
+improved using additional logic. Overpacking allows up
+to 50% more multiplications on a single DSP compared
+to the approaches proposed by Xilinx Inc. [3], [4].
+We also present a strategy for packing small bit width
+additions into the DSPs 48-bit accumulator.arXiv:2203.11028v1  [cs.AR]  21 Mar 2022
+
+--- page 2 ---
+2
+II. R ELATED WORK
+Huang et al. [7] propose a method for implementing parallel
+multiplications on a single DSP slice. On the DSP48E2 that is
+present on Xilinx UltraScale FPGAs [1], this method allows
+to implement two multiplications w0a0=r0andw1a1=r1
+and a multiply-accumulate result r2=w0a1+w1a0. To
+achieve maximal utilization, the operands w0;w1must have a
+bit width of 4 and the operands a0;a1must have a bit width
+of 5, resulting in a bit width of 4+5 = 9 for the results r0;r1.
+Mert et al. [8] propose a method to map two multiplications
+c0a0=r0andc1a0=r1to a single DSP. Note that c0and
+c1must be constants. Also note that the variable input a0is
+the same for both multiplications. This methods requires the
+constants to be decomposed into shift operations prior to the
+synthesis of the circuit. However, in many applications, the
+multiplication operands change during runtime, rendering the
+proposed method infeasible.
+Kalali and Van Leuken [9] extend the method of Mert
+et al. [8] by using a table lookup technique for storing the
+decomposed constants. The lookup table allows the constants
+to be changed during runtime. In addition, an approximate
+computing technique is proposed to reduce the large overhead
+caused by this lookup table.
+In the Xilinx white paper [3], a method is proposed to
+implement two multiplications of the form w0a0=r0and
+w1a0=r1on a single DSP. In the remainder of this paper,
+this procedure will be referred to as INT8-packing. Note that
+the variable input a0is the same for both multiplications.
+In this method, all input operands have a bit width of 8,
+thus resulting in two 16 bit results. A very similar method
+is proposed by Lee et al. [10].
+In the Xilinx white paper [4], a method is proposed to
+implement four multiplications of the form w0a0=r0,
+w1a0=r1,w0a1=r2,w1a1=r3on a single DSP. The
+input operands w0;w1;a0;a1have a precision of 4 bit, thus
+resulting in four 8 bit results. In the remainder of this paper,
+this procedure will be referred to as INT4-packing.
+III. P RELIMINARIES : INT4-P ACKING
+To generalize the ideas proposed by Xilinx Inc. [4], we
+ﬁrst give an overview over INT4-packing. Here, we also
+introduce our notation. INT4-packing basically computes the
+outer product of two vectors aandw, with both vectors having
+two elements each:
+aw>=a0
+a1
+w0
+w1>
+=a0w0a0w1
+a1w0a1w1
+(2)
+Computing the result of this outer product requires 4 mul-
+tiplications in total. Using the INT4-approach, these multipli-
+cations can be packed on a single DSP if the entries of a
+are unsigned 4 bit integers and the entries of ware signed 4
+bit integers. The strategy is to rearrange the individual inputs
+a0;a1;w0;w1as described in the following equation:
+(a1211+a0)(w1222+w0)
+=a1w1233+a0w1222+a1w0211+a0w0(3)Note that multiplications or divisions with 2ncan be imple-
+mented by ﬁxed shift operations that only require a rewiring of
+the individual bits. The computation in Eqn. (3) can be mapped
+to the DSP48E2 as follows: The operand a0is mapped to the
+B-Port (see Fig. 1) with an offset of 0. a1is also mapped to
+the B-Port but with an offset of 11. This is a hardware-efﬁcient
+way of implementing a1211+a020. Inputw0is mapped to
+the preadder port A with an offset of zero. Since w0is signed,
+the sign bit has to be repeated for all Most Signiﬁcant Bits
+(MSBs) to perform sign extension. Input w1cannot be mapped
+to the same port as w0because it is signed. Therefore, w1is
+mapped to the preadder port D with an offset of 22. The 4
+results of the outer product can be extracted from the P-Port.
+E.g., the result a1w1can be extracted from bit 33 to bit 40
+from the P-Port. The individual results are separated by = 3
+padding bits (see Fig. 2). This is important when multiple
+DSPs are chained together using the carry ports ( Pin;Pcout) in
+order to accumulate their results. Thus, with bits padding
+a maximum of 2results can be accumulated without error.
+When no results are accumulated no padding is needed.
+IV. G ENERALIZATION OF INT4-P ACKING : INT-N
+The architecture-independent packing INT-N is used to
+generate a multiplication packing that does not consider the
+constraints of the target DSP (i.e., limited bit widths and input
+ports). To generalize the INT4-approach, the multiplication
+packing technique has to be described in mathematical terms.
+For the generalization, the integer input vectors a= [a0:::an]
+andw= [w0:::wm]can have anynumber of entries. A packing
+conﬁguration can then be described as follows. The offsets of
+the entries of aandware stored in the sets aoandwoand
+the bit widths are stored in awdth andwwdth, respectively. The
+bit widths of the individual elements can be chosen arbitrarily,
+even allowing for cases where the each entry has a different bit
+width. The result rcontains the outer product, i.e., r=aw>.
+Thus, the sets rocontains the offsets and rwdth contains
+the bit widths of the individual results. For example, INT4-
+packing has the following packing conﬁguration (see Fig. 2):
+Padding= 3,wwdth =awdth =f4;4g,rwdth =f8;8;8;8g,
+wo=f0;22g,ao=f0;11g,ro=f0;11;22;33g. The
+offsets of the inputs aoandwodetermine the offsets of the
+results roas described in Eqn. (4) (with jjdenoting the
+cardinality).
+0
+@jaoffj 1X
+i=0ai2aoff;i1
+A0
+@jwoffj 1X
+j=0wj2woff;j1
+A
+=jwoffj 1X
+j=0jaoffj 1X
+i=0aiwj2roff;jjaoffj+i(4)
+Note that in the equation above, the offsets of the in-
+puts wo;aodetermine the offsets of the results ro, i.e.:
+ro;jjaoffj+i=ao;i+wo;jThis can be understood as a
+generalization of Eqn. (3). Note that this generalized packing
+INT-N also applies to INT8 packing.
+
+--- page 3 ---
+3
+$ $ 012 $$$$$$$$$$$$$$$$$$$$$$
+$ 012 $
+3 012 3 012
+𝛿𝛿𝛿 𝛿𝛿𝛿 𝛿𝛿𝛿 3456$ 012 3456$ 012 3456$ 012 3456$ 012D
+CBA
+P
+Fig. 2: INT4-packing for performing four parallel multiplications on a single DSP. Here, $ denotes the (extended) sign bits
+anddenotes the padding bits. The offsets of the individual inputs determine the offsets of the individual results as described
+in Eqn. (3).
+V. E RROR ANALYSIS OF MULTIPLICATION PACKING
+The generalized multiplication packing INT-N (and thus
+including the the INT4 and INT8 packing technique proposed
+by Xilinx) suffers from an error where some actual outputs
+Oactual are smaller than the expected outputs Oexpect. This error
+is bounded by 1, i.e.,Oactual =Oexpect 1. The error is
+introduced by the right-shifting operation that is implicitly
+performed when extracting the results from the bit string. The
+individual results aiwjare extracted from the result vector by
+right shifting. The reasoning behind this is that
+xn=x
+2n(5)
+However, right shifting signed integers implements division
+that is always rounding down i.e.:
+xn=jx
+2nk
+(6)
+This biases the output towards negative inﬁnity. For INT4-
+packing, this leads to an error rate of around 37% over all
+possible input combinations.
+We propose two error correction schemes: one method for
+full error correction requiring extra hardware (LUTs, FFs) and
+one approximate method that reduces the error probability
+from 37% to 3% and requires no additional hardware.
+A. Full Error Correction
+Since the errors are related to rounding, they can be ﬁxed
+by applying the correct rounding. The correct rounding should
+implement rounding that does not introduce a bias. For this,
+rounding to the nearest integer is used. This rounding scheme
+can be implemented using the Round-Half-Up function:
+round half up =bx+ 0:5c (7)
+For example, 3.1 gets rounded to 3, and 3.6 gets rounded to 4.
+The advantage of this function is that it can be implemented
+easily in hardware by checking a single bit. To implement the
+Round-Half-Up function, the cases where the result needs to
+be rounded up have to be determined, because rounding down
+is done by default. For this, the results can be interpreted as
+ﬁxed-point numbers:
+If the ﬁrst bit behind the decimal point is 1, then round
+up by adding 1 to the result.
+Else, round down by adding a 0 (i.e. do nothing).
+Full error correction requires additional hardware resources
+for implementing the required adders (see Fig. 3).B. Approximate Correction
+The idea is to anticipate if the ﬁrst bit after the decimal point
+is 1 (thus requiring rounding up) and then adding a 1 to the
+result before extracting to result. The proposed solution works
+as follows. The assumption is that acontains unsigned entries
+andwcontains signed entries. The ﬁrst bit after the decimal
+point of the n’th result located at ro;nis 1 if the sign of
+the result located at ro;n 1is negative (due to the sign bits).
+The ideas is then that the sign of a result located at ro;n 1
+can be anticipated by checking the sign of the operands. Thus,
+adding the sign bit of the operands that generated the result
+located at ro;n 1resolves some of the errors. This addition
+can be performed using the DSP’s accumulator that is accessed
+through the C-Port (see Fig. 4). In some rare cases, this does
+not resolve the errors, e.g. when one operand is zero.
+VI. O VERPACKING
+In the domain of digital signal processing, many appli-
+cations do not require computations to be exact. Reducing
+computational accuracy often allows for improvements on
+energy efﬁciency, resource utilization or execution speed [11].
+If approximation is acceptable and to what degree depends
+on the application. Typical applications are in the domain of
+image processing and machine learning, since the underlying
+algorithms in these domains are often of an approximate nature
+themselves. The general idea for approximate multiplication
+on DSPs is to reduce the amount of padding bits below the
+minimum. If is reduced below the minimum, some bits of the
+individual results are being merged together and errors occur.
+The beneﬁt of this technique is that more multiplications with
+a higher bit precision can be ﬁtted on a single DSP block.
+The minimum required amount of -bits is determined by
+how many results are supposed to be accumulated. For easier
+interpretation of the results, Overpacking experiments have
+been performed with no accumulation of results. Therefore,
+the minimum padding is = 0. Thus, Overpacking can be
+introduced by setting = 1; 2;etc.
+A. Errors introduced by Overpacking
+For Overpacking, the individual results are separated by
+less-bits than required. Thus, the individual results aiwj
+overlap. The mathematical operation that fuses the overlapping
+results to the ﬁnal output vector P is an addition (according
+to Eqn. (4)). This has the effect that the LSBs of a results r1
+
+--- page 4 ---
+4
+𝛿𝛿𝛿 𝛿𝛿𝛿 𝛿𝛿𝛿 3456$ 012 3456$ 012 3456$ 012 3456$ 012
+Fig. 3: Hardware circuit for implementing the round half up function using additional hardware. The orange dots denote the
+imaginary decimal points of the results that have to be extracted.
+3456$ $12 3456$ $12 3456$ $12 3456$ 012
+Fig. 4: 48-Bit correction term that is fed into the DSP’s accumulator port C for the approximate error correction technique.
+Shown here for INT4 packing.
+XXX11 Xxxx 00x
+x xxx X11 XXX
+xxxx11 11XXXX
+(a) LSB contamination
+ (b) MSB contamination
+Fig. 5: Errors introduced by Overpacking. The result r1and
+r0overlap because of the negative padding = 2.r0
+1and
+r0
+0are the corrupted results extracted from the output vector.
+X and x denote don’t care bits of r1andr0, respectively.
+located left of a result r0affect the MSBs of r0. For example,
+Fig. 5a shows how non-zero MSBs of r0contaminate the LSBs
+ofr1. Fig. 5b shows how non-zero LSBs of r1contaminate
+the MSBs of r0. An approximate computing technique where
+the MSBs of a result are contaminated leads to very high
+errors and is therefore not desirable. We present a technique
+to correct these errors with very little hardware overhead.
+B. MR-Overpacking
+Most Signiﬁcant Bit Restoring (MR) Overpacking is an
+improvement to the naive Overpacking technique introduced
+above. The idea of MR-Overpacking is to let the MSBs get
+contaminated (Fig. 5b), but to restore the MSBs after extrac-
+tion. The reasoning behind this is: erroneous MSBs lead to a
+high error, erroneous LSBs are not having a large impact on
+the result. To restore the MSBs, the inverse process of the MSB
+contamination must be performed. As illustrated in Fig. 5b, 
+MSBs of a result rnthat is located at ro;nare contaminated
+by addingLSBs of another result rn+1that is located at
+ro;n+1. Thus, the MSB contamination is an addition which
+can be inverted using a substraction . MR-Overpacking restores
+theMSBs of a result ro;nbysubstracting theLSBs
+ofro;n+1. To perform the restoration, the contaminating
+LSBs have to be known. Therefore, the contaminating LSBs
+must be calculated. The ﬁrst LSB (Eqn. (8)) and the second
+LSB (Eqn. (9)) of a result can be calculated with a littlehardware overhead. Eqns. (8), (9) are simply the rules for
+binary multiplication.
+aiwj[0] =ai[0]^wj[0] (8)
+aiwj[1] = (ai[0]^wj[1])(ai[1]^wj[0]) (9)
+Consider the following example where = 2,a0=
+1010 2= 10 10,a1= 0011 2= 3 10,w0= 1001 2= 710,
+w1= 1100 2= 410, withw0;w1being signed integers in
+2’s complement notation. For Overpacking, set = 2.
+The expected result for a0w0would be 1011 1010 2= 7010.
+However, due to Overpacking, a0w0
+0= 0111 1010 2= 122 10.
+The two LSBs of a1w0that corrupt a0w0are calculated
+using Eqn. (8), (9): a1w0[0] =a1w0[1] = 1 . The correction
+is performed by subtracting the corrupting LSBs : a0w0=
+a0w0
+0 1100 0000 2. Fig. 6 shows how this scheme can be
+implemented with extra hardware (LUTs and FFs). Note that
+this scheme must be adapted according to . For example, if
+= 1, only the implementation of Eqn. (8) is required. When
+is increased further, the respective LSBs must be calculated
+according to the rules of binary multiplication. For example,
+setting= 4requires the calculation of the ﬁrst four LSBs.
+Note that the hardware cost for implementing the correction
+logic increases exponentially with the number of LSBs.
+The catch of the proposed scheme is as follows. Multi-
+plication is very expensive in terms of hardware resources
+with two exceptions: the ﬁrst and the second LSBs are very
+cheap to implement (see Eqns. (8), (9)). This means, that the
+expensive multiplication is performed in the optimized DSPs,
+the correction of corrupted MSBs is cheap to implement with
+additional hardware. The corruption of the LSBs only leads to
+small errors, as will be discussed in Section VIII.
+VII. A DDITION PACKING
+In Spiking Neural Networks (SNNs), the main computa-
+tional operation is an addition [12], [13]. In contrast, standard
+Neural Networks (NNs) are based on Multiply-Accumulate
+operations (MAC) [14]. This means that SNN-accelerators
+require the implementation of thousands of adders, placing
+a high load on the FPGA’s LUT and FF resources. In the
+following, we propose a method to pack multiple small-bit
+
+--- page 5 ---
+5
+3456$ 012 3456$ 012 3456 0 345 012
+01
+01
+LSBcalc0000000
+01
+01
+LSB calc0000000
+01
+01
+LSB calc0000000
+Fig. 6: Hardware circuit for implementing MR-Overpacking with = 2. The boxes “LSB calc” implement the Eqns. (8), (9)
+for the construction of the correction terms that are then subtracted from the extracted results. To obtain this packing, the
+following setup is used: wwdth =awdth =f4;4g,rwdth =f8;8;8;8g,wo=f0;12g,ao=f0;6g,ro=f0;6;12;18g.
+additions into the large 48-bit adders of the DSP48. Consider
+the example in Fig. 7 where two 8 bit additions are mapped
+to a single 16 bit addition. One 8 bit addition is mapped
+to the lower 8 bits and the other 8 bit addition is mapped
+to the upper 8 bits. The addition in the upper bits is still
+connected to the addition in the lower bits by the carry chain.
+Thus, if the addition in the lower 8 bits causes a carry, this
+carry is propagated to the addition in the upper 8 bits. The
+propagated carry causes an error in the least signiﬁcant bit
+of the upper addition. This has the following implications: a)
+the addition located in the lower bits never has errors. (b) If
+a carry occurs from one addition to another, only the least
+signiﬁcant bit of a result is corrupted. Therefore, the worst
+case absolute error is bounded to 1. To completely prevent
+errors, an extra guard bit with the value of 0 can be added
+between all additions. This guard bit is used to prevent that
+a carry signal can propagate from one addition to another (as
+illustrated in Fig. 8). This guard bit is additional overhead as
+it cannot be used for addition. This scheme can be generalized
+to different bit widths and more additions. The DSP48 features
+a 48-bit adder. For example, ﬁve 9 bit adders can be packed
+into a single DSP leaving room for three guard bits. Therefore,
+only a single adder is approximating in the sense that some
+results may have errors. To maximize the utilization, two 9-bit
+adders and three 10-bit adders can be mapped to a single DSP,
+leaving no space for guard bits.
+VIII. E XPERIMENTS AND RESULTS
+To analyze the techniques and their errors described in
+the previous chapters, the following error metrics are used
+to compare an an expected output Oexpect to an actual output
+Oactual [15]. AllNpossible input combinations were tested.
+EP =PN
+8n:O(n)
+expect6=O(n)
+actual1
+N100% (10)
+MAE =1
+NNX
+n=1O(n)
+actual O(n)
+expect (11)
+Addi�on 1 Addi�on 2
+1 00 01 0 111 10 10 1 11
+0 11 00 1 000 01 00 1 00
+1 10 00 1 11 0 01 11 1 00
+=+
+259
+15
+-28-13
+-15
+=+
+Carry
+Fig. 7: Strategy for packing two small bit with additions to
+a large one. Shown is the origin of the error where the carry
+signal of addition 1 propagates to the least signiﬁcant bit of
+addition 2.
+Addi�on 1 Addi�on 2
+1 00 01 0 111 10 10 1 11
+0 11 00 1 000 01 00 0 00
+1 10 00 1 11 0 01 11 0 00
+=+
+249
+15
+-28-13
+-15
+=+
+Carry
+01
+1
+Guard Bit
+Fig. 8: Addition packing with no errors using a guard bit
+between the individual additions. The guard bit “catches” the
+carry signal and prevents it from propagating to addition 2.
+WCE = max
+8nO(n)
+actual O(n)
+expect (12)
+Note that the error statistics listed above are calculated for
+each result aiwjindividually. The result calculated over all
+individual results is indicated by a bar accent (e.g., MAE ).
+To evaluate the hardware cost of the individual circuit imple-
+mentations, each circuit was implemented on the the Xilinx
+Zynq UltraScale+ MPSoC (XCZU7EV-2FFVC1156). For best
+comparability with the related INT4-approach by Xilinx, all
+
+--- page 6 ---
+6
+TABLE I: Results of the various presented multiplication
+packing approaches, compared to the approach proposed by
+Xilinx [4]. All operands are 4-bit with four multiplications on
+a single DSP.
+Approach MAE EP WCE LUTs FFs
+Xilinx INT4 [4] 0.37 37.35% 1 0 0
+INT4 Full Correction 0.00 0.00% 0 27 32
+INT4 Approx. Correction 0.02 3.13% 1 0 0
+Overpacking = 1 24.27 49.85% 129 0 0
+Overpacking = 2 37.95 58.64% 194 0 0
+Overpacking = 3 45.53 78.26% 228 0 0
+MR-Overpacking = 1 0.37 37.35% 1 4 6
+MR-Overpacking = 2 0.47 41.48% 2 6 20
+MR-Overpacking = 3 0.78 49.95% 4 17 30
+TABLE II: Detailed error statistics of the individual results
+aiwjfor INT4 Packing and MR-Overpacking.
+INT4 Packing MR-Overpacking = 2
+Result MAE EP WCE MAE EP WCE
+a0w0 0.00 0.00% 0 0.00 0.00% 0
+a1w0 0.47 46.87% 1 0.60 52.34% 2
+a0w1 0.50 49.80% 1 0.64 55.41% 2
+a1w1 0.53 52.73% 1 0.66 58.20% 2
+for allaiwj 0.37 37.35% 1 0.47 41.48% 2
+TABLE III: Results of the addition packing scheme.
+Approach MAE EP WCE LUTs FFs
+Addition Packing 0.51 51.83% 1 0 0
+tests in Table I and II have been performed with 4-bit operands
+and four multiplications. Note that the approaches introduced
+in this paper can be generalized to arbitrary bit widths and
+number of multiplications, restricted only by the DSPs archi-
+tecture. Table III shows the result of a single 9-bit adder that
+is implemented along with four other 9-bit adders in a single
+DSP using the addition packing scheme without guard bits. To
+measure the effectiveness of the different packing schemes, we
+introduce the packing density =bused=btotal, wherebtotalis the
+number of output bits (e.g., 48 bits for the DSP48) and bused
+is the number of bits that are occupied by the multiplication
+results. Fig. 9 compares the multiplication packing density
+for the different approaches. To evaluate INT-N, the following
+packing conﬁguration is used: Padding = 0,wwdth =f3;3g
+awdth =f4;4;4g,rwdth =f7;7;7;7;7;7g,wo=f0;21g,
+ao=f0;7;14g,ro=f0;7;14;21;28;35g. The packing
+conﬁguration for Overpacking is: = 2,wwdth =f5;5g
+awdth =f4;4;4g,rwdth =f9;9;9;9;9;9g,wo=f0;21g,
+ao=f0;7;14g,ro=f0;7;14;21;28;35g. Note that many
+more conﬁgurations for INT-N and Overpacking are possible
+(Eqn (4)), that can be adapted according to the application at
+hand.
+IX. C ONCLUSION
+DSP-Packing offers a way to effectively use DSPs for small
+width multiplications. The INT4-approach as proposed by
+Xilinx [4] for multiplication packing has multiple limitations.
+First, the bit widths of the individual multiplications and the0:40:60:8 1 1:21:4INT4INT-8Huang et al.INT-NOverpacking
+0:670:670:560:881:13
+Packing Density 
+Fig. 9: Multiplication packing density for different techniques.
+amount of operands is ﬁxed. The padding is is also ﬁxed to 3
+and it introduces a rounding-related error. We showed that this
+technique can be generalized to arbitrary packings. While the
+rounding error introduced by INT4-packing is relatively small
+(MAE = 0.37), it adds a small bias towards negative inﬁnity
+to the results which might be an issue for some applications.
+The full error correction requires the implementation of addi-
+tional adders, introducing an overhead as additional resources
+are required. Approximate error correction uses the internal
+accumulator of the DSP48E2, requiring no external hardware.
+The error that is still present is very small ( MAE = 0:02)
+making approximate error correction an ideal solution. Over-
+packing can be used to improve the utilization of DSP blocks
+signiﬁcantly. Overpacking itself introduces a very large error
+since the MSBs of the extracted results are corrupted. MR-
+Overpacking reduces the error signiﬁcantly with a very small
+hardware overhead. This makes MR-Overpacking an interest-
+ing solution, for example for Convolutional Neural Networks
+(CNNs), because they are inherently resilient to quantization
+and approximations. For example, MR-Overpacking can be
+used to map 6 individual 4-bit multiplications on a single
+DSP48E2, allowing 50% more 4-bit multiplications compared
+to INT4-packing while achieving the same MAE = 0:37.
+MR-Overpacking can also be used to increase the precision
+of multiplications. For example, setting = 2allows 4
+individual 6-bit multiplications on a single DSP, resulting in an
+increase in bit precision of 50% compared to INT4-packing. In
+the future, we plan to explore methods to dynamically change
+the DSP packing during runtime according to the requirements
+of the computational task at hand.
+REFERENCES
+[1] Xilinx Inc., “Ultrascale architecture dsp slice user guide (ug579).”
+[Online]. Available: https://www.xilinx.com/support/documentation/
+user guides/ug579-ultrascale-dsp.pdf
+[2] ——, “7 series dsp48e1 slice user guide (ug479).” [Online].
+Available: https://www.xilinx.com/support/documentation/user guides/
+ug479 7Series DSP48E1.pdf
+[3] ——, “Deep learning with int8 optimization on xilinx devices white
+paper (wp485).” [Online]. Available: https://www.xilinx.com/support/
+documentation/white papers/wp486-deep-learning-int8.pdf
+[4] ——, “Convolutional neural network with int4 optimization on xilinx
+devices white paper.” [Online]. Available: https://www.xilinx.com/
+support/documentation/white papers/wp521-4bit-optimization.pdf
+[5] J. Han and M. Orshansky, “Approximate computing: An emerging
+paradigm for energy-efﬁcient design,” in 2013 18th IEEE European Test
+Symposium (ETS) , 2013, pp. 1–6.
+[6] S. Mittal, “A survey of techniques for approximate computing,”
+ACM Comput. Surv. , vol. 48, no. 4, mar 2016. [Online]. Available:
+https://doi.org/10.1145/2893356
+
+--- page 7 ---
+7
+[7] Z. Huang, S. Zhang, and W. Wang, “An efﬁcient method of parallel
+multiplication on a single dsp slice for embedded fpgas,” IEEE Access ,
+vol. 7, pp. 100 993–101 008, 2019.
+[8] A. C. Mert, H. Azgin, E. Kalali, and I. Hamzaoglu, “Efﬁcient multiple
+constant multiplication using dsp blocks in fpga,” in 2018 28th Inter-
+national Conference on Field Programmable Logic and Applications
+(FPL) , 2018, pp. 331–3313.
+[9] E. Kalali and R. Van Leuken, “Near-precise parameter approximation
+for multiple multiplications on a single dsp block,” IEEE Transactions
+on Computers , pp. 1–1, 2021.
+[10] S. Lee, D. Kim, D. Nguyen, and J. Lee, “Double mac on a dsp:
+Boosting the performance of convolutional neural networks on fpgas,”
+IEEE Transactions on Computer-Aided Design of Integrated Circuits
+and Systems , vol. PP, pp. 1–1, 04 2018.
+[11] Q. Xu, T. Mytkowicz, and N. S. Kim, “Approximate computing: A
+survey,” IEEE Design & Test , vol. 33, no. 1, pp. 8–22, 2016.
+[12] M. Bouvier, A. Valentian, T. Mesquida, F. Rummens, M. Reyboz,
+E. Vianello, and E. Beigne, “Spiking neural networks hardware imple-
+mentations and challenges,” ACM Journal on Emerging Technologies in
+Computing Systems , vol. 15, no. 2, pp. 1–35, 2019.
+[13] B. Rueckauer, I.-A. Lungu, Y . Hu, M. Pfeiffer, and S.-C. Liu, “Con-
+version of continuous-valued deep networks to efﬁcient event-driven
+networks for image classiﬁcation,” Frontiers in neuroscience , vol. 11,
+p. 682, 2017.
+[14] V . Sze, Y .-H. Chen, T.-J. Yang, and J. S. Emer, “Efﬁcient processing of
+deep neural networks: A tutorial and survey,” Proceedings of the IEEE ,
+vol. 105, no. 12, pp. 2295–2329, 2017.
+[15] V . Mrazek, R. Hrbacek, Z. Vasicek, and L. Sekanina, “Evoapprox8b:
+Library of approximate adders and multipliers for circuit design and
+benchmarking of approximation methods,” in Design, Automation & Test
+in Europe Conference & Exhibition (DATE), 2017 , 2017, pp. 258–261.

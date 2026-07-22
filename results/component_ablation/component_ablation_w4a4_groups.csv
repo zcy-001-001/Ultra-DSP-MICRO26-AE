@@ -1,0 +1,101 @@
+group,variant,short_name,plot_label,prefill_t,decode_t,ep_lanes,slot_width,offsets,outputs,error_count,ep,mae,mse,max_abs_err
+0,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+1,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+2,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+3,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+4,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+5,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+6,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+7,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+8,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+9,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+10,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+11,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+12,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+13,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+14,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+15,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+16,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+17,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+18,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+19,V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20000,0,0.0,0.0,0.0,0
+0,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+1,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+2,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+3,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+4,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+5,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+6,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+7,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+8,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+9,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+10,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+11,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+12,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+13,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+14,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+15,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+16,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+17,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+18,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+19,V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,60000,0,0.0,0.0,0.0,0
+0,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51284,0.64105,13.73395,462.091725,62
+1,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51249,0.6406125,13.765675,463.567275,62
+2,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51127,0.6390875,13.67005,459.8568,62
+3,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51194,0.639925,13.729575,461.14315,62
+4,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51217,0.6402125,13.772125,463.02475,62
+5,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51336,0.6417,13.798475,464.5472,62
+6,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51292,0.64115,13.6968125,459.2349125,62
+7,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51167,0.6395875,13.7547875,462.6806125,62
+8,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51242,0.640525,13.7375,461.395075,62
+9,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51104,0.6388,13.6860875,460.0085375,62
+10,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51178,0.639725,13.669275,458.160475,62
+11,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51320,0.6415,13.7959125,463.8938125,62
+12,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51071,0.6383875,13.7343375,462.0374125,62
+13,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51353,0.6419125,13.8243875,466.4137375,62
+14,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51215,0.6401875,13.7257,462.136125,62
+15,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51373,0.6421625,13.8390625,465.5973375,62
+16,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51359,0.6419875,13.7741,462.364925,62
+17,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51186,0.639825,13.7564875,463.0251875,62
+18,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51155,0.6394375,13.702675,459.23235,62
+19,V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,80000,51120,0.639,13.7112,460.727175,62
+0,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+1,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+2,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+3,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+4,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+5,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+6,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+7,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+8,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+9,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+10,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+11,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+12,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+13,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+14,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+15,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+16,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+17,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+18,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+19,V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,80000,0,0.0,0.0,0.0,0
+0,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+1,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+2,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+3,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+4,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+5,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+6,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+7,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+8,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+9,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+10,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+11,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+12,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+13,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+14,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+15,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+16,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+17,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+18,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0
+19,V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,90000,0,0.0,0.0,0.0,0

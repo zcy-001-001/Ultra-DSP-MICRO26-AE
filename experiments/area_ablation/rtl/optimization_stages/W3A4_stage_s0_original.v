@@ -1,0 +1,240 @@
+/*
+ * Auto-generated for the Ultra-DSP rebuttal area ablation.
+ * Top module: W3A4_stage_s0_original
+ * Precision: W3A4
+ * Stage: s0_original
+ * Source: Ultra-DSP-main/DSP_Packaging_Verilog/W3A4/W3A4_Hybrid.v
+ * Toggle summary: runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+ */
+
+module W3A4_stage_s0_original(
+    input wire        clk,
+    input wire        mode,
+    input wire [2:0]  w1, w2, w3, w4, w5, w6, w7, w8, w9,
+    input wire [3:0]  a1, a2,
+    output wire [5:0] result1, result2, result3, result4, result5, result6, 
+                      result7, result8, result9, result10, result11, result12,
+    output wire       sign1, sign2, sign3, sign4, sign5, sign6,
+                      sign7, sign8, sign9, sign10, sign11, sign12
+);
+
+wire [47:0] dsp_P;
+
+// Area ablation s0: keep runtime two's-complement to sign-magnitude
+// conversion on the weight side instead of assuming offline conversion.
+wire w1_sign, w2_sign, w3_sign, w4_sign, w5_sign, w6_sign, w7_sign, w8_sign, w9_sign;
+wire [1:0] w1_mag, w2_mag, w3_mag, w4_mag, w5_mag, w6_mag, w7_mag, w8_mag, w9_mag;
+wire [2:0] w1_temp_mag, w2_temp_mag, w3_temp_mag, w4_temp_mag, w5_temp_mag, w6_temp_mag, w7_temp_mag, w8_temp_mag, w9_temp_mag;
+
+assign w1_sign = w1[2];
+assign w1_temp_mag = w1[2] ? (~w1[2:0] + 1'b1) : w1[2:0];
+assign w1_mag = (w1_temp_mag == 3'b100) ? 2'b11 : w1_temp_mag[1:0];
+
+assign w2_sign = w2[2];
+assign w2_temp_mag = w2[2] ? (~w2[2:0] + 1'b1) : w2[2:0];
+assign w2_mag = (w2_temp_mag == 3'b100) ? 2'b11 : w2_temp_mag[1:0];
+
+assign w3_sign = w3[2];
+assign w3_temp_mag = w3[2] ? (~w3[2:0] + 1'b1) : w3[2:0];
+assign w3_mag = (w3_temp_mag == 3'b100) ? 2'b11 : w3_temp_mag[1:0];
+
+assign w4_sign = w4[2];
+assign w4_temp_mag = w4[2] ? (~w4[2:0] + 1'b1) : w4[2:0];
+assign w4_mag = (w4_temp_mag == 3'b100) ? 2'b11 : w4_temp_mag[1:0];
+
+assign w5_sign = w5[2];
+assign w5_temp_mag = w5[2] ? (~w5[2:0] + 1'b1) : w5[2:0];
+assign w5_mag = (w5_temp_mag == 3'b100) ? 2'b11 : w5_temp_mag[1:0];
+
+assign w6_sign = w6[2];
+assign w6_temp_mag = w6[2] ? (~w6[2:0] + 1'b1) : w6[2:0];
+assign w6_mag = (w6_temp_mag == 3'b100) ? 2'b11 : w6_temp_mag[1:0];
+
+assign w7_sign = w7[2];
+assign w7_temp_mag = w7[2] ? (~w7[2:0] + 1'b1) : w7[2:0];
+assign w7_mag = (w7_temp_mag == 3'b100) ? 2'b11 : w7_temp_mag[1:0];
+
+assign w8_sign = w8[2];
+assign w8_temp_mag = w8[2] ? (~w8[2:0] + 1'b1) : w8[2:0];
+assign w8_mag = (w8_temp_mag == 3'b100) ? 2'b11 : w8_temp_mag[1:0];
+
+assign w9_sign = w9[2];
+assign w9_temp_mag = w9[2] ? (~w9[2:0] + 1'b1) : w9[2:0];
+assign w9_mag = (w9_temp_mag == 3'b100) ? 2'b11 : w9_temp_mag[1:0];
+
+
+
+wire a1_sign, a2_sign;
+wire [2:0] a1_mag, a2_mag;
+wire [3:0] a1_temp_mag, a2_temp_mag;
+
+assign a1_sign = a1[3];
+assign a1_temp_mag = a1[3] ? (~a1[3:0] + 1'b1) : a1[3:0];
+assign a1_mag = (a1_temp_mag == 4'b1000) ? 3'b111 : a1_temp_mag[2:0];
+
+assign a2_sign = a2[3];
+assign a2_temp_mag = a2[3] ? (~a2[3:0] + 1'b1) : a2[3:0];
+assign a2_mag = (a2_temp_mag == 4'b1000) ? 3'b111 : a2_temp_mag[2:0];
+
+
+wire [1:0] LSB_Res2_P  = {(w2_mag[0] & a1_mag[1]) ^ (w2_mag[1] & a1_mag[0]), w2_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res3_P  = {(w3_mag[0] & a1_mag[1]) ^ (w3_mag[1] & a1_mag[0]), w3_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res4_P  = {(w4_mag[0] & a1_mag[1]) ^ (w4_mag[1] & a1_mag[0]), w4_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res5_P  = {(w5_mag[0] & a1_mag[1]) ^ (w5_mag[1] & a1_mag[0]), w5_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res6_P  = {(w6_mag[0] & a1_mag[1]) ^ (w6_mag[1] & a1_mag[0]), w6_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res8_P  = {(w2_mag[0] & a2_mag[1]) ^ (w2_mag[1] & a2_mag[0]), w2_mag[0] & a2_mag[0]};
+wire [1:0] LSB_Res9_P  = {(w3_mag[0] & a2_mag[1]) ^ (w3_mag[1] & a2_mag[0]), w3_mag[0] & a2_mag[0]};
+wire [1:0] LSB_Res10_P = {(w4_mag[0] & a2_mag[1]) ^ (w4_mag[1] & a2_mag[0]), w4_mag[0] & a2_mag[0]};
+wire [1:0] LSB_Res11_P = {(w5_mag[0] & a2_mag[1]) ^ (w5_mag[1] & a2_mag[0]), w5_mag[0] & a2_mag[0]};
+wire [1:0] LSB_Res12_P = {(w6_mag[0] & a2_mag[1]) ^ (w6_mag[1] & a2_mag[0]), w6_mag[0] & a2_mag[0]};
+
+
+wire [1:0] LSB_Res2_D  = {(w2_mag[0] & a1_mag[1]) ^ (w2_mag[1] & a1_mag[0]), w2_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res3_D  = {(w3_mag[0] & a1_mag[1]) ^ (w3_mag[1] & a1_mag[0]), w3_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res4_D  = {(w4_mag[0] & a1_mag[1]) ^ (w4_mag[1] & a1_mag[0]), w4_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res5_D  = {(w5_mag[0] & a1_mag[1]) ^ (w5_mag[1] & a1_mag[0]), w5_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res6_D  = {(w6_mag[0] & a1_mag[1]) ^ (w6_mag[1] & a1_mag[0]), w6_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res7_D  = {(w7_mag[0] & a1_mag[1]) ^ (w7_mag[1] & a1_mag[0]), w7_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res8_D  = {(w8_mag[0] & a1_mag[1]) ^ (w8_mag[1] & a1_mag[0]), w8_mag[0] & a1_mag[0]};
+wire [1:0] LSB_Res9_D  = {(w9_mag[0] & a1_mag[1]) ^ (w9_mag[1] & a1_mag[0]), w9_mag[0] & a1_mag[0]};
+
+
+wire [1:0] LSB_Res2, LSB_Res3, LSB_Res4, LSB_Res5, LSB_Res6, LSB_Res7, LSB_Res8, LSB_Res9;
+wire [1:0] LSB_Res10, LSB_Res11, LSB_Res12;
+
+assign LSB_Res2  = (mode == 0) ? LSB_Res2_P  : LSB_Res2_D;
+assign LSB_Res3  = (mode == 0) ? LSB_Res3_P  : LSB_Res3_D;
+assign LSB_Res4  = (mode == 0) ? LSB_Res4_P  : LSB_Res4_D;
+assign LSB_Res5  = (mode == 0) ? LSB_Res5_P  : LSB_Res5_D;
+assign LSB_Res6  = (mode == 0) ? LSB_Res6_P  : LSB_Res6_D;
+assign LSB_Res7  = (mode == 0) ? 2'b0       : LSB_Res7_D;
+assign LSB_Res8  = (mode == 0) ? LSB_Res8_P  : LSB_Res8_D;
+assign LSB_Res9  = (mode == 0) ? LSB_Res9_P  : LSB_Res9_D;
+assign LSB_Res10 = LSB_Res10_P;
+assign LSB_Res11 = LSB_Res11_P;
+assign LSB_Res12 = LSB_Res12_P;
+
+
+wire [11:0] signs_comb = (mode == 0) ? {
+    (w6_sign ^ a2_sign), (w5_sign ^ a2_sign), (w4_sign ^ a2_sign), (w3_sign ^ a2_sign),
+    (w2_sign ^ a2_sign), (w1_sign ^ a2_sign), (w6_sign ^ a1_sign), (w5_sign ^ a1_sign),
+    (w4_sign ^ a1_sign), (w3_sign ^ a1_sign), (w2_sign ^ a1_sign), (w1_sign ^ a1_sign)
+} : {
+    3'b0, (w9_sign ^ a1_sign), (w8_sign ^ a1_sign), (w7_sign ^ a1_sign),
+    (w6_sign ^ a1_sign), (w5_sign ^ a1_sign), (w4_sign ^ a1_sign),
+    (w3_sign ^ a1_sign), (w2_sign ^ a1_sign), (w1_sign ^ a1_sign)
+};
+
+
+wire [26:0] dsp_A = (mode == 0) ? 
+    {4'b0, a2_mag, 17'b0, a1_mag} :
+    {1'b0, w9_mag, 1'b0, w8_mag, 1'b0, w7_mag, 1'b0, w6_mag, 1'b0, w5_mag, 1'b0, w4_mag, 1'b0, w3_mag, 1'b0, w2_mag, 1'b0, w1_mag};
+
+wire [17:0] dsp_B = (mode == 0) ? 
+    {1'b0, w6_mag, 1'b0, w5_mag, 1'b0, w4_mag, 1'b0, w3_mag, 1'b0, w2_mag, 1'b0, w1_mag} :
+    {15'b0, a1_mag};
+
+
+reg mode_r1, mode_r2, mode_r3;
+reg [11:0] signs_r1, signs_r2, signs_r3;
+reg [1:0] LSB_Res2_r1, LSB_Res3_r1, LSB_Res4_r1, LSB_Res5_r1, LSB_Res6_r1, LSB_Res7_r1, LSB_Res8_r1, LSB_Res9_r1;
+reg [1:0] LSB_Res10_r1, LSB_Res11_r1, LSB_Res12_r1;
+reg [1:0] LSB_Res2_r2, LSB_Res3_r2, LSB_Res4_r2, LSB_Res5_r2, LSB_Res6_r2, LSB_Res7_r2, LSB_Res8_r2, LSB_Res9_r2;
+reg [1:0] LSB_Res10_r2, LSB_Res11_r2, LSB_Res12_r2;
+reg [1:0] LSB_Res2_r3, LSB_Res3_r3, LSB_Res4_r3, LSB_Res5_r3, LSB_Res6_r3, LSB_Res7_r3, LSB_Res8_r3, LSB_Res9_r3;
+reg [1:0] LSB_Res10_r3, LSB_Res11_r3, LSB_Res12_r3;
+
+wire [47:0] dsp_C = (mode == 0) ? {
+    11'b0, LSB_Res12, 1'b0, LSB_Res11, 1'b0, LSB_Res10, 1'b0, LSB_Res9, 1'b0,
+    LSB_Res8, 6'b0, LSB_Res6, 1'b0, LSB_Res5, 1'b0,
+    LSB_Res4, 1'b0, LSB_Res3, 1'b0, LSB_Res2, 3'b0
+} : {
+    22'b0, LSB_Res9, 1'b0, LSB_Res8, 1'b0, LSB_Res7, 1'b0, LSB_Res6, 1'b0,
+    LSB_Res5, 1'b0, LSB_Res4, 1'b0, LSB_Res3, 1'b0, LSB_Res2, 3'b0
+};
+
+always @(posedge clk) begin
+    mode_r1 <= mode;
+    signs_r1 <= signs_comb;
+    LSB_Res2_r1 <= LSB_Res2; LSB_Res3_r1 <= LSB_Res3; LSB_Res4_r1 <= LSB_Res4;
+    LSB_Res5_r1 <= LSB_Res5; LSB_Res6_r1 <= LSB_Res6; LSB_Res7_r1 <= LSB_Res7;
+    LSB_Res8_r1 <= LSB_Res8; LSB_Res9_r1 <= LSB_Res9; LSB_Res10_r1 <= LSB_Res10;
+    LSB_Res11_r1 <= LSB_Res11; LSB_Res12_r1 <= LSB_Res12;
+end
+
+always @(posedge clk) begin
+    mode_r2 <= mode_r1;
+    signs_r2 <= signs_r1;
+    LSB_Res2_r2 <= LSB_Res2_r1; LSB_Res3_r2 <= LSB_Res3_r1; LSB_Res4_r2 <= LSB_Res4_r1;
+    LSB_Res5_r2 <= LSB_Res5_r1; LSB_Res6_r2 <= LSB_Res6_r1; LSB_Res7_r2 <= LSB_Res7_r1;
+    LSB_Res8_r2 <= LSB_Res8_r1; LSB_Res9_r2 <= LSB_Res9_r1; LSB_Res10_r2 <= LSB_Res10_r1;
+    LSB_Res11_r2 <= LSB_Res11_r1; LSB_Res12_r2 <= LSB_Res12_r1;
+end
+
+always @(posedge clk) begin
+    mode_r3 <= mode_r2;
+    signs_r3 <= signs_r2;
+    LSB_Res2_r3 <= LSB_Res2_r2; LSB_Res3_r3 <= LSB_Res3_r2; LSB_Res4_r3 <= LSB_Res4_r2;
+    LSB_Res5_r3 <= LSB_Res5_r2; LSB_Res6_r3 <= LSB_Res6_r2; LSB_Res7_r3 <= LSB_Res7_r2;
+    LSB_Res8_r3 <= LSB_Res8_r2; LSB_Res9_r3 <= LSB_Res9_r2; LSB_Res10_r3 <= LSB_Res10_r2;
+    LSB_Res11_r3 <= LSB_Res11_r2; LSB_Res12_r3 <= LSB_Res12_r2;
+end
+
+
+DSP48E2 #(
+    .AMULTSEL("A"), .A_INPUT("DIRECT"), .BMULTSEL("B"), .B_INPUT("DIRECT"), .PREADDINSEL("A"),
+    .RND(48'h000000000000), .USE_MULT("MULTIPLY"), .USE_SIMD("ONE48"), .USE_WIDEXOR("FALSE"), .XORSIMD("XOR24_48_96"),
+    .AUTORESET_PATDET("NO_RESET"), .AUTORESET_PRIORITY("RESET"), .MASK(48'h3fffffffffff), .PATTERN(48'h000000000000),
+    .SEL_MASK("MASK"), .SEL_PATTERN("PATTERN"), .USE_PATTERN_DETECT("NO_PATDET"),
+    .IS_ALUMODE_INVERTED(4'b0000), .IS_CARRYIN_INVERTED(1'b0), .IS_CLK_INVERTED(1'b0), .IS_INMODE_INVERTED(5'b00000),
+    .IS_OPMODE_INVERTED(9'b000000000), .IS_RSTALLCARRYIN_INVERTED(1'b0), .IS_RSTALUMODE_INVERTED(1'b0),
+    .IS_RSTA_INVERTED(1'b0), .IS_RSTB_INVERTED(1'b0), .IS_RSTCTRL_INVERTED(1'b0), .IS_RSTC_INVERTED(1'b0),
+    .IS_RSTD_INVERTED(1'b0), .IS_RSTINMODE_INVERTED(1'b0), .IS_RSTM_INVERTED(1'b0), .IS_RSTP_INVERTED(1'b0),
+    .ACASCREG(1), .ADREG(0), .ALUMODEREG(1), .AREG(1), .BCASCREG(1), .BREG(1), .CARRYINREG(1),
+    .CARRYINSELREG(1), .CREG(1), .DREG(0), .INMODEREG(1), .MREG(1), .OPMODEREG(1), .PREG(1)
+) dsp_inst (
+    .ACOUT(), .BCOUT(), .CARRYCASCOUT(), .MULTSIGNOUT(), .PCOUT(), .OVERFLOW(), 
+    .PATTERNBDETECT(), .PATTERNDETECT(), .UNDERFLOW(), .CARRYOUT(), .P(dsp_P), .XOROUT(),
+    .ACIN(30'b0), .BCIN(18'b0), .CARRYCASCIN(1'b0), .MULTSIGNIN(1'b0), .PCIN(48'b0),
+    .ALUMODE(4'b0001), .CARRYINSEL(3'b000), .CLK(clk), .INMODE(5'b00000), .OPMODE(9'b000110101),
+    .A(dsp_A), .B(dsp_B), .C(dsp_C), .CARRYIN(1'b1), .D(27'b0),
+    .CEA1(1'b0), .CEA2(1'b1), .CEAD(1'b0), .CEALUMODE(1'b1), .CEB1(1'b0), .CEB2(1'b1), .CEC(1'b1),
+    .CECARRYIN(1'b1), .CECTRL(1'b1), .CED(1'b0), .CEINMODE(1'b1), .CEM(1'b1), .CEP(1'b1),
+    .RSTA(1'b0), .RSTALLCARRYIN(1'b0), .RSTALUMODE(1'b0), .RSTB(1'b0), .RSTC(1'b0), .RSTCTRL(1'b0),
+    .RSTD(1'b0), .RSTINMODE(1'b0), .RSTM(1'b0), .RSTP(1'b0)
+);
+
+
+wire [4:0] res1_mag  = dsp_P[4:0];
+wire [4:0] res2_mag  = {dsp_P[7:5],   LSB_Res2_r3};
+wire [4:0] res3_mag  = {dsp_P[10:8],  LSB_Res3_r3};
+wire [4:0] res4_mag  = {dsp_P[13:11], LSB_Res4_r3};
+wire [4:0] res5_mag  = {dsp_P[16:14], LSB_Res5_r3};
+wire [4:0] res6_mag  = {dsp_P[19:17], LSB_Res6_r3};
+wire [4:0] res7_mag  = (mode_r3 == 0) ? dsp_P[24:20] : {dsp_P[22:20], LSB_Res7_r3};
+wire [4:0] res8_mag  = (mode_r3 == 0) ?{dsp_P[27:25], LSB_Res8_r3}:{dsp_P[25:23],  LSB_Res8_r3};
+wire [4:0] res9_mag  = (mode_r3 == 0) ?{dsp_P[30:28], LSB_Res9_r3}:{dsp_P[28:26],  LSB_Res9_r3};
+wire [4:0] res10_mag = (mode_r3 == 0) ? {dsp_P[33:31], LSB_Res10_r3} : 5'b0;
+wire [4:0] res11_mag = (mode_r3 == 0) ? {dsp_P[36:34], LSB_Res11_r3} : 5'b0;
+wire [4:0] res12_mag = (mode_r3 == 0) ? {dsp_P[39:37], LSB_Res12_r3} : 5'b0;
+
+
+assign result1  = (signs_r3[0] ? (~{1'b0, res1_mag} + 6'b000001) : {1'b0, res1_mag});
+assign result2  = (signs_r3[1] ? (~{1'b0, res2_mag} + 6'b000001) : {1'b0, res2_mag});
+assign result3  = (signs_r3[2] ? (~{1'b0, res3_mag} + 6'b000001) : {1'b0, res3_mag});
+assign result4  = (signs_r3[3] ? (~{1'b0, res4_mag} + 6'b000001) : {1'b0, res4_mag});
+assign result5  = (signs_r3[4] ? (~{1'b0, res5_mag} + 6'b000001) : {1'b0, res5_mag});
+assign result6  = (signs_r3[5] ? (~{1'b0, res6_mag} + 6'b000001) : {1'b0, res6_mag});
+assign result7  = (signs_r3[6] ? (~{1'b0, res7_mag} + 6'b000001) : {1'b0, res7_mag});
+assign result8  = (signs_r3[7] ? (~{1'b0, res8_mag} + 6'b000001) : {1'b0, res8_mag});
+assign result9  = (signs_r3[8] ? (~{1'b0, res9_mag} + 6'b000001) : {1'b0, res9_mag});
+assign result10 = (mode_r3 == 0) ? ((signs_r3[9] ? (~{1'b0, res10_mag} + 6'b000001) : {1'b0, res10_mag}))  : 6'b0;
+assign result11 = (mode_r3 == 0) ? ((signs_r3[10] ? (~{1'b0, res11_mag} + 6'b000001) : {1'b0, res11_mag})) : 6'b0;
+assign result12 = (mode_r3 == 0) ? ((signs_r3[11] ? (~{1'b0, res12_mag} + 6'b000001) : {1'b0, res12_mag})) : 6'b0;
+
+assign sign1 = signs_r3[0];   assign sign2 = signs_r3[1];   assign sign3 = signs_r3[2];
+assign sign4 = signs_r3[3];   assign sign5 = signs_r3[4];   assign sign6 = signs_r3[5];
+assign sign7 = signs_r3[6];   assign sign8 = signs_r3[7];   assign sign9 = signs_r3[8];
+assign sign10 = signs_r3[9];  assign sign11 = signs_r3[10]; assign sign12 = signs_r3[11];
+
+endmodule

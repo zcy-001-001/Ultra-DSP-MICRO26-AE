@@ -1,0 +1,335 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date         : Mon Mar 16 16:00:39 2026
+| Host         : <REDACTED_HOST> running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_utilization -file ./report/gemv_kernel_utilization_routed.rpt
+| Design       : bd_0_wrapper
+| Device       : xcu55c-fsvh2892-2L-e
+| Speed File   : -2L
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. CLB Logic
+1.1 Summary of Registers by Type
+2. CLB Logic Distribution
+3. BLOCKRAM
+4. ARITHMETIC
+5. I/O
+6. CLOCK
+7. ADVANCED
+8. CONFIGURATION
+9. Primitives
+10. Black Boxes
+11. Instantiated Netlists
+12. SLR Connectivity
+13. SLR Connectivity Matrix
+14. SLR CLB Logic and Dedicated Block Utilization
+15. SLR IO Utilization
+
+1. CLB Logic
+------------
+
++----------------------------+--------+-------+------------+-----------+-------+
+|          Site Type         |  Used  | Fixed | Prohibited | Available | Util% |
++----------------------------+--------+-------+------------+-----------+-------+
+| CLB LUTs                   | 221028 |     0 |          0 |   1303680 | 16.95 |
+|   LUT as Logic             | 203822 |     0 |          0 |   1303680 | 15.63 |
+|   LUT as Memory            |  17206 |     0 |          0 |    600960 |  2.86 |
+|     LUT as Distributed RAM |     12 |     0 |            |           |       |
+|     LUT as Shift Register  |  17194 |     0 |            |           |       |
+| CLB Registers              | 168527 |     0 |          0 |   2607360 |  6.46 |
+|   Register as Flip Flop    | 168527 |     0 |          0 |   2607360 |  6.46 |
+|   Register as Latch        |      0 |     0 |          0 |   2607360 |  0.00 |
+| CARRY8                     |    187 |     0 |          0 |    162960 |  0.11 |
+| F7 Muxes                   |   4964 |     0 |          0 |    651840 |  0.76 |
+| F8 Muxes                   |     32 |     0 |          0 |    325920 | <0.01 |
+| F9 Muxes                   |      0 |     0 |          0 |    162960 |  0.00 |
++----------------------------+--------+-------+------------+-----------+-------+
+* Warning! LUT value is adjusted to account for LUT combining.
+
+
+1.1 Summary of Registers by Type
+--------------------------------
+
++--------+--------------+-------------+--------------+
+|  Total | Clock Enable | Synchronous | Asynchronous |
++--------+--------------+-------------+--------------+
+| 0      |            _ |           - |            - |
+| 0      |            _ |           - |          Set |
+| 0      |            _ |           - |        Reset |
+| 0      |            _ |         Set |            - |
+| 0      |            _ |       Reset |            - |
+| 0      |          Yes |           - |            - |
+| 0      |          Yes |           - |          Set |
+| 0      |          Yes |           - |        Reset |
+| 58     |          Yes |         Set |            - |
+| 168469 |          Yes |       Reset |            - |
++--------+--------------+-------------+--------------+
+
+
+2. CLB Logic Distribution
+-------------------------
+
++--------------------------------------------+--------+-------+------------+-----------+-------+
+|                  Site Type                 |  Used  | Fixed | Prohibited | Available | Util% |
++--------------------------------------------+--------+-------+------------+-----------+-------+
+| CLB                                        |  39007 |     0 |          0 |    162960 | 23.94 |
+|   CLBL                                     |  18320 |     0 |            |           |       |
+|   CLBM                                     |  20687 |     0 |            |           |       |
+| LUT as Logic                               | 203822 |     0 |          0 |   1303680 | 15.63 |
+|   using O5 output only                     |    148 |       |            |           |       |
+|   using O6 output only                     | 113543 |       |            |           |       |
+|   using O5 and O6                          |  90131 |       |            |           |       |
+| LUT as Memory                              |  17206 |     0 |          0 |    600960 |  2.86 |
+|   LUT as Distributed RAM                   |     12 |     0 |            |           |       |
+|     using O5 output only                   |      0 |       |            |           |       |
+|     using O6 output only                   |      0 |       |            |           |       |
+|     using O5 and O6                        |     12 |       |            |           |       |
+|   LUT as Shift Register                    |  17194 |     0 |            |           |       |
+|     using O5 output only                   |      0 |       |            |           |       |
+|     using O6 output only                   |  16876 |       |            |           |       |
+|     using O5 and O6                        |    318 |       |            |           |       |
+| CLB Registers                              | 168527 |     0 |          0 |   2607360 |  6.46 |
+|   Register driven from within the CLB      |  85034 |       |            |           |       |
+|   Register driven from outside the CLB     |  83493 |       |            |           |       |
+|     LUT in front of the register is unused |  57732 |       |            |           |       |
+|     LUT in front of the register is used   |  25761 |       |            |           |       |
+| Unique Control Sets                        |   1480 |       |          0 |    325920 |  0.45 |
++--------------------------------------------+--------+-------+------------+-----------+-------+
+* * Note: Available Control Sets calculated as Slices * 2, Review the Control Sets Report for more information regarding control sets.
+
+
+3. BLOCKRAM
+-----------
+
++-------------------+------+-------+------------+-----------+-------+
+|     Site Type     | Used | Fixed | Prohibited | Available | Util% |
++-------------------+------+-------+------------+-----------+-------+
+| Block RAM Tile    |   19 |     0 |          0 |      2016 |  0.94 |
+|   RAMB36/FIFO*    |   15 |     0 |          0 |      2016 |  0.74 |
+|     RAMB36E2 only |   15 |       |            |           |       |
+|   RAMB18          |    8 |     0 |          0 |      4032 |  0.20 |
+|     RAMB18E2 only |    8 |       |            |           |       |
+| URAM              |    0 |     0 |          0 |       960 |  0.00 |
++-------------------+------+-------+------------+-----------+-------+
+* Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E2 or one FIFO18E2. However, if a FIFO18E2 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E2
+
+
+4. ARITHMETIC
+-------------
+
++----------------+------+-------+------------+-----------+-------+
+|    Site Type   | Used | Fixed | Prohibited | Available | Util% |
++----------------+------+-------+------------+-----------+-------+
+| DSPs           | 2304 |     0 |          0 |      9024 | 25.53 |
+|   DSP48E2 only | 2304 |       |            |           |       |
++----------------+------+-------+------------+-----------+-------+
+
+
+5. I/O
+------
+
++------------------+------+-------+------------+-----------+-------+
+|     Site Type    | Used | Fixed | Prohibited | Available | Util% |
++------------------+------+-------+------------+-----------+-------+
+| Bonded IOB       |    0 |     0 |          0 |       624 |  0.00 |
+| HPIOB_M          |    0 |     0 |          0 |       288 |  0.00 |
+| HPIOB_S          |    0 |     0 |          0 |       288 |  0.00 |
+| HPIOB_SNGL       |    0 |     0 |          0 |        48 |  0.00 |
+| HPIOBDIFFINBUF   |    0 |     0 |          0 |       288 |  0.00 |
+| HPIOBDIFFOUTBUF  |    0 |     0 |          0 |       288 |  0.00 |
+| BITSLICE_CONTROL |    0 |     0 |          0 |        96 |  0.00 |
+| BITSLICE_RX_TX   |    0 |     0 |          0 |      3744 |  0.00 |
+| BITSLICE_TX      |    0 |     0 |          0 |        96 |  0.00 |
+| RIU_OR           |    0 |     0 |          0 |        48 |  0.00 |
++------------------+------+-------+------------+-----------+-------+
+
+
+6. CLOCK
+--------
+
++----------------------+------+-------+------------+-----------+-------+
+|       Site Type      | Used | Fixed | Prohibited | Available | Util% |
++----------------------+------+-------+------------+-----------+-------+
+| GLOBAL CLOCK BUFFERs |    2 |     0 |          0 |      1008 |  0.20 |
+|   BUFGCE             |    2 |     0 |          0 |       288 |  0.69 |
+|   BUFGCE_DIV         |    0 |     0 |          0 |        48 |  0.00 |
+|   BUFG_GT            |    0 |     0 |          0 |       576 |  0.00 |
+|   BUFGCTRL*          |    0 |     0 |          0 |        96 |  0.00 |
+| PLL                  |    0 |     0 |          0 |        24 |  0.00 |
+| MMCM                 |    0 |     0 |          0 |        12 |  0.00 |
++----------------------+------+-------+------------+-----------+-------+
+* Note: Each used BUFGCTRL counts as two GLOBAL CLOCK BUFFERs. This table does not include global clocking resources, only buffer cell usage. See the Clock Utilization Report (report_clock_utilization) for detailed accounting of global clocking resource availability.
+
+
+7. ADVANCED
+-----------
+
++----------------------+------+-------+------------+-----------+-------+
+|       Site Type      | Used | Fixed | Prohibited | Available | Util% |
++----------------------+------+-------+------------+-----------+-------+
+| CMACE4               |    0 |     0 |          0 |         8 |  0.00 |
+| GTYE4_CHANNEL        |    0 |     0 |          0 |        40 |  0.00 |
+| GTYE4_COMMON         |    0 |     0 |          0 |        10 |  0.00 |
+| HBM_REF_CLK          |    0 |     0 |          0 |         2 |  0.00 |
+| HBM_SNGLBLI_INTF_APB |    0 |     0 |          0 |        32 |  0.00 |
+| HBM_SNGLBLI_INTF_AXI |    0 |     0 |          0 |        32 |  0.00 |
+| ILKNE4               |    0 |     0 |          0 |         4 |  0.00 |
+| OBUFDS_GTE4          |    0 |     0 |          0 |        20 |  0.00 |
+| OBUFDS_GTE4_ADV      |    0 |     0 |          0 |        20 |  0.00 |
+| PCIE40E4             |    0 |     0 |          0 |         2 |  0.00 |
+| PCIE4CE4             |    0 |     0 |          0 |         4 |  0.00 |
+| SYSMONE4             |    0 |     0 |          0 |         3 |  0.00 |
++----------------------+------+-------+------------+-----------+-------+
+
+
+8. CONFIGURATION
+----------------
+
++-------------+------+-------+------------+-----------+-------+
+|  Site Type  | Used | Fixed | Prohibited | Available | Util% |
++-------------+------+-------+------------+-----------+-------+
+| BSCANE2     |    0 |     0 |          0 |        12 |  0.00 |
+| DNA_PORTE2  |    0 |     0 |          0 |         3 |  0.00 |
+| EFUSE_USR   |    0 |     0 |          0 |         3 |  0.00 |
+| FRAME_ECCE4 |    0 |     0 |          0 |         3 |  0.00 |
+| ICAPE3      |    0 |     0 |          0 |         6 |  0.00 |
+| MASTER_JTAG |    0 |     0 |          0 |         3 |  0.00 |
+| STARTUPE3   |    0 |     0 |          0 |         3 |  0.00 |
++-------------+------+-------+------------+-----------+-------+
+
+
+9. Primitives
+-------------
+
++----------+--------+---------------------+
+| Ref Name |  Used  | Functional Category |
++----------+--------+---------------------+
+| FDRE     | 168469 |            Register |
+| LUT5     |  78289 |                 CLB |
+| LUT3     |  63685 |                 CLB |
+| LUT6     |  61429 |                 CLB |
+| LUT2     |  53688 |                 CLB |
+| LUT4     |  36749 |                 CLB |
+| SRL16E   |  16829 |                 CLB |
+| MUXF7    |   4964 |                 CLB |
+| DSP48E2  |   2304 |          Arithmetic |
+| SRLC32E  |    683 |                 CLB |
+| CARRY8   |    187 |                 CLB |
+| LUT1     |    113 |                 CLB |
+| FDSE     |     58 |            Register |
+| MUXF8    |     32 |                 CLB |
+| RAMS32   |     24 |                 CLB |
+| RAMB36E2 |     15 |            BLOCKRAM |
+| RAMB18E2 |      8 |            BLOCKRAM |
+| BUFGCE   |      2 |               Clock |
++----------+--------+---------------------+
+
+
+10. Black Boxes
+---------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+11. Instantiated Netlists
+-------------------------
+
++-----------------+------+
+|     Ref Name    | Used |
++-----------------+------+
+| bd_0_hls_inst_0 |    1 |
++-----------------+------+
+
+
+12. SLR Connectivity
+--------------------
+
++----------------------------------+------+-------+-----------+-------+
+|                                  | Used | Fixed | Available | Util% |
++----------------------------------+------+-------+-----------+-------+
+| SLR2 <-> SLR1                    |  603 |       |     23040 |  2.62 |
+|   SLR1 -> SLR2                   |    1 |       |           | <0.01 |
+|     Using TX_REG only            |    0 |     0 |           |       |
+|     Using RX_REG only            |    0 |     0 |           |       |
+|     Using Both TX_REG and RX_REG |    0 |     0 |           |       |
+|   SLR2 -> SLR1                   |  602 |       |           |  2.61 |
+|     Using TX_REG only            |    0 |     0 |           |       |
+|     Using RX_REG only            |    0 |     0 |           |       |
+|     Using Both TX_REG and RX_REG |    0 |     0 |           |       |
+| SLR1 <-> SLR0                    |    0 |       |     23040 |  0.00 |
+|   SLR0 -> SLR1                   |    0 |       |           |  0.00 |
+|     Using TX_REG only            |    0 |     0 |           |       |
+|     Using RX_REG only            |    0 |     0 |           |       |
+|     Using Both TX_REG and RX_REG |    0 |     0 |           |       |
+|   SLR1 -> SLR0                   |    0 |       |           |  0.00 |
+|     Using TX_REG only            |    0 |     0 |           |       |
+|     Using RX_REG only            |    0 |     0 |           |       |
+|     Using Both TX_REG and RX_REG |    0 |     0 |           |       |
++----------------------------------+------+-------+-----------+-------+
+| Total SLLs Used                  |  603 |       |           |       |
++----------------------------------+------+-------+-----------+-------+
+
+
+13. SLR Connectivity Matrix
+---------------------------
+
++-----------+------+------+------+
+| FROM \ TO | SLR2 | SLR1 | SLR0 |
++-----------+------+------+------+
+| SLR2      |    0 |  602 |    0 |
+| SLR1      |    1 |    0 |    0 |
+| SLR0      |    0 |    0 |    0 |
++-----------+------+------+------+
+
+
+14. SLR CLB Logic and Dedicated Block Utilization
+-------------------------------------------------
+
++----------------------------+------+--------+-------+--------+--------+--------+
+|          Site Type         | SLR0 |  SLR1  |  SLR2 | SLR0 % | SLR1 % | SLR2 % |
++----------------------------+------+--------+-------+--------+--------+--------+
+| CLB                        |    0 |  21586 | 17421 |   0.00 |  39.97 |  32.26 |
+|   CLBL                     |    0 |  10133 |  8187 |   0.00 |  34.61 |  27.96 |
+|   CLBM                     |    0 |  11453 |  9234 |   0.00 |  46.33 |  37.35 |
+| CLB LUTs                   |    0 | 126879 | 94149 |   0.00 |  29.37 |  21.79 |
+|   LUT as Logic             |    0 | 117135 | 86687 |   0.00 |  27.11 |  20.07 |
+|   LUT as Memory            |    0 |   9744 |  7462 |   0.00 |   4.93 |   3.77 |
+|     LUT as Distributed RAM |    0 |      0 |    12 |   0.00 |   0.00 |  <0.01 |
+|     LUT as Shift Register  |    0 |   9744 |  7450 |   0.00 |   4.93 |   3.77 |
+| CLB Registers              |    0 |  92530 | 75997 |   0.00 |  10.71 |   8.80 |
+| CARRY8                     |    0 |      0 |   187 |   0.00 |   0.00 |   0.35 |
+| F7 Muxes                   |    0 |   2784 |  2180 |   0.00 |   1.29 |   1.01 |
+| F8 Muxes                   |    0 |      0 |    32 |   0.00 |   0.00 |   0.03 |
+| F9 Muxes                   |    0 |      0 |     0 |   0.00 |   0.00 |   0.00 |
+| Block RAM Tile             |    0 |      0 |    19 |   0.00 |   0.00 |   2.83 |
+|   RAMB36/FIFO              |    0 |      0 |    15 |   0.00 |   0.00 |   2.23 |
+|   RAMB18                   |    0 |      0 |     8 |   0.00 |   0.00 |   0.60 |
+| URAM                       |    0 |      0 |     0 |   0.00 |   0.00 |   0.00 |
+| DSPs                       |    0 |   1392 |   912 |   0.00 |  45.31 |  29.69 |
+| Unique Control Sets        |    0 |      2 |  1480 |   0.00 |  <0.01 |   1.37 |
++----------------------------+------+--------+-------+--------+--------+--------+
+* Note: Available Control Sets based on CLB Registers / 8
+
+
+15. SLR IO Utilization
+----------------------
+
++-----------+-----------+---------+------------+----------+------------+----------+-----+
+| SLR Index | Used IOBs | (%)IOBs | Used IPADs | (%)IPADs | Used OPADs | (%)OPADs | GTs |
++-----------+-----------+---------+------------+----------+------------+----------+-----+
+| SLR2      |         0 |    0.00 |          0 |     0.00 |          0 |     0.00 |   0 |
+| SLR1      |         0 |    0.00 |          0 |     0.00 |          0 |     0.00 |   0 |
+| SLR0      |         0 |    0.00 |          0 |     0.00 |          0 |     0.00 |   0 |
++-----------+-----------+---------+------------+----------+------------+----------+-----+
+| Total     |         0 |         |          0 |          |          0 |          |   0 |
++-----------+-----------+---------+------------+----------+------------+----------+-----+
+
+

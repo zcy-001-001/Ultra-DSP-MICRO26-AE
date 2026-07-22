@@ -1,0 +1,61 @@
+{
+  "evidence_kind": "FORMAL_EXECUTION_TO_PUBLICATION_SOURCE_LOCK",
+  "formal_run_timeline": {
+    "klt_source_mtime": "2026-07-20T23:00:04+08:00",
+    "earliest_formal_job_start": "2026-07-21T00:36:26+08:00",
+    "llama2_qmodel_mtime": "2026-07-21T01:16:12+08:00",
+    "llama3_qmodel_mtime": "2026-07-21T01:32:34+08:00"
+  },
+  "records": [
+    {
+      "relative_path": "experiments/table6_overpacking/scripts/run_table6_full_regeneration.sh",
+      "formal_execution_sha256": "f31a8ba0fba272b4f07e86d60e37e3f2f87e2c94f5448f562205c3877261528b",
+      "maintenance_source_sha256": "7b282274cf73da99017ae9333e29575a912ad37504f8ae9a2183a6e561ed1133",
+      "published_ae_sha256": "6a168fc87df2edd079ee8fb7e9bde9b1fc7fbd45cdef15ca765d194b67209e59",
+      "execution_evidence": "JOB_START_MANIFEST",
+      "publication_relation": "TABLE6_LOGIC_IDENTICAL_EXTENSION_REMOVED_PATHS_AND_HOSTS_SANITIZED"
+    },
+    {
+      "relative_path": "main.py",
+      "formal_execution_sha256": "2664c4c9746f1032ba08e3d5f92ee3c8adeb1e4b50450e9b1354ea30b528a308",
+      "maintenance_source_sha256": "2664c4c9746f1032ba08e3d5f92ee3c8adeb1e4b50450e9b1354ea30b528a308",
+      "published_ae_sha256": "2664c4c9746f1032ba08e3d5f92ee3c8adeb1e4b50450e9b1354ea30b528a308",
+      "execution_evidence": "JOB_START_MANIFEST",
+      "publication_relation": "BYTE_IDENTICAL"
+    },
+    {
+      "relative_path": "quant/approx_linear.py",
+      "formal_execution_sha256": "2166a171e39fcba89ef5cd88b689d66306001a128712799349f63953d7b67d3f",
+      "maintenance_source_sha256": "2166a171e39fcba89ef5cd88b689d66306001a128712799349f63953d7b67d3f",
+      "published_ae_sha256": "2166a171e39fcba89ef5cd88b689d66306001a128712799349f63953d7b67d3f",
+      "execution_evidence": "JOB_START_MANIFEST",
+      "publication_relation": "BYTE_IDENTICAL"
+    },
+    {
+      "relative_path": "quant/ost_model_utils.py",
+      "formal_execution_sha256": "2a3359e9b2514d506dcaf28963f692b60da658e8273068718e16056ac683d072",
+      "maintenance_source_sha256": "2a3359e9b2514d506dcaf28963f692b60da658e8273068718e16056ac683d072",
+      "published_ae_sha256": "2a3359e9b2514d506dcaf28963f692b60da658e8273068718e16056ac683d072",
+      "execution_evidence": "PREDATING_MTIME_PLUS_RUNTIME_KLT_EVIDENCE",
+      "publication_relation": "BYTE_IDENTICAL"
+    }
+  ],
+  "runner_public_diff": {
+    "logic_identical": true,
+    "only_changed_defaults": [
+      "ENV_DIR",
+      "MODEL_LLAMA2",
+      "MODEL_LLAMA3",
+      "HF_HOME"
+    ],
+    "replacement_kind": "PRIVATE_PATHS_AND_HOSTS_TO_PLACEHOLDERS"
+  },
+  "runner_formal_to_maintenance_diff": {
+    "formal_table6_logic_identical": true,
+    "removed_non_table6_extension": [
+      "WP521 evaluation invocation after DB-MixQ",
+      "WP521-inclusive summary alias"
+    ],
+    "reason": "WP521 belongs to the separate Figure 12/rebuttal archive and is not a paper Table 6 row"
+  }
+}

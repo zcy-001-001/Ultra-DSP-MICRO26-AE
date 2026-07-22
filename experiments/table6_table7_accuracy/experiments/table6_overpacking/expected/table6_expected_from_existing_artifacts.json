@@ -1,0 +1,10 @@
+[
+  {"model":"llama2_7b","method":"Baseline(BF16)","arc_easy":74.49,"hellaswag":75.88,"piqa":79.00,"openbookqa":44.20,"avg":68.39},
+  {"model":"llama2_7b","method":"Ultra-DSP","arc_easy":70.50,"hellaswag":73.26,"piqa":78.29,"openbookqa":41.80,"avg":65.96},
+  {"model":"llama2_7b","method":"DSP-Packing","arc_easy":26.22,"hellaswag":26.05,"piqa":50.22,"openbookqa":25.40,"avg":31.97},
+  {"model":"llama2_7b","method":"DB-MixQ","arc_easy":26.43,"hellaswag":26.35,"piqa":49.62,"openbookqa":29.00,"avg":32.85},
+  {"model":"llama3_8b","method":"Baseline(BF16)","arc_easy":77.69,"hellaswag":79.22,"piqa":80.90,"openbookqa":45.00,"avg":70.70},
+  {"model":"llama3_8b","method":"Ultra-DSP","arc_easy":74.83,"hellaswag":74.41,"piqa":78.18,"openbookqa":43.00,"avg":67.61},
+  {"model":"llama3_8b","method":"DSP-Packing","arc_easy":25.67,"hellaswag":26.34,"piqa":52.67,"openbookqa":30.20,"avg":33.72},
+  {"model":"llama3_8b","method":"DB-MixQ","arc_easy":23.61,"hellaswag":26.13,"piqa":51.74,"openbookqa":29.40,"avg":32.72}
+]

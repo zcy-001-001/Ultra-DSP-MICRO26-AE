@@ -1,0 +1,21 @@
+evidence_class,platform,datatype,batch_size,latency_ms,tops,power_w,energy_mj,tops_per_w,raw_total_power_w,power_scope,kernel_family,source_detail
+PAPER_ANCHOR,Server CPU,INT8,1,0.3688,0.0910,228.648,84.3254,0.000398,459.080,single-package paper convention,MKL streaming GEMV/GEMM,paper batch-1 anchor
+MEASURED,Server CPU,INT8,4,0.3674,0.3653,225.863,82.9821,0.001617,451.766,single-package paper convention,MKL streaming GEMV/GEMM,batch streaming rerun
+MEASURED,Server CPU,INT8,16,0.4571,1.1746,220.796,100.9259,0.005320,439.959,single-package paper convention,MKL streaming GEMV/GEMM,batch streaming rerun
+MEASURED,Server CPU,INT8,64,0.6479,3.3147,220.598,142.9254,0.015026,436.066,single-package paper convention,MKL streaming GEMV/GEMM,batch streaming rerun
+MEASURED,Server CPU,INT8,256,1.2735,6.7453,228.026,290.3911,0.029581,448.987,single-package paper convention,MKL streaming GEMV/GEMM,batch streaming rerun
+PAPER_ANCHOR,RTX 6000 Ada,INT4,1,0.0191,1.7590,236.13,4.5045,0.007449,236.13,GPU board power,original GEMV CUTLASS INT4 small-M,paper batch-1 anchor
+MEASURED,RTX 6000 Ada,INT4,4,0.0190,7.0610,221.76,4.2153,0.031841,221.76,GPU board power,original GEMV CUTLASS INT4 small-M,batch streaming rerun
+MEASURED,RTX 6000 Ada,INT4,16,0.0193,27.8708,233.36,4.4952,0.119433,233.36,GPU board power,original GEMV CUTLASS INT4 small-M,batch streaming rerun
+MEASURED,RTX 6000 Ada,INT4,64,0.0181,118.7443,280.65,5.0755,0.423105,280.65,GPU board power,Ada6000/opt CUTLASS INT4 GEMM large-M,batch streaming rerun
+MEASURED,RTX 6000 Ada,INT4,256,0.0216,397.8861,296.05,6.3914,1.343983,296.05,GPU board power,Ada6000/opt CUTLASS INT4 GEMM large-M,batch streaming rerun
+ANALYTICAL_MODEL,FPGA 4096-DSP analytical array,W4A4,1,0.018236104347826087,1.84,45.0,0.8206246956521739,0.04088888888888889,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 4096-DSP analytical array,W4A4,4,0.018236104347826087,7.36,45.0,0.8206246956521739,0.16355555555555557,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 4096-DSP analytical array,W4A4,16,0.036408888888888886,14.7456,45.0,1.6383999999999999,0.32767999999999997,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 4096-DSP analytical array,W4A4,64,0.14563555555555555,14.7456,45.0,6.553599999999999,0.32767999999999997,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 4096-DSP analytical array,W4A4,256,0.5825422222222222,14.7456,45.0,26.214399999999998,0.32767999999999997,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 8192-DSP analytical array,W4A4,1,0.018236104347826087,1.84,45.0,0.8206246956521739,0.04088888888888889,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 8192-DSP analytical array,W4A4,4,0.018236104347826087,7.36,45.0,0.8206246956521739,0.16355555555555557,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 8192-DSP analytical array,W4A4,16,0.018236104347826087,29.44,45.0,0.8206246956521739,0.6542222222222223,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 8192-DSP analytical array,W4A4,64,0.07281777777777777,29.4912,45.0,3.2767999999999997,0.6553599999999999,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"
+ANALYTICAL_MODEL,FPGA 8192-DSP analytical array,W4A4,256,0.2912711111111111,29.4912,45.0,13.107199999999999,0.6553599999999999,,fixed analytical input,Ultra-DSP analytical array,"max(memory_time, compute_time)"

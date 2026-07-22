@@ -1,0 +1,82 @@
+[
+  {
+    "format": "W5A5",
+    "llama2_avg": 67.77,
+    "llama3_avg": 69.96,
+    "geomean": 68.86,
+    "paper_anchor": 68.86,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  },
+  {
+    "format": "W4A5",
+    "llama2_avg": 66.6,
+    "llama3_avg": 69.66,
+    "geomean": 68.11,
+    "paper_anchor": 68.11,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  },
+  {
+    "format": "W4A4",
+    "llama2_avg": 65.96,
+    "llama3_avg": 67.61,
+    "geomean": 66.78,
+    "paper_anchor": 66.78,
+    "abs_diff": 0.0,
+    "source_kind": "TABLE6_ARCHIVED_SUMMARY",
+    "status": "PASS"
+  },
+  {
+    "format": "W5A4",
+    "llama2_avg": 64.64,
+    "llama3_avg": 67.22,
+    "geomean": 65.92,
+    "paper_anchor": 65.92,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  },
+  {
+    "format": "W3A5",
+    "llama2_avg": 63.09,
+    "llama3_avg": 64.53,
+    "geomean": 63.81,
+    "paper_anchor": 63.81,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  },
+  {
+    "format": "W3A4",
+    "llama2_avg": 60.49,
+    "llama3_avg": 61.07,
+    "geomean": 60.78,
+    "paper_anchor": 60.78,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  },
+  {
+    "format": "W5A3",
+    "llama2_avg": 46.76,
+    "llama3_avg": 45.14,
+    "geomean": 45.94,
+    "paper_anchor": 45.94,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  },
+  {
+    "format": "W4A3",
+    "llama2_avg": 44.17,
+    "llama3_avg": 44.63,
+    "geomean": 44.4,
+    "paper_anchor": 44.4,
+    "abs_diff": 0.0,
+    "source_kind": "RECOMPUTED_FROM_LOGS",
+    "status": "PASS"
+  }
+]

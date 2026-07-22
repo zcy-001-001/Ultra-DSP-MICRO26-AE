@@ -1,0 +1,98 @@
+[
+  {
+    "model": "llama2_7b",
+    "method": "Baseline(BF16)",
+    "log": "llama2_7b/bf16/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 73.86,
+    "hellaswag": 76.16,
+    "piqa": 79.05,
+    "openbookqa": 44.8,
+    "avg": 68.47
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP",
+    "log": "llama2_7b/ultra_dsp/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 70.33,
+    "hellaswag": 71.26,
+    "piqa": 76.71,
+    "openbookqa": 40.4,
+    "avg": 64.67
+  },
+  {
+    "model": "llama2_7b",
+    "method": "DSP-Packing",
+    "log": "llama2_7b/dsp_packing/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 26.01,
+    "hellaswag": 26.02,
+    "piqa": 49.84,
+    "openbookqa": 25.6,
+    "avg": 31.87
+  },
+  {
+    "model": "llama2_7b",
+    "method": "DB-MixQ",
+    "log": "llama2_7b/db_mixq/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 26.35,
+    "hellaswag": 26.34,
+    "piqa": 49.73,
+    "openbookqa": 28.6,
+    "avg": 32.76
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Baseline(BF16)",
+    "log": "llama3_8b/bf16/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 77.74,
+    "hellaswag": 79.18,
+    "piqa": 80.74,
+    "openbookqa": 44.8,
+    "avg": 70.61
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP",
+    "log": "llama3_8b/ultra_dsp/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 71.59,
+    "hellaswag": 73.61,
+    "piqa": 76.99,
+    "openbookqa": 40.4,
+    "avg": 65.65
+  },
+  {
+    "model": "llama3_8b",
+    "method": "DSP-Packing",
+    "log": "llama3_8b/dsp_packing/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 25.46,
+    "hellaswag": 26.21,
+    "piqa": 52.77,
+    "openbookqa": 29.2,
+    "avg": 33.41
+  },
+  {
+    "model": "llama3_8b",
+    "method": "DB-MixQ",
+    "log": "llama3_8b/db_mixq/log.txt",
+    "source_kind": "FRESH_REMOTE_RERUN",
+    "run_id": "table6-symmetric-a800-20260720-v2",
+    "arc_easy": 24.07,
+    "hellaswag": 26.09,
+    "piqa": 51.63,
+    "openbookqa": 30.2,
+    "avg": 33.0
+  }
+]

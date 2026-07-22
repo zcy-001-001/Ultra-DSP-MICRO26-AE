@@ -1,0 +1,73 @@
+metric,method,sequence,prefill_tokens,decode_tokens,value
+normalized_speedup,FlightLLM (INT8),"[0K, 8K]",0,8192,1.000000
+normalized_speedup,FlightLLM (INT8),"[2K, 6K]",2048,6144,1.000000
+normalized_speedup,FlightLLM (INT8),"[4K, 4K]",4096,4096,1.000000
+normalized_speedup,FlightLLM (INT8),"[6K, 2K]",6144,2048,1.000000
+normalized_speedup,FlightLLM (INT8),"[8K, 0K]",8192,0,1.000000
+normalized_speedup,FlightLLM (INT8),Geomean,,,1.000000
+normalized_speedup,WP521 (INT4),"[0K, 8K]",0,8192,1.000000
+normalized_speedup,WP521 (INT4),"[2K, 6K]",2048,6144,1.189046
+normalized_speedup,WP521 (INT4),"[4K, 4K]",4096,4096,1.378092
+normalized_speedup,WP521 (INT4),"[6K, 2K]",6144,2048,1.567138
+normalized_speedup,WP521 (INT4),"[8K, 0K]",8192,0,1.756184
+normalized_speedup,WP521 (INT4),Geomean,,,1.351546
+normalized_speedup,DuoQ (INT4),"[0K, 8K]",0,8192,1.000000
+normalized_speedup,DuoQ (INT4),"[2K, 6K]",2048,6144,1.189046
+normalized_speedup,DuoQ (INT4),"[4K, 4K]",4096,4096,1.378092
+normalized_speedup,DuoQ (INT4),"[6K, 2K]",6144,2048,1.567138
+normalized_speedup,DuoQ (INT4),"[8K, 0K]",8192,0,1.756184
+normalized_speedup,DuoQ (INT4),Geomean,,,1.351546
+normalized_speedup,DSP-Packing (INT4),"[0K, 8K]",0,8192,1.000000
+normalized_speedup,DSP-Packing (INT4),"[2K, 6K]",2048,6144,1.336572
+normalized_speedup,DSP-Packing (INT4),"[4K, 4K]",4096,4096,1.673145
+normalized_speedup,DSP-Packing (INT4),"[6K, 2K]",6144,2048,2.009717
+normalized_speedup,DSP-Packing (INT4),"[8K, 0K]",8192,0,2.346290
+normalized_speedup,DSP-Packing (INT4),Geomean,,,1.601801
+normalized_speedup,UDP (INT4),"[0K, 8K]",0,8192,1.000000
+normalized_speedup,UDP (INT4),"[2K, 6K]",2048,6144,1.336572
+normalized_speedup,UDP (INT4),"[4K, 4K]",4096,4096,1.673145
+normalized_speedup,UDP (INT4),"[6K, 2K]",6144,2048,2.009717
+normalized_speedup,UDP (INT4),"[8K, 0K]",8192,0,2.346290
+normalized_speedup,UDP (INT4),Geomean,,,1.601801
+normalized_speedup,Ultra-DSP (INT4),"[0K, 8K]",0,8192,1.000000
+normalized_speedup,Ultra-DSP (INT4),"[2K, 6K]",2048,6144,1.507067
+normalized_speedup,Ultra-DSP (INT4),"[4K, 4K]",4096,4096,2.014134
+normalized_speedup,Ultra-DSP (INT4),"[6K, 2K]",6144,2048,2.521201
+normalized_speedup,Ultra-DSP (INT4),"[8K, 0K]",8192,0,3.028269
+normalized_speedup,Ultra-DSP (INT4),Geomean,,,1.875014
+normalized_energy_efficiency,FlightLLM (INT8),"[0K, 8K]",0,8192,1.000000
+normalized_energy_efficiency,FlightLLM (INT8),"[2K, 6K]",2048,6144,1.000000
+normalized_energy_efficiency,FlightLLM (INT8),"[4K, 4K]",4096,4096,1.000000
+normalized_energy_efficiency,FlightLLM (INT8),"[6K, 2K]",6144,2048,1.000000
+normalized_energy_efficiency,FlightLLM (INT8),"[8K, 0K]",8192,0,1.000000
+normalized_energy_efficiency,FlightLLM (INT8),Geomean,,,1.000000
+normalized_energy_efficiency,WP521 (INT4),"[0K, 8K]",0,8192,1.004464
+normalized_energy_efficiency,WP521 (INT4),"[2K, 6K]",2048,6144,1.195881
+normalized_energy_efficiency,WP521 (INT4),"[4K, 4K]",4096,4096,1.387298
+normalized_energy_efficiency,WP521 (INT4),"[6K, 2K]",6144,2048,1.578715
+normalized_energy_efficiency,WP521 (INT4),"[8K, 0K]",8192,0,1.770132
+normalized_energy_efficiency,WP521 (INT4),Geomean,,,1.360255
+normalized_energy_efficiency,DuoQ (INT4),"[0K, 8K]",0,8192,0.977679
+normalized_energy_efficiency,DuoQ (INT4),"[2K, 6K]",2048,6144,1.161151
+normalized_energy_efficiency,DuoQ (INT4),"[4K, 4K]",4096,4096,1.344623
+normalized_energy_efficiency,DuoQ (INT4),"[6K, 2K]",6144,2048,1.528095
+normalized_energy_efficiency,DuoQ (INT4),"[8K, 0K]",8192,0,1.711567
+normalized_energy_efficiency,DuoQ (INT4),Geomean,,,1.319003
+normalized_energy_efficiency,DSP-Packing (INT4),"[0K, 8K]",0,8192,0.991071
+normalized_energy_efficiency,DSP-Packing (INT4),"[2K, 6K]",2048,6144,1.327125
+normalized_energy_efficiency,DSP-Packing (INT4),"[4K, 4K]",4096,4096,1.663178
+normalized_energy_efficiency,DSP-Packing (INT4),"[6K, 2K]",6144,2048,1.999232
+normalized_energy_efficiency,DSP-Packing (INT4),"[8K, 0K]",8192,0,2.335286
+normalized_energy_efficiency,DSP-Packing (INT4),Geomean,,,1.591592
+normalized_energy_efficiency,UDP (INT4),"[0K, 8K]",0,8192,0.973214
+normalized_energy_efficiency,UDP (INT4),"[2K, 6K]",2048,6144,1.304947
+normalized_energy_efficiency,UDP (INT4),"[4K, 4K]",4096,4096,1.636680
+normalized_energy_efficiency,UDP (INT4),"[6K, 2K]",6144,2048,1.968413
+normalized_energy_efficiency,UDP (INT4),"[8K, 0K]",8192,0,2.300146
+normalized_energy_efficiency,UDP (INT4),Geomean,,,1.565768
+normalized_energy_efficiency,Ultra-DSP (INT4),"[0K, 8K]",0,8192,1.138393
+normalized_energy_efficiency,Ultra-DSP (INT4),"[2K, 6K]",2048,6144,1.556576
+normalized_energy_efficiency,Ultra-DSP (INT4),"[4K, 4K]",4096,4096,1.974760
+normalized_energy_efficiency,Ultra-DSP (INT4),"[6K, 2K]",6144,2048,2.392944
+normalized_energy_efficiency,Ultra-DSP (INT4),"[8K, 0K]",8192,0,2.811127
+normalized_energy_efficiency,Ultra-DSP (INT4),Geomean,,,1.880867

@@ -1,0 +1,1 @@
+project,depth,freq_mhz,impl_status,impl_worst_path_slack_ns,impl_tns_ns,impl_setup_failing_endpoints,impl_target_period_ns,impl_lut,impl_ff,impl_dsp,impl_bram,impl_uram,synth_wns_ns,synth_lut,synth_ff,synth_dsp,post_synth_status,post_synth_cp_required_ns,post_synth_cp_achieved_ns,post_synth_lut,post_synth_ff,post_synth_dsp,post_synth_bram

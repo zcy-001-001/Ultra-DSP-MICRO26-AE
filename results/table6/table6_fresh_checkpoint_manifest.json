@@ -1,0 +1,33 @@
+{
+  "run_id": "table6-symmetric-a800-20260720-v2",
+  "checkpoints": [
+    {
+      "model": "llama2_7b",
+      "kind": "model.bin",
+      "path": "llama2_7b/train_w4a4/model.bin",
+      "sha256": "6df884bf9b2277f49faa7e6b4be1847f32a7b55c73d50ade9cb47f55671b6a7f",
+      "bytes": 138051423
+    },
+    {
+      "model": "llama2_7b",
+      "kind": "qmodel.pt",
+      "path": "llama2_7b/train_w4a4/qmodel.pt",
+      "sha256": "9f5424caa1541937f407aec75c7377a508dc3aab1d90dfa3586d9b341cffb923",
+      "bytes": 13555347222
+    },
+    {
+      "model": "llama3_8b",
+      "kind": "model.bin",
+      "path": "llama3_8b/train_w4a4/model.bin",
+      "sha256": "2d1fb19f74f1dc9a90dfbf00ae0cbae6bf76c657c706bfd557bac27cfe0cba65",
+      "bytes": 87142374
+    },
+    {
+      "model": "llama3_8b",
+      "kind": "qmodel.pt",
+      "path": "llama3_8b/train_w4a4/qmodel.pt",
+      "sha256": "846f1a9bf5dbf9de6d9bc6dfdc6b627964f35eefa7d98418641dac658798c225",
+      "bytes": 16139169642
+    }
+  ]
+}

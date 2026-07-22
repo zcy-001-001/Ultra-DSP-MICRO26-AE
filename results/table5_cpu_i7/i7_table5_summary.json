@@ -1,0 +1,133 @@
+{
+  "run_started_utc": "2026-07-20T11:46:09.430582+00:00",
+  "run_finished_utc": "2026-07-20T11:47:34.688428+00:00",
+  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.7",
+  "numpy": "1.26.4",
+  "logical_cpu_count": 24,
+  "backend_sha256": "05871c5afd107a7dbdf3d289b9e69ac9ff171c0674a506db0d2ea7ac7bc82206",
+  "rapl_monitor_sha256": "54b8f12db6b772b2a76a1a31a77ca21b7c350d47dffefd2c6aa699ffd1ed5d39",
+  "idle_power_W": {
+    "PKG": 73.05,
+    "PP0": 63.022,
+    "DRAM": 0.0
+  },
+  "method": {
+    "backend": "MKL gemm_s8u8s32 resident weight, batch 1",
+    "warmup_seconds": 5.0,
+    "measurement_seconds": 30.0,
+    "rapl_sample_interval_seconds": 1,
+    "paper_power_column": "raw package mean, not idle-subtracted"
+  },
+  "results": [
+    {
+      "shape": "1x2048x2048",
+      "warmup_seconds": 5.0,
+      "warmup_iterations": 28420,
+      "measurement_seconds": 30.000126,
+      "measurement_iterations": 175431,
+      "measurement_wall_start_epoch_s": 1784547987.4696271,
+      "measurement_wall_end_epoch_s": 1784548017.4701815,
+      "median_latency_ms": 0.1439,
+      "mean_latency_ms": 0.170315,
+      "p99_latency_ms": 0.60987,
+      "throughput_TOPS": 0.049053856,
+      "package_power_raw_W": 71.641,
+      "package_power_idle_W": 73.05,
+      "package_power_delta_W": 0,
+      "pp0_power_raw_W": 61.3,
+      "pp0_power_delta_W": 0,
+      "dram_power_raw_W": 0.0,
+      "dram_power_delta_W": 0,
+      "energy_raw_package_mJ": 10.30914,
+      "paper_latency_ms": 0.173,
+      "paper_power_W": 72.0,
+      "paper_energy_mJ": 12.438,
+      "latency_deviation_percent": -16.821,
+      "power_deviation_percent": -0.499,
+      "energy_deviation_percent": -17.116,
+      "power_scope": "RAPL_Package0_PKG_raw_mean_during_measurement_window",
+      "loaded_domain_stats": {
+        "PKG": {
+          "num_samples": 29,
+          "mean_power_W": 71.641,
+          "median_power_W": 71.773,
+          "min_power_W": 66.252,
+          "max_power_W": 77.692,
+          "std_power_W": 3.033
+        },
+        "PP0": {
+          "num_samples": 29,
+          "mean_power_W": 61.3,
+          "median_power_W": 61.645,
+          "min_power_W": 56.139,
+          "max_power_W": 67.502,
+          "std_power_W": 3.0
+        },
+        "DRAM": {
+          "num_samples": 29,
+          "mean_power_W": 0.0,
+          "median_power_W": 0.0,
+          "min_power_W": 0.0,
+          "max_power_W": 0.0,
+          "std_power_W": 0.0
+        }
+      }
+    },
+    {
+      "shape": "1x4096x4096",
+      "warmup_seconds": 5.0,
+      "warmup_iterations": 9631,
+      "measurement_seconds": 30.000268,
+      "measurement_iterations": 54631,
+      "measurement_wall_start_epoch_s": 1784548024.3188233,
+      "measurement_wall_end_epoch_s": 1784548054.3194542,
+      "median_latency_ms": 0.4575,
+      "mean_latency_ms": 0.547945,
+      "p99_latency_ms": 2.2299,
+      "throughput_TOPS": 0.061103194,
+      "package_power_raw_W": 71.809,
+      "package_power_idle_W": 73.05,
+      "package_power_delta_W": 0,
+      "pp0_power_raw_W": 61.062,
+      "pp0_power_delta_W": 0,
+      "dram_power_raw_W": 0.0,
+      "dram_power_delta_W": 0,
+      "energy_raw_package_mJ": 32.852618,
+      "paper_latency_ms": 0.574,
+      "paper_power_W": 75.0,
+      "paper_energy_mJ": 42.85,
+      "latency_deviation_percent": -20.296,
+      "power_deviation_percent": -4.255,
+      "energy_deviation_percent": -23.331,
+      "power_scope": "RAPL_Package0_PKG_raw_mean_during_measurement_window",
+      "loaded_domain_stats": {
+        "PKG": {
+          "num_samples": 29,
+          "mean_power_W": 71.809,
+          "median_power_W": 71.774,
+          "min_power_W": 65.82,
+          "max_power_W": 76.659,
+          "std_power_W": 2.421
+        },
+        "PP0": {
+          "num_samples": 29,
+          "mean_power_W": 61.062,
+          "median_power_W": 61.131,
+          "min_power_W": 55.074,
+          "max_power_W": 65.922,
+          "std_power_W": 2.466
+        },
+        "DRAM": {
+          "num_samples": 29,
+          "mean_power_W": 0.0,
+          "median_power_W": 0.0,
+          "min_power_W": 0.0,
+          "max_power_W": 0.0,
+          "std_power_W": 0.0
+        }
+      }
+    }
+  ]
+}

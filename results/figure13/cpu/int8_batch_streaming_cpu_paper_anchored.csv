@@ -1,0 +1,6 @@
+platform,dtype,batch_size,latency_ms,tops,paper_power_w,paper_energy_mj,paper_tops_per_w,total_power_w,package0_w,package1_w,total_energy_mj,source,weight_policy,working_set_mb,pool_size
+Xeon Gold 6544Y,INT8,1,0.3688,0.0910,228.648,84.3254,0.000398,459.080,228.648,230.432,169.3157,original_GEMV_CPU_results_int8_gemv_cpu_energy_csv,streaming_weight_bank_paper_matched,1024.0,64
+Xeon Gold 6544Y,INT8,4,0.3674,0.3653,225.863,82.9821,0.001617,451.766,225.863,225.903,165.9804,new_batch_streaming_measurement,streaming_weight_bank_paper_matched,1024.0,64
+Xeon Gold 6544Y,INT8,16,0.4571,1.1746,220.796,100.9259,0.005320,439.959,220.796,219.163,201.0979,new_batch_streaming_measurement,streaming_weight_bank_paper_matched,1024.0,64
+Xeon Gold 6544Y,INT8,64,0.6479,3.3147,220.598,142.9254,0.015026,436.066,220.598,215.468,282.5117,new_batch_streaming_measurement,streaming_weight_bank_paper_matched,1024.0,64
+Xeon Gold 6544Y,INT8,256,1.2735,6.7453,228.026,290.3911,0.029581,448.987,228.026,220.960,571.7692,new_batch_streaming_measurement,streaming_weight_bank_paper_matched,1024.0,64

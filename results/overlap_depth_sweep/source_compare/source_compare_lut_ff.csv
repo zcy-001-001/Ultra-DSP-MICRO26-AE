@@ -1,0 +1,2 @@
+top_module,part,synth_directive,control_set_opt_threshold,clb_luts,lut_as_logic,lut_as_memory,ff,clb_registers,dsp,utilization_report,timing_report
+w4a4_v4_full_ultradsp,xcu55c-fsvh2892-2L-e,AreaOptimized_high,1,112,112,0,65,65,3,./overlap-depth-sweep/out/source_compare/w4a4_v4_full_ultradsp_utilization_synth.rpt,./overlap-depth-sweep/out/source_compare/w4a4_v4_full_ultradsp_timing_synth.rpt

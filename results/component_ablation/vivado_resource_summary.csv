@@ -1,0 +1,12 @@
+top_module,clb_luts,lut_as_logic,lut_as_memory,clb_registers,dsp,report
+DSP_8_reg,66,58,8,50,1,results\vivado_resource\DSP_8_reg_utilization_synth.rpt
+W4A4_overlap_no_correction_resource,58,50,8,8,1,results\vivado_resource\W4A4_overlap_no_correction_resource_utilization_synth.rpt
+W4A4_PD_End,75,68,7,67,1,results\vivado_resource\W4A4_PD_End_utilization_synth.rpt
+W4A4_PD_opt13,92,67,25,31,1,results\vivado_resource\W4A4_PD_opt13_utilization_synth.rpt
+W4A4_PD_opt2,103,96,7,67,1,results\vivado_resource\W4A4_PD_opt2_utilization_synth.rpt
+W4A4_PD_opt3,105,80,25,31,1,results\vivado_resource\W4A4_PD_opt3_utilization_synth.rpt
+W4A4_stage_s0_original,121,96,25,31,1,results\vivado_resource\W4A4_stage_s0_original_utilization_synth.rpt
+W4A4_stage_s1_weight_offline,108,83,25,31,1,results\vivado_resource\W4A4_stage_s1_weight_offline_utilization_synth.rpt
+W4A4_stage_s2_registered_c,91,84,7,67,1,results\vivado_resource\W4A4_stage_s2_registered_c_utilization_synth.rpt
+W4A4_stage_s3_xor_sign,75,68,7,67,1,results\vivado_resource\W4A4_stage_s3_xor_sign_utilization_synth.rpt
+WP521,36,32,4,22,1,results\vivado_resource\WP521_utilization_synth.rpt

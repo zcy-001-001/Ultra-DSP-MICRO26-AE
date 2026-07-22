@@ -1,0 +1,2 @@
+W5A3 train/qmodel was rerun on <REMOTE_HOST> local /tmp due transient NFS torch.save failure in the first extra run. Source: <REMOTE_TMP>/rebuttal/runs/mixed_precision_ultradsp_20260607_l2_w5a3_local/llama2_7b/W5A3
+Only logs were copied here; the 13.6GB qmodel remains under /tmp while this session is active.

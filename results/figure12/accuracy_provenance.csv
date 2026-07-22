@@ -1,0 +1,7 @@
+method,llama2_7b_avg,normalization_denominator,relative_accuracy_percent,accuracy_source,evidence_class,note
+WP521,31.80,65.96,48.21103699211644,out/table6_wp521_summary.json,RECOMPUTED_FROM_LOGS,WP521 unsigned-raw run
+DB-MixQ,32.85,65.96,49.80291085506368,out/table6_wp521_summary.json,RECOMPUTED_FROM_LOGS,Table 6 archived result
+DSP-Packing,31.97,65.96,48.46876895087932,out/table6_wp521_summary.json,RECOMPUTED_FROM_LOGS,Table 6 archived result
+DuoQ,65.96,65.96,100.0,Table 6 W4A4 OSTQuant Ultra-DSP row,LOSSLESS_REFERENCE,Lossless packing preserves the same quantized model accuracy
+UDP,65.96,65.96,100.0,Table 6 W4A4 OSTQuant Ultra-DSP row,LOSSLESS_REFERENCE,Lossless packing preserves the same quantized model accuracy
+Ultra-DSP,65.96,65.96,100.0,out/table6_wp521_summary.json,RECOMPUTED_FROM_LOGS,Author-trained symmetric W4A4 OSTQuant accuracy

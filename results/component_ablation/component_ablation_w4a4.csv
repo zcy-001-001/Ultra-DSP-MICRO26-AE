@@ -1,0 +1,6 @@
+variant,short_name,plot_label,prefill_t,decode_t,ep_lanes,slot_width,offsets,groups,samples_per_group,outputs,error_count,ep,ep_std,ep_min,ep_max,mae,mse,max_abs_err
+V0,NormalSigned,Normal Signed Packing,4,2,2,8,0 8,20,10000,400000,0,0.0,0.0,0.0,0.0,0.0,0.0,0
+V1,SignMagnitude,+ Sign-Magnitude,6,5,6,6,0 6 12 18 24 30,20,10000,1200000,0,0.0,0.0,0.0,0.0,0.0,0.0,0
+V2,OverlapNoCorr,+ Overlap,8,6,8,6,0 6 9 12 15 18 21 27,20,10000,1600000,1024542,0.64033875,0.0011414794474485157,0.6383875,0.6421625,13.74390875,462.05692875,62
+V3,FullCorrection,+ Full Correction,8,6,8,6,0 6 9 12 15 18 21 27,20,10000,1600000,0,0.0,0.0,0.0,0.0,0.0,0.0,0
+V4,FullUltraDSP,+ ILP Layout + Resource Opt.,9,7,9,6,0 4 8 11 15 19 23 27 31,20,10000,1800000,0,0.0,0.0,0.0,0.0,0.0,0.0,0

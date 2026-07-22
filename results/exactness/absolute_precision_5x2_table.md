@@ -1,0 +1,53 @@
+# Absolute Precision 5x2 Table
+
+| Precision | Ultra-DSP EP | Ultra-DSP MAE | Ultra-DSP MSE | DSP-Packing EP | DSP-Packing MAE | DSP-Packing MSE | DeepBurning EP | DeepBurning MAE | DeepBurning MSE |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| W2A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W2A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W2A4 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W2A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W2A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W2A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W2A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A4 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W3A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W4A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W4A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W4A4 | 0 | 0 | 0 | 0.363046 | 1.10319 | 3.36581 | 0.363194 | 0.726389 | 1.45278 |
+| W4A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W4A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W4A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W4A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A4 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W5A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A4 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W6A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A4 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W7A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A2 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A3 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A4 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A5 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A6 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A7 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |
+| W8A8 | 0 | 0 | 0 | N/A | N/A | N/A | N/A | N/A | N/A |

@@ -1,0 +1,33 @@
+format,format_label,product_kind,design,top_module,product_width,products_per_cycle,UDP_packing_same_width,clb_luts,dsp,LUT_per_product,same_throughput_lut_baseline_LUT,LUT_saving_vs_same_throughput_lut_pct,report
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,NoPackingScalar,FP4_E2M1_NoPackingScalar,1,1,NAN,0,1,0.0000,18.00,100.00,results/table8/vivado_resource/FP4_E2M1_NoPackingScalar_utilization_synth.rpt
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,NormalNonOverlap,FP4_E2M1_NormalNonOverlap,1,18,NAN,0,1,0.0000,18.00,100.00,results/table8/vivado_resource/FP4_E2M1_NormalNonOverlap_utilization_synth.rpt
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,UltraDSP-Packing,FP4_E2M1_UltraDSP_Packing,1,36,NAN,17,1,0.4722,18.00,5.56,results/table8/vivado_resource/FP4_E2M1_UltraDSP_Packing_utilization_synth.rpt
+FP4_E2M1,FP4 E2M1 mag1,decoded_mantissa_mag,NoDSP_LUTParallel,FP4_E2M1_NoDSP_LUTParallel,1,36,NAN,18,0,0.5000,18.00,0.00,results/table8/vivado_resource/FP4_E2M1_NoDSP_LUTParallel_utilization_synth.rpt
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,NoPackingScalar,FP4_E1M2_NoPackingScalar,2,1,12,0,1,0.0000,36.00,100.00,results/table8/vivado_resource/FP4_E1M2_NoPackingScalar_utilization_synth.rpt
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,NormalNonOverlap,FP4_E1M2_NormalNonOverlap,2,9,12,0,1,0.0000,36.00,100.00,results/table8/vivado_resource/FP4_E1M2_NormalNonOverlap_utilization_synth.rpt
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,UltraDSP-Packing,FP4_E1M2_UltraDSP_Packing,2,18,12,17,1,0.9444,36.00,52.78,results/table8/vivado_resource/FP4_E1M2_UltraDSP_Packing_utilization_synth.rpt
+FP4_E1M2,FP4 E1M2 mag2,decoded_mantissa_mag,NoDSP_LUTParallel,FP4_E1M2_NoDSP_LUTParallel,2,18,12,36,0,2.0000,36.00,0.00,results/table8/vivado_resource/FP4_E1M2_NoDSP_LUTParallel_utilization_synth.rpt
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,NoPackingScalar,FP8_E4M3_NoPackingScalar,3,1,8,0,1,0.0000,50.00,100.00,results/table8/vivado_resource/FP8_E4M3_NoPackingScalar_utilization_synth.rpt
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,NormalNonOverlap,FP8_E4M3_NormalNonOverlap,3,6,8,0,1,0.0000,50.00,100.00,results/table8/vivado_resource/FP8_E4M3_NormalNonOverlap_utilization_synth.rpt
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,UltraDSP-Packing,FP8_E4M3_UltraDSP_Packing,3,10,8,16,1,1.6000,50.00,68.00,results/table8/vivado_resource/FP8_E4M3_UltraDSP_Packing_utilization_synth.rpt
+FP8_E4M3,FP8 E4M3 mag3,decoded_mantissa_mag,NoDSP_LUTParallel,FP8_E4M3_NoDSP_LUTParallel,3,10,8,50,0,5.0000,50.00,0.00,results/table8/vivado_resource/FP8_E4M3_NoDSP_LUTParallel_utilization_synth.rpt
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,NoPackingScalar,FP8_E5M2_NoPackingScalar,2,1,12,0,1,0.0000,36.00,100.00,results/table8/vivado_resource/FP8_E5M2_NoPackingScalar_utilization_synth.rpt
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,NormalNonOverlap,FP8_E5M2_NormalNonOverlap,2,9,12,0,1,0.0000,36.00,100.00,results/table8/vivado_resource/FP8_E5M2_NormalNonOverlap_utilization_synth.rpt
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,UltraDSP-Packing,FP8_E5M2_UltraDSP_Packing,2,18,12,17,1,0.9444,36.00,52.78,results/table8/vivado_resource/FP8_E5M2_UltraDSP_Packing_utilization_synth.rpt
+FP8_E5M2,FP8 E5M2 mag2,decoded_mantissa_mag,NoDSP_LUTParallel,FP8_E5M2_NoDSP_LUTParallel,2,18,12,36,0,2.0000,36.00,0.00,results/table8/vivado_resource/FP8_E5M2_NoDSP_LUTParallel_utilization_synth.rpt
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,NoPackingScalar,FP8_E3M4_NoPackingScalar,4,1,6,0,1,0.0000,131.00,100.00,results/table8/vivado_resource/FP8_E3M4_NoPackingScalar_utilization_synth.rpt
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,NormalNonOverlap,FP8_E3M4_NormalNonOverlap,4,4,6,0,1,0.0000,131.00,100.00,results/table8/vivado_resource/FP8_E3M4_NormalNonOverlap_utilization_synth.rpt
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,UltraDSP-Packing,FP8_E3M4_UltraDSP_Packing,4,6,6,4,1,0.6667,131.00,96.95,results/table8/vivado_resource/FP8_E3M4_UltraDSP_Packing_utilization_synth.rpt
+FP8_E3M4,FP8 E3M4 mag4,decoded_mantissa_mag,NoDSP_LUTParallel,FP8_E3M4_NoDSP_LUTParallel,4,6,6,131,0,21.8333,131.00,0.00,results/table8/vivado_resource/FP8_E3M4_NoDSP_LUTParallel_utilization_synth.rpt
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,NoPackingScalar,FP8_E2M5_NoPackingScalar,5,1,4,0,1,0.0000,96.00,100.00,results/table8/vivado_resource/FP8_E2M5_NoPackingScalar_utilization_synth.rpt
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,NormalNonOverlap,FP8_E2M5_NormalNonOverlap,5,4,4,0,1,0.0000,96.00,100.00,results/table8/vivado_resource/FP8_E2M5_NormalNonOverlap_utilization_synth.rpt
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,UltraDSP-Packing,FP8_E2M5_UltraDSP_Packing,5,4,4,6,1,1.5000,96.00,93.75,results/table8/vivado_resource/FP8_E2M5_UltraDSP_Packing_utilization_synth.rpt
+FP8_E2M5,FP8 E2M5 mag5,decoded_mantissa_mag,NoDSP_LUTParallel,FP8_E2M5_NoDSP_LUTParallel,5,4,4,96,0,24.0000,96.00,0.00,results/table8/vivado_resource/FP8_E2M5_NoDSP_LUTParallel_utilization_synth.rpt
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,NoPackingScalar,FP10_E4M5_NoPackingScalar,5,1,4,0,1,0.0000,96.00,100.00,results/table8/vivado_resource/FP10_E4M5_NoPackingScalar_utilization_synth.rpt
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,NormalNonOverlap,FP10_E4M5_NormalNonOverlap,5,4,4,0,1,0.0000,96.00,100.00,results/table8/vivado_resource/FP10_E4M5_NormalNonOverlap_utilization_synth.rpt
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,UltraDSP-Packing,FP10_E4M5_UltraDSP_Packing,5,4,4,6,1,1.5000,96.00,93.75,results/table8/vivado_resource/FP10_E4M5_UltraDSP_Packing_utilization_synth.rpt
+FP10_E4M5,E4M5 mag5,decoded_mantissa_mag_requested,NoDSP_LUTParallel,FP10_E4M5_NoDSP_LUTParallel,5,4,4,96,0,24.0000,96.00,0.00,results/table8/vivado_resource/FP10_E4M5_NoDSP_LUTParallel_utilization_synth.rpt
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,NoPackingScalar,MXFP4_E2M1_MAG1_NoPackingScalar,1,1,NAN,0,1,0.0000,18.00,100.00,results/table8/vivado_resource/MXFP4_E2M1_MAG1_NoPackingScalar_utilization_synth.rpt
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,NormalNonOverlap,MXFP4_E2M1_MAG1_NormalNonOverlap,1,18,NAN,0,1,0.0000,18.00,100.00,results/table8/vivado_resource/MXFP4_E2M1_MAG1_NormalNonOverlap_utilization_synth.rpt
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,UltraDSP-Packing,MXFP4_E2M1_MAG1_UltraDSP_Packing,1,36,NAN,17,1,0.4722,18.00,5.56,results/table8/vivado_resource/MXFP4_E2M1_MAG1_UltraDSP_Packing_utilization_synth.rpt
+MXFP4_E2M1_MAG1,MXFP4 E2M1 mag1,mxfp4_e2m1_mantissa_mag,NoDSP_LUTParallel,MXFP4_E2M1_MAG1_NoDSP_LUTParallel,1,36,NAN,18,0,0.5000,18.00,0.00,results/table8/vivado_resource/MXFP4_E2M1_MAG1_NoDSP_LUTParallel_utilization_synth.rpt

@@ -1,0 +1,85 @@
+{
+  "tool": "Vivado 2023.2",
+  "part": "xcu55c-fsvh2892-2L-e",
+  "synthesis_directive": "AreaOptimized_high",
+  "component_stages": [
+    {
+      "stage": "Normal signed",
+      "packing_prefill_decode": "4/2",
+      "lut": 11,
+      "ff": 0,
+      "dsp": 1
+    },
+    {
+      "stage": "Sign-magnitude",
+      "packing_prefill_decode": "6/5",
+      "lut": 40,
+      "ff": 27,
+      "dsp": 1
+    },
+    {
+      "stage": "Overpacking without correction",
+      "packing_prefill_decode": "8/6",
+      "lut": 49,
+      "ff": 33,
+      "dsp": 1
+    },
+    {
+      "stage": "Lossless full correction",
+      "packing_prefill_decode": "8/6",
+      "lut": 82,
+      "ff": 90,
+      "dsp": 1
+    }
+  ],
+  "final_ultradsp_point": {
+    "stage": "ILP/resource optimized Ultra-DSP",
+    "packing_prefill_decode": "9/7",
+    "lut": 75,
+    "ff": 67,
+    "dsp": 1
+  },
+  "cross_precision_lut_reductions": [
+    {
+      "format": "W3A4",
+      "base_lut": 137,
+      "final_lut": 97,
+      "reduction_percent": 29.197
+    },
+    {
+      "format": "W3A5",
+      "base_lut": 131,
+      "final_lut": 82,
+      "reduction_percent": 37.405
+    },
+    {
+      "format": "W4A4",
+      "base_lut": 121,
+      "final_lut": 75,
+      "reduction_percent": 38.017
+    },
+    {
+      "format": "W4A5",
+      "base_lut": 125,
+      "final_lut": 82,
+      "reduction_percent": 34.4
+    },
+    {
+      "format": "W5A4",
+      "base_lut": 133,
+      "final_lut": 89,
+      "reduction_percent": 33.083
+    },
+    {
+      "format": "W5A5",
+      "base_lut": 119,
+      "final_lut": 74,
+      "reduction_percent": 37.815
+    }
+  ],
+  "reduction_range_percent": [
+    29.197,
+    38.017
+  ],
+  "claim_check": "PASS"
+}

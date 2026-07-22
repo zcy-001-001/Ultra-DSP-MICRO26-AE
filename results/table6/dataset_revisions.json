@@ -1,0 +1,114 @@
+{
+  "evidence_kind": "FORMAL_A800_CACHE_REVISION_LOCK",
+  "datasets_package": "4.8.5",
+  "lm_eval_package": "0.4.12",
+  "records": [
+    {
+      "purpose": "OSTQuant calibration",
+      "dataset": "Salesforce/wikitext",
+      "config": "wikitext-2-raw-v1",
+      "split": "train",
+      "builder": "parquet",
+      "cache_version": "0.0.0",
+      "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+      "cache_fingerprint": "b08601e04326c79dfdd32d625aee71d232d685c3",
+      "dataset_info_sha256": "062223be81a2c7be7bf5d6827fdff35da4c21291e65a1455559b1145f14ca4a7",
+      "num_examples": 36718,
+      "task_version": null
+    },
+    {
+      "purpose": "lm-eval",
+      "dataset": "allenai/ai2_arc",
+      "config": "ARC-Easy",
+      "split": "test",
+      "builder": "parquet",
+      "cache_version": "0.0.0",
+      "dataset_revision": "210d026faf9955653af8916fad021475a3f00453",
+      "cache_fingerprint": "210d026faf9955653af8916fad021475a3f00453",
+      "dataset_info_sha256": "4f864365d6342a653794ab4db8b8ef2e6f2047d5fc2c18399a5bd3b6e683ec87",
+      "num_examples": 2376,
+      "task_version": 1,
+      "task_yaml_sha256": "96da1d9efe1df88659481cedc13985cb347dc068554a2eae561303fa39bfab3f"
+    },
+    {
+      "purpose": "lm-eval",
+      "dataset": "Rowan/hellaswag",
+      "config": "default",
+      "split": "validation",
+      "builder": "parquet",
+      "cache_version": "0.0.0",
+      "dataset_revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+      "cache_fingerprint": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+      "dataset_info_sha256": "9ec51dfb1fc90f94ec95e0c924880717bf2309fdc57d26640cbbf59d97b5a8e5",
+      "num_examples": 10042,
+      "task_version": 1,
+      "task_yaml_sha256": "e9ef8ac3fed02bf283777d946ae76cbf906152e9c92533c9794e5a9dad78d1cf"
+    },
+    {
+      "purpose": "lm-eval",
+      "dataset": "baber/piqa",
+      "config": "default",
+      "split": "validation",
+      "builder": "parquet",
+      "cache_version": "0.0.0",
+      "dataset_revision": "142f6d7367fd9877f0fb3b5734ea6a545f54cdd1",
+      "cache_fingerprint": "142f6d7367fd9877f0fb3b5734ea6a545f54cdd1",
+      "dataset_info_sha256": "9e09601e47c01719ff0388a5061f376986742d0e5f52dee4333d427c7624aa94",
+      "num_examples": 1838,
+      "task_version": 1,
+      "task_yaml_sha256": "e874f7956ccac325b888d4a5dc600bad867b79fba2bd358fe8761ab8263270fb"
+    },
+    {
+      "purpose": "lm-eval",
+      "dataset": "allenai/openbookqa",
+      "config": "main",
+      "split": "test",
+      "builder": "parquet",
+      "cache_version": "0.0.0",
+      "dataset_revision": "388097ea7776314e93a529163e0fea805b8a6454",
+      "cache_fingerprint": "388097ea7776314e93a529163e0fea805b8a6454",
+      "dataset_info_sha256": "052baf016f95cbd5edde7247b9b51c8bd9513d0ebe5fd24c6acc8d3c2f3ea9b8",
+      "num_examples": 500,
+      "task_version": 1,
+      "task_yaml_sha256": "13ac2df0c7d5f73e5a12dccc704048ca28b8123980fa0b8258eef937284f4735"
+    }
+  ],
+  "serialized_wikitext_loaders": [
+    {
+      "model": "llama3_8b",
+      "split": "test",
+      "samples": 128,
+      "sequence_length": 2048,
+      "seed": 42,
+      "bytes": 17281981,
+      "sha256": "5aaec2557377e6ca165ef9ba847f2af6ce006d7c0de28c6278528645a0ffe9c4"
+    },
+    {
+      "model": "llama3_8b",
+      "split": "train",
+      "samples": 128,
+      "sequence_length": 2048,
+      "seed": 42,
+      "bytes": 21637497,
+      "sha256": "3ca1c6d10992eb8edbe982eef350d3410e0660899810ce7369638d2a4ed7a8cc"
+    },
+    {
+      "model": "llama2_7b",
+      "split": "test",
+      "samples": 128,
+      "sequence_length": 2048,
+      "seed": 42,
+      "bytes": 18999589,
+      "sha256": "d18fbf45a7d8c574127d045aa4ea34e42a2d65856dce3fbef2152948b867b587"
+    },
+    {
+      "model": "llama2_7b",
+      "split": "train",
+      "samples": 128,
+      "sequence_length": 2048,
+      "seed": 42,
+      "bytes": 25143780,
+      "sha256": "31a4e25edf992da5916724fda14791ed8b811dedf5d2f987f27deb9dc1d7a32a"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+top_module,precision,experiment,variant,rtl_file,source_file,notes
+W3A4_stage_s0_original,W3A4,optimization_stage,s0_original,rtl/optimization_stages/W3A4_stage_s0_original.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A4/W3A4_Hybrid.v,runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+W3A4_stage_s1_weight_offline,W3A4,optimization_stage,s1_weight_offline,rtl/optimization_stages/W3A4_stage_s1_weight_offline.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A4/W3A4_Hybrid.v,offline sign-magnitude weights; combinational C-port; per-result two's-complement sign recovery
+W3A4_stage_s2_registered_c,W3A4,optimization_stage,s2_registered_c,rtl/optimization_stages/W3A4_stage_s2_registered_c.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A4/W3A4_Hybrid.v,offline sign-magnitude weights; registered C-port; per-result two's-complement sign recovery
+W3A4_stage_s3_xor_sign,W3A4,optimization_stage,s3_xor_sign,rtl/optimization_stages/W3A4_stage_s3_xor_sign.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A4/W3A4_Hybrid.v,offline sign-magnitude weights; registered C-port; XOR-only magnitude/sign output
+W3A5_stage_s0_original,W3A5,optimization_stage,s0_original,rtl/optimization_stages/W3A5_stage_s0_original.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A5/W3A5_Hybrid.v,runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+W3A5_stage_s1_weight_offline,W3A5,optimization_stage,s1_weight_offline,rtl/optimization_stages/W3A5_stage_s1_weight_offline.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A5/W3A5_Hybrid.v,offline sign-magnitude weights; combinational C-port; per-result two's-complement sign recovery
+W3A5_stage_s2_registered_c,W3A5,optimization_stage,s2_registered_c,rtl/optimization_stages/W3A5_stage_s2_registered_c.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A5/W3A5_Hybrid.v,offline sign-magnitude weights; registered C-port; per-result two's-complement sign recovery
+W3A5_stage_s3_xor_sign,W3A5,optimization_stage,s3_xor_sign,rtl/optimization_stages/W3A5_stage_s3_xor_sign.v,Ultra-DSP-main/DSP_Packaging_Verilog/W3A5/W3A5_Hybrid.v,offline sign-magnitude weights; registered C-port; XOR-only magnitude/sign output
+W4A4_stage_s0_original,W4A4,optimization_stage,s0_original,rtl/optimization_stages/W4A4_stage_s0_original.v,Ultra-DSP-main/Area_Test_Ablation_Test/Ablation Experiment/Ablation Experiment.srcs/sources_1/new/W4A4_PD_Original.v,runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+W4A4_stage_s1_weight_offline,W4A4,optimization_stage,s1_weight_offline,rtl/optimization_stages/W4A4_stage_s1_weight_offline.v,Ultra-DSP-main/Area_Test_Ablation_Test/Ablation Experiment/Ablation Experiment.srcs/sources_1/new/W4A4_PD_opt1.v,offline sign-magnitude weights; combinational C-port; per-result two's-complement sign recovery
+W4A4_stage_s2_registered_c,W4A4,optimization_stage,s2_registered_c,rtl/optimization_stages/W4A4_stage_s2_registered_c.v,Ultra-DSP-main/Area_Test_Ablation_Test/Ablation Experiment/Ablation Experiment.srcs/sources_1/new/W4A4_PD_opt12.v,offline sign-magnitude weights; registered C-port; per-result two's-complement sign recovery
+W4A4_stage_s3_xor_sign,W4A4,optimization_stage,s3_xor_sign,rtl/optimization_stages/W4A4_stage_s3_xor_sign.v,Ultra-DSP-main/Area_Test_Ablation_Test/Compensation_Breakdown_Analysis/Compensation_Breakdown_Analysis.srcs/sources_1/new/W4A4_Hybrid.v,offline sign-magnitude weights; registered C-port; XOR-only magnitude/sign output
+W4A5_stage_s0_original,W4A5,optimization_stage,s0_original,rtl/optimization_stages/W4A5_stage_s0_original.v,Ultra-DSP-main/DSP_Packaging_Verilog/W4A5/W4A5_Hybrid.v,runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+W4A5_stage_s1_weight_offline,W4A5,optimization_stage,s1_weight_offline,rtl/optimization_stages/W4A5_stage_s1_weight_offline.v,Ultra-DSP-main/DSP_Packaging_Verilog/W4A5/W4A5_Hybrid.v,offline sign-magnitude weights; combinational C-port; per-result two's-complement sign recovery
+W4A5_stage_s2_registered_c,W4A5,optimization_stage,s2_registered_c,rtl/optimization_stages/W4A5_stage_s2_registered_c.v,Ultra-DSP-main/DSP_Packaging_Verilog/W4A5/W4A5_Hybrid.v,offline sign-magnitude weights; registered C-port; per-result two's-complement sign recovery
+W4A5_stage_s3_xor_sign,W4A5,optimization_stage,s3_xor_sign,rtl/optimization_stages/W4A5_stage_s3_xor_sign.v,Ultra-DSP-main/DSP_Packaging_Verilog/W4A5/W4A5_Hybrid.v,offline sign-magnitude weights; registered C-port; XOR-only magnitude/sign output
+W5A4_stage_s0_original,W5A4,optimization_stage,s0_original,rtl/optimization_stages/W5A4_stage_s0_original.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A4/W5A4_Hybrid.v,runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+W5A4_stage_s1_weight_offline,W5A4,optimization_stage,s1_weight_offline,rtl/optimization_stages/W5A4_stage_s1_weight_offline.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A4/W5A4_Hybrid.v,offline sign-magnitude weights; combinational C-port; per-result two's-complement sign recovery
+W5A4_stage_s2_registered_c,W5A4,optimization_stage,s2_registered_c,rtl/optimization_stages/W5A4_stage_s2_registered_c.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A4/W5A4_Hybrid.v,offline sign-magnitude weights; registered C-port; per-result two's-complement sign recovery
+W5A4_stage_s3_xor_sign,W5A4,optimization_stage,s3_xor_sign,rtl/optimization_stages/W5A4_stage_s3_xor_sign.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A4/W5A4_Hybrid.v,offline sign-magnitude weights; registered C-port; XOR-only magnitude/sign output
+W5A5_stage_s0_original,W5A5,optimization_stage,s0_original,rtl/optimization_stages/W5A5_stage_s0_original.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A5/W5A5_Hybrid.v,runtime weight two's-complement conversion; combinational C-port; per-result two's-complement sign recovery
+W5A5_stage_s1_weight_offline,W5A5,optimization_stage,s1_weight_offline,rtl/optimization_stages/W5A5_stage_s1_weight_offline.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A5/W5A5_Hybrid.v,offline sign-magnitude weights; combinational C-port; per-result two's-complement sign recovery
+W5A5_stage_s2_registered_c,W5A5,optimization_stage,s2_registered_c,rtl/optimization_stages/W5A5_stage_s2_registered_c.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A5/W5A5_Hybrid.v,offline sign-magnitude weights; registered C-port; per-result two's-complement sign recovery
+W5A5_stage_s3_xor_sign,W5A5,optimization_stage,s3_xor_sign,rtl/optimization_stages/W5A5_stage_s3_xor_sign.v,Ultra-DSP-main/DSP_Packaging_Verilog/W5A5/W5A5_Hybrid.v,offline sign-magnitude weights; registered C-port; XOR-only magnitude/sign output
+W3A4_lsb_depth1,W3A4,lsb_depth,depth1,rtl/lsb_depth_sweep/W3A4_lsb_depth1.v,,single correction low-product generator with use_dsp=no
+W3A4_lsb_depth2,W3A4,lsb_depth,depth2,rtl/lsb_depth_sweep/W3A4_lsb_depth2.v,,single correction low-product generator with use_dsp=no
+W3A4_lsb_depth3,W3A4,lsb_depth,depth3,rtl/lsb_depth_sweep/W3A4_lsb_depth3.v,,single correction low-product generator with use_dsp=no
+W3A4_lsb_depth4,W3A4,lsb_depth,depth4,rtl/lsb_depth_sweep/W3A4_lsb_depth4.v,,single correction low-product generator with use_dsp=no
+W3A4_lsb_depth5,W3A4,lsb_depth,depth5,rtl/lsb_depth_sweep/W3A4_lsb_depth5.v,,single correction low-product generator with use_dsp=no
+W3A4_lsb_depth6,W3A4,lsb_depth,depth6,rtl/lsb_depth_sweep/W3A4_lsb_depth6.v,,single correction low-product generator with use_dsp=no
+W3A5_lsb_depth1,W3A5,lsb_depth,depth1,rtl/lsb_depth_sweep/W3A5_lsb_depth1.v,,single correction low-product generator with use_dsp=no
+W3A5_lsb_depth2,W3A5,lsb_depth,depth2,rtl/lsb_depth_sweep/W3A5_lsb_depth2.v,,single correction low-product generator with use_dsp=no
+W3A5_lsb_depth3,W3A5,lsb_depth,depth3,rtl/lsb_depth_sweep/W3A5_lsb_depth3.v,,single correction low-product generator with use_dsp=no
+W3A5_lsb_depth4,W3A5,lsb_depth,depth4,rtl/lsb_depth_sweep/W3A5_lsb_depth4.v,,single correction low-product generator with use_dsp=no
+W3A5_lsb_depth5,W3A5,lsb_depth,depth5,rtl/lsb_depth_sweep/W3A5_lsb_depth5.v,,single correction low-product generator with use_dsp=no
+W3A5_lsb_depth6,W3A5,lsb_depth,depth6,rtl/lsb_depth_sweep/W3A5_lsb_depth6.v,,single correction low-product generator with use_dsp=no
+W4A4_lsb_depth1,W4A4,lsb_depth,depth1,rtl/lsb_depth_sweep/W4A4_lsb_depth1.v,,single correction low-product generator with use_dsp=no
+W4A4_lsb_depth2,W4A4,lsb_depth,depth2,rtl/lsb_depth_sweep/W4A4_lsb_depth2.v,,single correction low-product generator with use_dsp=no
+W4A4_lsb_depth3,W4A4,lsb_depth,depth3,rtl/lsb_depth_sweep/W4A4_lsb_depth3.v,,single correction low-product generator with use_dsp=no
+W4A4_lsb_depth4,W4A4,lsb_depth,depth4,rtl/lsb_depth_sweep/W4A4_lsb_depth4.v,,single correction low-product generator with use_dsp=no
+W4A4_lsb_depth5,W4A4,lsb_depth,depth5,rtl/lsb_depth_sweep/W4A4_lsb_depth5.v,,single correction low-product generator with use_dsp=no
+W4A4_lsb_depth6,W4A4,lsb_depth,depth6,rtl/lsb_depth_sweep/W4A4_lsb_depth6.v,,single correction low-product generator with use_dsp=no
+W4A5_lsb_depth1,W4A5,lsb_depth,depth1,rtl/lsb_depth_sweep/W4A5_lsb_depth1.v,,single correction low-product generator with use_dsp=no
+W4A5_lsb_depth2,W4A5,lsb_depth,depth2,rtl/lsb_depth_sweep/W4A5_lsb_depth2.v,,single correction low-product generator with use_dsp=no
+W4A5_lsb_depth3,W4A5,lsb_depth,depth3,rtl/lsb_depth_sweep/W4A5_lsb_depth3.v,,single correction low-product generator with use_dsp=no
+W4A5_lsb_depth4,W4A5,lsb_depth,depth4,rtl/lsb_depth_sweep/W4A5_lsb_depth4.v,,single correction low-product generator with use_dsp=no
+W4A5_lsb_depth5,W4A5,lsb_depth,depth5,rtl/lsb_depth_sweep/W4A5_lsb_depth5.v,,single correction low-product generator with use_dsp=no
+W4A5_lsb_depth6,W4A5,lsb_depth,depth6,rtl/lsb_depth_sweep/W4A5_lsb_depth6.v,,single correction low-product generator with use_dsp=no
+W5A4_lsb_depth1,W5A4,lsb_depth,depth1,rtl/lsb_depth_sweep/W5A4_lsb_depth1.v,,single correction low-product generator with use_dsp=no
+W5A4_lsb_depth2,W5A4,lsb_depth,depth2,rtl/lsb_depth_sweep/W5A4_lsb_depth2.v,,single correction low-product generator with use_dsp=no
+W5A4_lsb_depth3,W5A4,lsb_depth,depth3,rtl/lsb_depth_sweep/W5A4_lsb_depth3.v,,single correction low-product generator with use_dsp=no
+W5A4_lsb_depth4,W5A4,lsb_depth,depth4,rtl/lsb_depth_sweep/W5A4_lsb_depth4.v,,single correction low-product generator with use_dsp=no
+W5A4_lsb_depth5,W5A4,lsb_depth,depth5,rtl/lsb_depth_sweep/W5A4_lsb_depth5.v,,single correction low-product generator with use_dsp=no
+W5A4_lsb_depth6,W5A4,lsb_depth,depth6,rtl/lsb_depth_sweep/W5A4_lsb_depth6.v,,single correction low-product generator with use_dsp=no
+W5A5_lsb_depth1,W5A5,lsb_depth,depth1,rtl/lsb_depth_sweep/W5A5_lsb_depth1.v,,single correction low-product generator with use_dsp=no
+W5A5_lsb_depth2,W5A5,lsb_depth,depth2,rtl/lsb_depth_sweep/W5A5_lsb_depth2.v,,single correction low-product generator with use_dsp=no
+W5A5_lsb_depth3,W5A5,lsb_depth,depth3,rtl/lsb_depth_sweep/W5A5_lsb_depth3.v,,single correction low-product generator with use_dsp=no
+W5A5_lsb_depth4,W5A5,lsb_depth,depth4,rtl/lsb_depth_sweep/W5A5_lsb_depth4.v,,single correction low-product generator with use_dsp=no
+W5A5_lsb_depth5,W5A5,lsb_depth,depth5,rtl/lsb_depth_sweep/W5A5_lsb_depth5.v,,single correction low-product generator with use_dsp=no
+W5A5_lsb_depth6,W5A5,lsb_depth,depth6,rtl/lsb_depth_sweep/W5A5_lsb_depth6.v,,single correction low-product generator with use_dsp=no

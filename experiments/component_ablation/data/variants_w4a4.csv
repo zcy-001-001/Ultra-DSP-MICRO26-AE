@@ -1,0 +1,6 @@
+variant,short_name,plot_label,description,prefill_t,decode_t,ep_lanes,slot_width,ep_offsets,layout_source,accuracy_behavior,resource_note
+V0,NormalSigned,Normal Signed Packing,normal signed two's-complement baseline with A/D weights and one signed B value,4,2,2,8,"0 8",baseline,exact,P mode pre-adds two activations before B; two physical output lanes represent four effective MACs
+V1,SignMagnitude,+ Sign-Magnitude,online sign-magnitude decoupling with no output-domain overlap,6,5,6,6,"0 6 12 18 24 30",manual_non_ilp,exact,isolates sign/magnitude decoupling before overlap
+V2,OverlapNoCorr,+ Overlap,hand-tuned sign-magnitude overpacking without C-port correction,8,6,8,6,"0 6 9 12 15 18 21 27",hand_tuned,nonzero_error,shows raw overlap is not lossless without using the ILP layout
+V3,FullCorrection,+ Full Correction,adds full overlap correction to the same hand-tuned P8D6 layout,8,6,8,6,"0 6 9 12 15 18 21 27",hand_tuned,exact,isolates correction contribution
+V4,FullUltraDSP,+ ILP Layout + Resource Opt.,uses the ILP-selected and resource-optimized Ultra-DSP W4A4 3x3/1x7 pair,9,7,9,6,"0 4 8 11 15 19 23 27 31",ilp_solver,exact,final paper design point

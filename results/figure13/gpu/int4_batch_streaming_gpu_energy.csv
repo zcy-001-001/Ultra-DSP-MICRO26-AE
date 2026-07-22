@@ -1,0 +1,6 @@
+iters,total_ms,latency_ms,tops,power_avg_w,power_min_w,power_max_w,energy_mj,tops_per_w,power_samples,config,shape,dtype,batch_size,weight_policy,streaming_weight_mb,working_set_mb,pool_size,kernel_family
+528765,10009.309,0.0189,1.7726,210.06,78.58,223.4,3.9764,0.008438,1913,PAPER_MATCHED_STREAM_INT4_B1,"[1,4096]x[4096,4096]",INT4,1,streaming_weight_bank_paper_matched,8.0,1024.0,128,original GEMV CUTLASS INT4 small-M
+526584,10009.417,0.019,7.061,221.76,204.7,225.69,4.2153,0.031841,1916,PAPER_MATCHED_STREAM_INT4_B4,"[4,4096]x[4096,4096]",INT4,4,streaming_weight_bank_paper_matched,8.0,1024.0,128,original GEMV CUTLASS INT4 small-M
+519628,10009.513,0.0193,27.8708,233.36,208.21,238.16,4.4952,0.119433,1917,PAPER_MATCHED_STREAM_INT4_B16,"[16,4096]x[4096,4096]",INT4,16,streaming_weight_bank_paper_matched,8.0,1024.0,128,original GEMV CUTLASS INT4 small-M
+553440,10008.926,0.0181,118.7443,280.65,220.09,289.32,5.0755,0.423105,1917,PAPER_MATCHED_STREAM_INT4_B64,"[64,4096]x[4096,4096]",INT4,64,streaming_weight_bank_paper_matched,8.0,1024.0,128,Ada6000/opt CUTLASS INT4 GEMM large-M
+463699,10010.766,0.0216,397.8861,296.05,264.34,301.23,6.3914,1.343983,1916,PAPER_MATCHED_STREAM_INT4_B256,"[256,4096]x[4096,4096]",INT4,256,streaming_weight_bank_paper_matched,8.0,1024.0,128,Ada6000/opt CUTLASS INT4 GEMM large-M

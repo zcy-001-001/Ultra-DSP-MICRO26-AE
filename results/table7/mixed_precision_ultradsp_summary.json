@@ -1,0 +1,156 @@
+[
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W5A5",
+    "precision": "W5A5",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W5A5/eval_ultradsp/log.txt",
+    "arc_easy": 73.4,
+    "hellaswag": 74.92,
+    "piqa": 78.35,
+    "openbookqa": 44.4,
+    "avg": 67.77
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W4A3",
+    "precision": "W4A3",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W4A3/eval_ultradsp/log.txt",
+    "arc_easy": 40.4,
+    "hellaswag": 47.21,
+    "piqa": 61.86,
+    "openbookqa": 27.2,
+    "avg": 44.17
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W3A4",
+    "precision": "W3A4",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W3A4/eval_ultradsp/log.txt",
+    "arc_easy": 63.22,
+    "hellaswag": 67.14,
+    "piqa": 73.39,
+    "openbookqa": 38.2,
+    "avg": 60.49
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W4A5",
+    "precision": "W4A5",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W4A5/eval_ultradsp/log.txt",
+    "arc_easy": 71.63,
+    "hellaswag": 74.45,
+    "piqa": 78.13,
+    "openbookqa": 42.2,
+    "avg": 66.6
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W5A4",
+    "precision": "W5A4",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W5A4/eval_ultradsp/log.txt",
+    "arc_easy": 68.56,
+    "hellaswag": 72.57,
+    "piqa": 76.44,
+    "openbookqa": 41.0,
+    "avg": 64.64
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W3A5",
+    "precision": "W3A5",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W3A5/eval_ultradsp/log.txt",
+    "arc_easy": 66.96,
+    "hellaswag": 70.14,
+    "piqa": 76.06,
+    "openbookqa": 39.2,
+    "avg": 63.09
+  },
+  {
+    "model": "llama2_7b",
+    "method": "Ultra-DSP W5A3",
+    "precision": "W5A3",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama2_7b/W5A3/eval_ultradsp/log.txt",
+    "arc_easy": 42.38,
+    "hellaswag": 49.86,
+    "piqa": 63.38,
+    "openbookqa": 31.4,
+    "avg": 46.76
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W5A5",
+    "precision": "W5A5",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W5A5/eval_ultradsp/log.txt",
+    "arc_easy": 76.64,
+    "hellaswag": 78.07,
+    "piqa": 79.92,
+    "openbookqa": 45.2,
+    "avg": 69.96
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W4A3",
+    "precision": "W4A3",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W4A3/eval_ultradsp/log.txt",
+    "arc_easy": 42.51,
+    "hellaswag": 46.07,
+    "piqa": 60.34,
+    "openbookqa": 29.6,
+    "avg": 44.63
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W3A4",
+    "precision": "W3A4",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W3A4/eval_ultradsp/log.txt",
+    "arc_easy": 66.79,
+    "hellaswag": 67.69,
+    "piqa": 73.18,
+    "openbookqa": 36.6,
+    "avg": 61.07
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W4A5",
+    "precision": "W4A5",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W4A5/eval_ultradsp/log.txt",
+    "arc_easy": 77.74,
+    "hellaswag": 77.05,
+    "piqa": 79.43,
+    "openbookqa": 44.4,
+    "avg": 69.66
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W5A4",
+    "precision": "W5A4",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W5A4/eval_ultradsp/log.txt",
+    "arc_easy": 74.66,
+    "hellaswag": 75.24,
+    "piqa": 77.97,
+    "openbookqa": 41.0,
+    "avg": 67.22
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W3A5",
+    "precision": "W3A5",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W3A5/eval_ultradsp/log.txt",
+    "arc_easy": 68.94,
+    "hellaswag": 71.46,
+    "piqa": 76.71,
+    "openbookqa": 41.0,
+    "avg": 64.53
+  },
+  {
+    "model": "llama3_8b",
+    "method": "Ultra-DSP W5A3",
+    "precision": "W5A3",
+    "log": "<REMOTE_HOME>/rebuttal/runs/mixed_precision_ultradsp_20260607/llama3_8b/W5A3/eval_ultradsp/log.txt",
+    "arc_easy": 42.8,
+    "hellaswag": 47.68,
+    "piqa": 62.08,
+    "openbookqa": 28.0,
+    "avg": 45.14
+  }
+]
