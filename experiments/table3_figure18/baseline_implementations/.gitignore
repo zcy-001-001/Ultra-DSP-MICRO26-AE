@@ -1,0 +1,9 @@
+**/.Xil/
+**/.ipcache/
+**/_x/
+**/synth/
+**/implement/
+**/ooc_implement/
+**/ooc_implement1/
+*.log
+vitis-comp.json

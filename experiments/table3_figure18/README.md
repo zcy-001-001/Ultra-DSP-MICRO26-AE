@@ -1,12 +1,15 @@
 # Existing OOC report extraction
 
-This directory freezes the existing post-implementation evidence used by
-Table 3 and Figure 18. It does not rerun synthesis or implementation.
+This directory contains the complete GEMV implementation inputs and the
+post-implementation evidence used by Table 3 and Figure 18. Reviewers can
+either re-parse the packaged routed reports or regenerate the Table 3 OOC
+projects from the published HLS, RTL, configuration, and shell-script sources.
 
 ## Directory contents
 
 | Path | Purpose |
 |---|---|
+| `baseline_implementations/` | Complete Table 3 GEMV sources and 200 MHz OOC/full-build scripts for WP521, DB-MixQ, DSP-Packing, DuoQ, UDP, and Ultra-DSP. |
 | `scripts/extract_ooc_reports.py` | Read existing routed reports, extract scalar metrics, calculate throughput, and emit sanitized CSV files. |
 | `tests/test_extract_ooc_reports.py` | Unit tests for utilization, power, timing, and path-safety parsing. |
 | `../../results/table3_figure18/evidence/table3/` | Forty-two sanitized routed reports plus raw-to-public SHA-256 provenance for all 14 Table 3 rows. |
@@ -14,7 +17,6 @@ Table 3 and Figure 18. It does not rerun synthesis or implementation.
 | `../../results/table3_figure18/figure18_post_implementation_summary.csv` | One timing-clean point per PE size; the six paper points are explicitly flagged. |
 | `../../results/table3_figure18/figure18_frequency_sweep.csv` | All readable routed frequency attempts used by the selection rule. |
 | `../../results/table3_figure18/evidence/figure18/` | All 106 routed timing attempts, seven selected utilization reports, and raw-to-public SHA-256 provenance. |
-| `TODO.md` | Remaining interpretation notes that do not block extraction. |
 
 ## Table 3 method
 
@@ -38,6 +40,53 @@ paths are retained.
 
 The W4A4 Ultra-DSP anchor is 244.939 kLUT, 259.987 kFF, 6.218 W,
 14,745.6 GOPS, and 2,371.44 GOPS/W.
+
+## Table 3 implementation sources
+
+The implementation-to-row mapping and every build command are documented in
+[`baseline_implementations/README.md`](baseline_implementations/README.md).
+The published source set contains all 14 Table 3 rows:
+
+- W4A4: WP521, DB-MixQ, DSP-Packing, DuoQ, UDP, and Ultra-DSP.
+- W5A5, W4A3, W4A5, and W5A3: UDP and Ultra-DSP.
+
+The baseline folders retain the source names used by the original builds.
+`DeepBurning/` corresponds to the DB-MixQ row, `UDP-general/` contains the five
+UDP precision pairs, and `Ultra-DSP-MAX/` contains the five maximum-packing
+Ultra-DSP precision pairs. The source package includes `GEMV.cpp`, `GEMV.h`,
+processing-element RTL, C black-box models, black-box JSON metadata, HLS/link
+configurations, and the synthesis/implementation scripts.
+
+Configure Vivado/Vitis 2023.2 and the U55C platform before a full rerun:
+
+```bash
+export XILINX_VITIS_SETTINGS=<VITIS_2023_2>/settings64.sh
+export XILINX_VIVADO_SETTINGS=<VIVADO_2023_2>/settings64.sh
+export XRT_SETUP=<XRT_INSTALL>/setup.sh
+export PLATFORM=<U55C_PLATFORM>.xpfm
+```
+
+For example, regenerate the six W4A4 OOC implementations from the repository
+root:
+
+```bash
+BASE=experiments/table3_figure18/baseline_implementations
+bash "$BASE/WP521/ooc_implement.sh"
+bash "$BASE/DeepBurning/ooc_implement.sh"
+bash "$BASE/DSP-Packing/ooc_implement1.sh"
+bash "$BASE/DuoQ/ooc_implement1.sh"
+bash "$BASE/UDP-general/INT4_INT4/ooc_implement.sh"
+bash "$BASE/Ultra-DSP-MAX/W4A4/ooc_implement.sh"
+```
+
+Use the commands in the baseline implementation README to generate the other
+eight precision/method rows. Fresh OOC reports can then be parsed directly:
+
+```bash
+python experiments/table3_figure18/scripts/extract_ooc_reports.py \
+  --source-root experiments/table3_figure18/baseline_implementations \
+  --output-dir results/rerun/table3_figure18
+```
 
 ## Figure 18 method
 
@@ -86,7 +135,7 @@ python experiments/table3_figure18/scripts/extract_ooc_reports.py \
 No command above launches Vivado or changes the source report tree.
 
 The packaged evidence can also be verified without access to the original
-private report root:
+report tree:
 
 ```text
 python experiments/table3_figure18/scripts/extract_ooc_reports.py \

@@ -527,6 +527,81 @@ def verify_ooc_extraction() -> None:
     print("OOC_EXTRACTION_PASS table3=14 reports=42 figure18=7 sweep=106 reports=113")
 
 
+def verify_table3_implementation_sources() -> None:
+    root = require("experiments/table3_figure18/baseline_implementations")
+    assert not (root.parent / "TODO.md").exists(), (
+        "experiments/table3_figure18/TODO.md must not be published"
+    )
+
+    cases = (
+        ("W4A4/WP521", "WP521", "src/WP521_4096.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A4/DB-MixQ", "DeepBurning", "src/DEEPBURNING_4096.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A4/DSP-Packing", "DSP-Packing", "src/FPL_4096.json", "config/hls1.cfg", "ooc_implement1.sh"),
+        ("W4A4/DuoQ", "DuoQ", "src/DuoQ_4096.json", "config/hls1.cfg", "ooc_implement1.sh"),
+        ("W4A4/UDP", "UDP-general/INT4_INT4", "src/W4A4.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W5A5/UDP", "UDP-general/INT5_INT5", "src/W5A5.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A3/UDP", "UDP-general/INT3_INT4", "src/W3A4.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A5/UDP", "UDP-general/INT4_INT5", "src/W4A5.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W5A3/UDP", "UDP-general/INT3_INT5", "src/W3A5.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A4/Ultra-DSP", "Ultra-DSP-MAX/W4A4", "src/W4A4_P.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W5A5/Ultra-DSP", "Ultra-DSP-MAX/W5A5", "src/W5A5_P.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A3/Ultra-DSP", "Ultra-DSP-MAX/W3A4", "src/W3A4_P.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W4A5/Ultra-DSP", "Ultra-DSP-MAX/W4A5", "src/W4A5_P.json", "config/hls.cfg", "ooc_implement.sh"),
+        ("W5A3/Ultra-DSP", "Ultra-DSP-MAX/W3A5", "src/W3A5_P.json", "config/hls.cfg", "ooc_implement.sh"),
+    )
+    assert len({row_id for row_id, *_ in cases}) == 14
+
+    referenced_sources: set[Path] = set()
+    for row_id, directory, json_relative, config_relative, script_relative in cases:
+        case_dir = root / directory
+        assert case_dir.is_dir(), f"missing Table 3 implementation directory: {row_id}"
+        for relative in (
+            "env.sh",
+            "src/GEMV.cpp",
+            "src/GEMV.h",
+            "src/u55C.cfg",
+            json_relative,
+            config_relative,
+            script_relative,
+        ):
+            assert (case_dir / relative).is_file(), (
+                f"missing Table 3 implementation input for {row_id}: {relative}"
+            )
+
+        config = (case_dir / config_relative).read_text(encoding="utf-8")
+        assert "freqhz=200000000" in config, f"Table 3 HLS frequency is not 200 MHz: {row_id}"
+        assert "syn.file=../src/GEMV.cpp" in config
+        assert "syn.file=../src/GEMV.h" in config
+
+        metadata_path = case_dir / json_relative
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        references = [
+            entry["c_file"] for entry in metadata.get("c_files", [])
+        ] + list(metadata.get("rtl_files", []))
+        assert references, f"Table 3 black-box metadata has no source files: {row_id}"
+        for reference in references:
+            relative = Path(reference)
+            assert not relative.is_absolute(), (
+                f"Table 3 black-box metadata must use a relative path: {row_id}/{reference}"
+            )
+            resolved = (metadata_path.parent / relative).resolve()
+            assert resolved.is_relative_to(case_dir.resolve()), (
+                f"Table 3 black-box source escapes its implementation directory: "
+                f"{row_id}/{reference}"
+            )
+            assert resolved.is_file(), (
+                f"Table 3 black-box source is missing: {row_id}/{reference}"
+            )
+            referenced_sources.add(resolved)
+
+    assert (root / "Ultra-DSP-MAX/run_all_ooc.sh").is_file()
+    assert (root / "README.md").is_file()
+    print(
+        f"TABLE3_IMPLEMENTATION_SOURCE_PASS rows={len(cases)} "
+        f"blackbox_sources={len(referenced_sources)} todo=absent"
+    )
+
+
 def _verify_table7_noncanonical_archive() -> None:
     """Historical development-log gate retained for maintenance only.
 
@@ -1578,6 +1653,7 @@ def main() -> int:
     verify_fpga_model()
     verify_rtl_summary()
     verify_end_to_end_simulator()
+    verify_table3_implementation_sources()
     verify_ooc_extraction()
     verify_table6_archive_and_config()
     verify_table6_fresh_gate()

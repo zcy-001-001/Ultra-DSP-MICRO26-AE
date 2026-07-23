@@ -33,7 +33,7 @@ The project contains three main technical components:
 |   |-- batch_sweep/             # Batch-size comparison and FPGA model
 |   |-- figures14_15/            # End-to-end performance simulator
 |   |-- figure17/                # RTL resource synthesis workflow
-|   |-- table3_figure18/         # OOC report extraction and analysis
+|   |-- table3_figure18/         # Table 3 GEMV sources and OOC report analysis
 |   |-- table6_table7_accuracy/  # OSTQuant accuracy workflows
 |   `-- ...                      # Remaining tables, figures, and ablations
 |-- results/
@@ -53,7 +53,10 @@ Precision-specific modules are organized by weight and activation bit width.
 
 Contains the scripts, notebooks, configurations, and input definitions used for
 the paper's tables, figures, and ablation studies. Each experiment directory has
-its own README with the relevant commands and dependencies.
+its own README with the relevant commands and dependencies. The complete
+WP521, DB-MixQ, DSP-Packing, DuoQ, UDP, and Ultra-DSP GEMV implementations for
+Table 3 are under
+[`experiments/table3_figure18/baseline_implementations/`](experiments/table3_figure18/baseline_implementations/).
 
 ### `results/`
 
@@ -145,6 +148,16 @@ jupyter nbconvert --to notebook --execute \
   experiments/ilp_solver/pareto.ipynb \
   --output results/rerun/ilp_notebooks/pareto.executed.ipynb
 ```
+
+### Table 3 GEMV Implementations
+
+The 14 Table 3 rows can be regenerated from the HLS kernels, packed-processing
+element RTL, black-box metadata, configurations, and shell scripts in
+[`experiments/table3_figure18/baseline_implementations/`](experiments/table3_figure18/baseline_implementations/).
+The directory README maps each paper row to its implementation folder and gives
+the 200 MHz OOC commands. A fast reproduction can instead re-parse the packaged
+routed reports; both workflows are listed in
+[`REPRODUCE.md`](REPRODUCE.md#5-tables-34-and-figure-18).
 
 ### FPGA System
 

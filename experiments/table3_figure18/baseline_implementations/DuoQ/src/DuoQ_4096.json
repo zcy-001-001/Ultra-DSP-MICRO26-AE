@@ -1,0 +1,131 @@
+{
+  "c_function_name": "DuoQ_4096",
+  "rtl_top_module_name": "DuoQ_4096",
+  "c_files": [
+    {
+      "c_file": "../src/DuoQ_4096.cpp",
+      "cflag": ""
+    }
+  ],
+  "rtl_files": [
+    "../src/DuoQ_4096.v",
+    "../src/DuoQ.v"
+  ],
+  "c_parameters": [
+    {
+      "c_name": "w0",
+      "c_port_direction": "in",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "w0_address",
+        "RAM_clock_enable": "w0_ce",
+        "RAM_data_read_in": "w0"
+      }
+    },
+    {
+      "c_name": "w1",
+      "c_port_direction": "in",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "w1_address",
+        "RAM_clock_enable": "w1_ce",
+        "RAM_data_read_in": "w1"
+      }
+    },
+    {
+      "c_name": "w2",
+      "c_port_direction": "in",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "w2_address",
+        "RAM_clock_enable": "w2_ce",
+        "RAM_data_read_in": "w2"
+      }
+    },
+    {
+      "c_name": "w3",
+      "c_port_direction": "in",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "w3_address",
+        "RAM_clock_enable": "w3_ce",
+        "RAM_data_read_in": "w3"
+      }
+    },
+    {
+      "c_name": "a_in",
+      "c_port_direction": "in",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "a_in_address",
+        "RAM_clock_enable": "a_in_ce",
+        "RAM_data_read_in": "a_in"
+      }
+    },
+    {
+      "c_name": "p0",
+      "c_port_direction": "out",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "p0_address",
+        "RAM_clock_enable": "p0_ce",
+        "RAM_write_enable": "p0_we",
+        "RAM_data_write_out": "p0"
+      }
+    },
+    {
+      "c_name": "p1",
+      "c_port_direction": "out",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "p1_address",
+        "RAM_clock_enable": "p1_ce",
+        "RAM_write_enable": "p1_we",
+        "RAM_data_write_out": "p1"
+      }
+    },
+    {
+      "c_name": "p2",
+      "c_port_direction": "out",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "p2_address",
+        "RAM_clock_enable": "p2_ce",
+        "RAM_write_enable": "p2_we",
+        "RAM_data_write_out": "p2"
+      }
+    },
+    {
+      "c_name": "p3",
+      "c_port_direction": "out",
+      "RAM_type": "RAM_1P",
+      "rtl_ports": {
+        "RAM_address": "p3_address",
+        "RAM_clock_enable": "p3_ce",
+        "RAM_write_enable": "p3_we",
+        "RAM_data_write_out": "p3"
+      }
+    }
+  ],
+  "rtl_common_signal": {
+    "module_clock": "ap_clk",
+    "module_reset": "ap_rst",
+    "module_clock_enable": "ap_ce",
+    "ap_ctrl_chain_protocol_idle": "ap_idle",
+    "ap_ctrl_chain_protocol_start": "ap_start",
+    "ap_ctrl_chain_protocol_ready": "ap_ready",
+    "ap_ctrl_chain_protocol_done": "ap_done",
+    "ap_ctrl_chain_protocol_continue": "ap_continue"
+  },
+  "rtl_performance": {
+    "latency": "1",
+    "II": "1"
+  },
+  "rtl_resource_usage": {
+    "FF": "131072",
+    "LUT": "86016",
+    "BRAM": "0",
+    "URAM": "0",
+    "DSP": "4096"
+  }
+}

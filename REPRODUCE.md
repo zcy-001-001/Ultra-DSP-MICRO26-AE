@@ -101,7 +101,9 @@ Expected Figure 17 point: 75 LUT, 67 FF, one DSP; rounded LUT reduction range
 
 ## 5. Tables 3/4 and Figure 18
 
-No implementation rerun is required. Re-parse the packaged existing reports:
+### 5.1 Fast report-based reproduction
+
+Re-parse the packaged existing reports:
 
 ```bash
 python experiments/table3_figure18/scripts/extract_ooc_reports.py \
@@ -116,6 +118,59 @@ python -m unittest discover \
 
 Expected markers include `TABLE3_EVIDENCE_PASS` and
 `FIGURE18_EVIDENCE_PASS timing=106 selected_utilization=7`.
+
+### 5.2 Full Table 3 implementation regeneration
+
+The complete GEMV implementation inputs for all 14 Table 3 rows are under
+`experiments/table3_figure18/baseline_implementations/`. They include the HLS
+GEMV kernels, packed-processing-element RTL, C black-box models, JSON metadata,
+HLS and U55C configurations, and synthesis/implementation scripts.
+
+Use AMD/Xilinx Vivado, Vitis, and Vitis HLS 2023.2. Configure the toolchain and
+U55C platform:
+
+```bash
+export XILINX_VITIS_SETTINGS=<VITIS_2023_2>/settings64.sh
+export XILINX_VIVADO_SETTINGS=<VIVADO_2023_2>/settings64.sh
+export XRT_SETUP=<XRT_INSTALL>/setup.sh
+export PLATFORM=<U55C_PLATFORM>.xpfm
+BASE=experiments/table3_figure18/baseline_implementations
+```
+
+Regenerate the six W4A4 rows:
+
+```bash
+bash "$BASE/WP521/ooc_implement.sh"
+bash "$BASE/DeepBurning/ooc_implement.sh"
+bash "$BASE/DSP-Packing/ooc_implement1.sh"
+bash "$BASE/DuoQ/ooc_implement1.sh"
+bash "$BASE/UDP-general/INT4_INT4/ooc_implement.sh"
+bash "$BASE/Ultra-DSP-MAX/W4A4/ooc_implement.sh"
+```
+
+Regenerate the four additional UDP rows and all five Ultra-DSP precision rows:
+
+```bash
+for precision in INT5_INT5 INT3_INT4 INT4_INT5 INT3_INT5; do
+  bash "$BASE/UDP-general/${precision}/ooc_implement.sh"
+done
+
+bash "$BASE/Ultra-DSP-MAX/run_all_ooc.sh"
+```
+
+The exact paper-row mapping is documented in
+`experiments/table3_figure18/baseline_implementations/README.md`. After the OOC
+runs finish, parse the new report tree without changing canonical outputs:
+
+```bash
+python experiments/table3_figure18/scripts/extract_ooc_reports.py \
+  --source-root "$BASE" \
+  --output-dir results/rerun/table3_figure18
+```
+
+The resulting Table 3 CSV contains the 14 resource, power, throughput,
+energy-efficiency, and timing rows. Throughput is computed from DSP count,
+packing count, two operations per MAC, and the 200 MHz frequency.
 
 Re-parse the packaged 64x64 depth-3 OOC point without launching Vivado:
 

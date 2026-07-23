@@ -17,7 +17,7 @@ Commands below are run from the repository root unless noted otherwise.
 | `figures14_15/` | Figures 14, 15 | HLS-informed end-to-end simulator | `results/figures14_15/` | `python experiments/figures14_15/scripts/simulate_figures.py --report-dir results/figures14_15/evidence/raw_hls_reports --result-dir results/rerun/figures14_15` |
 | `ilp_solver/` | Figures 16, 19, 20 | Source notebooks for layout, parallelism, and efficiency | `results/ilp_notebooks/` | Execute with `jupyter nbconvert` as shown in `REPRODUCE.md` |
 | `figure17/` | Figure 17 | Vivado 2023.2 synthesis driver and summary builder | `results/figure17/` | `vivado -mode batch -source experiments/figure17/scripts/run_figure17_synth.tcl` |
-| `table3_figure18/` | Tables 3, 4; Figure 18 | Parsers and tests for archived routed reports | `results/table3_figure18/` | `python experiments/table3_figure18/scripts/verify_figure18_evidence.py` |
+| `table3_figure18/` | Tables 3, 4; Figure 18 | Complete Table 3 GEMV implementations plus parsers and tests for routed reports | `results/table3_figure18/` | Follow its README for full OOC regeneration, or run `python experiments/table3_figure18/scripts/verify_figure18_evidence.py` |
 | `table5_cpu_i7/` | Table 5 | Local i7 MKL/RAPL measurement code | `results/table5_cpu_i7/` | See the directory README; reruns must target `results/rerun/table5_cpu_i7/` |
 | `table5_cpu_xeon/` | Table 5 | Archived Xeon report parser | `results/table5_cpu_xeon/` | `python experiments/table5_cpu_xeon/scripts/summarize_table5_xeon.py` |
 | `table6_table7_accuracy/` | Tables 6, 7 | Symmetric OSTQuant training/evaluation and aggregation | `results/table6/`, `results/table7/` | Follow the two experiment READMEs under its `experiments/` directory |
