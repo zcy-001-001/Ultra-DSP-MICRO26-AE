@@ -18,7 +18,6 @@ are stored in the neighboring result directories.
 | Table 8 | `table8/` | FP/MX packing layouts and correction resources |
 | Figure 12 | `figure12/` | Accuracy-throughput Pareto data and plots |
 | Figure 13 | `figure13/` | Batch-size latency, power, and efficiency comparison |
-| Figures 14 and 15 | `figures14_15/` | End-to-end speed and energy-efficiency data |
 | Figure 16 | `ilp_notebooks/pareto.executed.ipynb` | Executed Pareto-layout notebook |
 | Figure 17 | `figure17/` | Cross-precision LUT, FF, and DSP results |
 | Figure 18 | `table3_figure18/`, `overlap_depth_sweep/` | PE-scaling implementation data |
@@ -103,18 +102,6 @@ The accuracy inputs used by the Pareto generator are:
 
 Figures 16, 19, and 20 are embedded in the executed notebooks under
 `ilp_notebooks/`.
-
-## 📈 Figures 14 and 15: End-to-End Evaluation
-
-| Figure | Metric | Paper value |
-|---|---|---:|
-| Figure 14 | Geomean normalized speedup | 2.31× |
-| Figure 14 | Geomean energy efficiency | 2.22× |
-| Figure 15 | Geomean normalized speedup | 1.88× |
-| Figure 15 | Geomean energy efficiency | 1.88× |
-
-The plot data, generated figures, and HLS source reports are under
-`figures14_15/`.
 
 ## 📈 Figure 17: Processing-Element Resources
 

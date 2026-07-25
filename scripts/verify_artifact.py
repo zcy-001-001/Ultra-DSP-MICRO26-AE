@@ -316,7 +316,7 @@ def verify_documentation_entrypoints() -> None:
 
     for table in range(2, 9):
         assert f"Table {table}" in reproduce, f"REPRODUCE missing Table {table}"
-    for figure in range(12, 21):
+    for figure in (12, 13, 16, 17, 18, 19, 20):
         assert f"Figure {figure}" in reproduce, f"REPRODUCE missing Figure {figure}"
     for command in (
         "python scripts/verify_artifact.py",
@@ -326,7 +326,6 @@ def verify_documentation_entrypoints() -> None:
         "generate_pareto.py",
         "compare_table6.py",
         "build_table7_geomean.py",
-        "simulate_figures.py",
     ):
         assert command in reproduce, f"REPRODUCE command missing: {command}"
 
@@ -345,7 +344,20 @@ def verify_documentation_entrypoints() -> None:
             assert (path.parent / relative).resolve().exists(), (
                 f"broken documentation link in {path.relative_to(ROOT)}: {target}"
             )
-    print("DOCUMENTATION_PASS root_docs=2 result_docs=2 reproduce=tables2-8_figures12-20 links=valid")
+    retired_tokens = (
+        "Figure " + "14",
+        "Figure " + "15",
+        "Figures " + "14",
+        "Figures " + "15",
+        "figures" + "14_15",
+        "long_" + "context",
+    )
+    for path in ROOT.rglob("*.md"):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        assert not any(token.lower() in text.lower() for token in retired_tokens), (
+            f"retired experiment wording remains in {path.relative_to(ROOT)}"
+        )
+    print("DOCUMENTATION_PASS root_docs=2 result_docs=2 reproduce=tables2-8 selected_figures links=valid")
 
 
 def verify_repository_layout() -> None:
@@ -357,6 +369,14 @@ def verify_repository_layout() -> None:
     assert not (ROOT / "experiments/table6_table7_accuracy/_remote_picachu_summaries").exists(), (
         "obsolete development summaries remain outside results"
     )
+    # Retired experiment implementations and outputs must stay outside the package.
+    for path in (
+        ROOT / "experiments" / ("figures" + "14_15"),
+        ROOT / "results" / ("figures" + "14_15"),
+        ROOT / "experiments" / ("long_" + "context"),
+        ROOT / "results" / ("long_" + "context"),
+    ):
+        assert not path.exists(), f"retired experiment path remains: {path.relative_to(ROOT)}"
     assert not any(ROOT.rglob("__pycache__")), "Python cache directories remain"
     assert not any(ROOT.rglob("*.pyc")), "Python bytecode files remain"
     print("REPOSITORY_LAYOUT_PASS results=single_canonical_store legacy_dirs=absent")
@@ -430,52 +450,6 @@ def verify_rtl_summary() -> None:
     assert "Functional tests passed: 74/74" in text
     assert "RTL_SIM_PASS cases=6" in text
     print("RTL_SUMMARY_PASS cases=6 tests=74")
-
-
-def verify_end_to_end_simulator() -> None:
-    result_dir = require("results/figures14_15")
-    for name in (
-        "raw_hls_operator_breakdown.csv",
-        "stage_model_and_calibration.csv",
-        "hls_remote_provenance.csv",
-        "figure14_canonical.csv",
-        "figure15_canonical.csv",
-        "figure14_reproduced.png",
-        "figure15_reproduced.png",
-    ):
-        assert (result_dir / name).is_file(), f"missing simulator result: {name}"
-    with (result_dir / "hls_remote_provenance.csv").open(
-        newline="", encoding="utf-8"
-    ) as handle:
-        provenance = list(csv.DictReader(handle))
-    assert len(provenance) == 13
-    assert all(row["hash_status"] == "MATCH" for row in provenance)
-    assert all(
-        row["remote_raw_sha256"] == row["packaged_sha256"]
-        for row in provenance
-    )
-    assert all(
-        not Path(row["source_relative_path"]).is_absolute()
-        for row in provenance
-    )
-    with (result_dir / "figure14_canonical.csv").open(newline="", encoding="utf-8") as handle:
-        fig14 = list(csv.DictReader(handle))
-    with (result_dir / "figure15_canonical.csv").open(newline="", encoding="utf-8") as handle:
-        fig15 = list(csv.DictReader(handle))
-    def geomean(rows: list[dict[str, str]], metric: str) -> float:
-        match = [
-            row for row in rows
-            if row["method"] == "Ultra-DSP (INT4)"
-            and row["metric"] == metric
-            and row["sequence"] == "Geomean"
-        ]
-        assert len(match) == 1
-        return float(match[0]["calibrated_value"])
-    assert abs(geomean(fig14, "normalized_speedup") - 2.3118499914) <= 1e-9
-    assert abs(geomean(fig14, "normalized_energy_efficiency") - 2.2241212874) <= 1e-9
-    assert abs(geomean(fig15, "normalized_speedup") - 1.8750143234) <= 1e-9
-    assert abs(geomean(fig15, "normalized_energy_efficiency") - 1.8808666161) <= 1e-9
-    print("E2E_SIMULATOR_PASS figures=2 raw_model_calibrated=separate")
 
 
 def verify_ooc_extraction() -> None:
@@ -1652,7 +1626,6 @@ def main() -> int:
     verify_figure17()
     verify_fpga_model()
     verify_rtl_summary()
-    verify_end_to_end_simulator()
     verify_table3_implementation_sources()
     verify_ooc_extraction()
     verify_table6_archive_and_config()

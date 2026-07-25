@@ -1,7 +1,0 @@
-method,display_name,prefill_packing,decode_packing,paper_prefill_speed_score,paper_decode_speed_score,paper_prefill_efficiency_score,paper_decode_efficiency_score,source_kind
-FlightLLM (INT8),FlightLLM,2,2,2.83,0.93,0.0683,0.0224,paper_plot_calibration_anchor
-WP521 (INT4),WP521,4,2,4.97,0.93,0.1209,0.0225,paper_plot_calibration_anchor
-DuoQ (INT4),DuoQ,4,4,4.97,0.93,0.1169,0.0219,paper_plot_calibration_anchor
-DSP-Packing (INT4),DSP-Packing,6,2,6.64,0.93,0.1595,0.0222,paper_plot_calibration_anchor
-UDP (INT4),UDP,6,3,6.64,0.93,0.1571,0.0218,paper_plot_calibration_anchor
-Ultra-DSP (INT4),Ultra-DSP,9,7,8.57,0.93,0.1920,0.0255,paper_plot_calibration_anchor

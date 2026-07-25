@@ -31,7 +31,6 @@ The project contains three main technical components:
 |   |-- exactness/               # Arithmetic exactness experiments
 |   |-- figure12_pareto/         # Accuracy-throughput Pareto generation
 |   |-- batch_sweep/             # Batch-size comparison and FPGA model
-|   |-- figures14_15/            # End-to-end performance simulator
 |   |-- figure17/                # RTL resource synthesis workflow
 |   |-- table3_figure18/         # Table 3 GEMV sources and OOC report analysis
 |   |-- table6_table7_accuracy/  # OSTQuant accuracy workflows

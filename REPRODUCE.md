@@ -308,22 +308,7 @@ python experiments/table8_fp_mx/scripts/audit_correction_luts.py \
 
 The declared AE scope is FP/MX mantissa-magnitude packing and correction.
 
-## 9. Figures 14 and 15
-
-Rebuild only the simulator outputs from the packaged csynth reports:
-
-```bash
-python experiments/figures14_15/scripts/simulate_figures.py \
-  --report-dir results/figures14_15/evidence/raw_hls_reports \
-  --result-dir results/rerun/figures14_15
-
-python experiments/figures14_15/tests/test_simulator.py
-```
-
-Expected geomeans are 2.31x/2.22x for Figure 14 speed/energy efficiency and
-1.88x/1.88x for Figure 15. Raw model and calibrated fields remain separate.
-
-## 10. Figure 16, Figure 19, and Figure 20
+## 9. Figure 16, Figure 19, and Figure 20
 
 ```bash
 mkdir -p results/rerun/ilp_notebooks
@@ -340,7 +325,7 @@ jupyter nbconvert --to notebook --execute \
 
 Canonical executed notebooks are in `results/ilp_notebooks/`.
 
-## 11. Phase Adaptivity
+## 10. Phase Adaptivity
 
 Parse and verify the 12 existing reports:
 
@@ -354,7 +339,7 @@ Expected markers are `PHASE_ADAPTIVITY_PASS` and
 Hybrid functional pass and its full-design timing miss are both intentionally
 reported.
 
-## 12. Final Package Check
+## 11. Final Package Check
 
 ```bash
 python scripts/verify_artifact.py

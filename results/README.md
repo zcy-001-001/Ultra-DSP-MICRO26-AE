@@ -18,14 +18,12 @@ existing report, analytical, calibrated, paper-anchored, or literature-derived.
 | `table5_gpu/` | Formal INT4 GPU measurement and method note | Table 5 |
 | `figure13/` | CPU/GPU inputs, analytical FPGA sweeps, power evidence, and combined plot data | Figure 13 |
 | `figure12/` | Accuracy provenance, Pareto CSVs, and figures | Figure 12 |
-| `figures14_15/` | Thirteen HLS reports, model/calibration CSVs, and regenerated plots | Figures 14/15 |
 | `ilp_notebooks/` | Executed notebooks with embedded plot outputs | Figures 16/19/20 |
 | `figure17/` | Parsed summaries and 56 Vivado synthesis reports | Figure 17 |
 | `table6/` | Symmetric OSTQuant environment, checkpoint, training, log, summary, and tolerance evidence | Table 6 |
 | `table7/` | Paper values, method summaries, and optional development logs | Table 7 |
 | `table8/` | FP/MX layouts, correctness, Vivado/xsim reports, CSV summaries, and plots | Table 8 |
 | `phase_adaptivity/` | Twelve archived reports, dual-hash manifest, and parsed summary | Phase-adaptivity ablation |
-| `long_context/` | Long-context CSVs and plots | Figure 15 support |
 
 [`RESULTS.md`](RESULTS.md) gives the concise numerical paper-item summary.
 [`REPRODUCE.md`](../REPRODUCE.md) explains how to verify the canonical files

@@ -14,7 +14,6 @@ Commands below are run from the repository root unless noted otherwise.
 | `overlap_depth_sweep/` | Figure 18 support | Overlap-depth constraints and the 64x64 OOC point | `results/overlap_depth_sweep/` | Run the audit/parser commands in its README |
 | `batch_sweep/` | Table 5, Figure 13 | CPU/GPU batch data assembly and FPGA analytical model notes | `results/figure13/` | `python scripts/compute_fpga_gemv_model.py --self-test` |
 | `figure12_pareto/` | Figure 12 | Accuracy-throughput Pareto construction | `results/figure12/` | `python experiments/figure12_pareto/scripts/generate_pareto.py --out-dir results/rerun/figure12` |
-| `figures14_15/` | Figures 14, 15 | HLS-informed end-to-end simulator | `results/figures14_15/` | `python experiments/figures14_15/scripts/simulate_figures.py --report-dir results/figures14_15/evidence/raw_hls_reports --result-dir results/rerun/figures14_15` |
 | `ilp_solver/` | Figures 16, 19, 20 | Source notebooks for layout, parallelism, and efficiency | `results/ilp_notebooks/` | Execute with `jupyter nbconvert` as shown in `REPRODUCE.md` |
 | `figure17/` | Figure 17 | Vivado 2023.2 synthesis driver and summary builder | `results/figure17/` | `vivado -mode batch -source experiments/figure17/scripts/run_figure17_synth.tcl` |
 | `table3_figure18/` | Tables 3, 4; Figure 18 | Complete Table 3 GEMV implementations plus parsers and tests for routed reports | `results/table3_figure18/` | Follow its README for full OOC regeneration, or run `python experiments/table3_figure18/scripts/verify_figure18_evidence.py` |
@@ -23,7 +22,6 @@ Commands below are run from the repository root unless noted otherwise.
 | `table6_table7_accuracy/` | Tables 6, 7 | Symmetric OSTQuant training/evaluation and aggregation | `results/table6/`, `results/table7/` | Follow the two experiment READMEs under its `experiments/` directory |
 | `table8_fp_mx/` | Table 8 | FP/MX mantissa-magnitude packing backend | `results/table8/` | See `REPRODUCE.md`, Section 8 |
 | `phase_adaptivity/` | Phase-adaptivity ablation | Parser and manifest verifier for P-only, D-only, and Hybrid reports | `results/phase_adaptivity/` | Run both scripts in the directory README |
-| `long_context/` | Figure 15 support | Long-context plotting scripts | `results/long_context/` | Run its plotting script with an output prefix under `results/rerun/long_context/` |
 
 The authoritative end-to-end commands and environment requirements are in
 `REPRODUCE.md`. Optional reruns must use `results/rerun/<experiment>/` so they
