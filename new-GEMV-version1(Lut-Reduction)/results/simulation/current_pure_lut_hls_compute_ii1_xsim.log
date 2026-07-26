@@ -1,0 +1,18 @@
+
+****** xsim v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/w4a4_pure_hls_compute_sim/xsim_script.tcl
+# xsim {w4a4_pure_hls_compute_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: generated HLS compute core accepts and returns 3 consecutive GEMVs at II=1
+$finish called at time : 237500 ps : File "<REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4-Pure-LUT-Reduction/tests/test_hls_compute_ii1.v" Line 189
+run: Time (s): cpu = 00:00:00.02 ; elapsed = 00:01:32 . Memory (MB): peak = 1689.785 ; gain = 0.000 ; free physical = 800749 ; free virtual = 1691942
+exit
+INFO: xsimkernel Simulation Memory Usage: 3088088 KB (Peak: 3263200 KB), Simulation CPU Usage: 100780 ms
+INFO: [Common 17-206] Exiting xsim at Fri Jul 24 19:09:52 2026...

@@ -27,6 +27,10 @@ The project contains three main technical components:
 |   |-- rtl/                     # Packed-DSP P, D, and Hybrid RTL
 |   |-- rtl_testbench/           # W3A4/W4A4 simulation testbenches
 |   `-- fpga_system/             # U55C HLS/RTL black-box GEMV system
+|-- new-GEMV-version1(Lut-Reduction)/
+|                                # Fully pipelined LUT-reduction W4A4 GEMV
+|-- new-GEMV-version2(Hybird-Reduction)/
+|                                # Fully pipelined hybrid-reduction W4A4 GEMV
 |-- experiments/
 |   |-- exactness/               # Arithmetic exactness experiments
 |   |-- figure12_pareto/         # Accuracy-throughput Pareto generation
@@ -47,6 +51,17 @@ The project contains three main technical components:
 
 Contains reusable RTL, matching testbenches, and the FPGA system implementation.
 Precision-specific modules are organized by weight and activation bit width.
+
+### Fully Pipelined GEMV Kernels
+
+Two compact W4A4 kernel releases are provided at the repository root:
+
+- `new-GEMV-version1(Lut-Reduction)/` provides the LUT-reduction kernel.
+- `new-GEMV-version2(Hybird-Reduction)/` provides the hybrid-reduction kernel.
+
+Each directory contains the HLS/RTL sources, portable synthesis and OOC scripts,
+selected functional tests, concise documentation, and packaged kernel results.
+Follow the directory README for reproduction commands.
 
 ### `experiments/`
 

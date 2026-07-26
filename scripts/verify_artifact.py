@@ -576,6 +576,209 @@ def verify_table3_implementation_sources() -> None:
     )
 
 
+def verify_fully_pipelined_gemv_sources() -> None:
+    """Verify the two compact W4A4 releases and kernel-only resources."""
+
+    releases = {
+        "new-GEMV-version1(Lut-Reduction)": {
+            "lut": 546147,
+            "ff": 816273,
+            "carry8": 54953,
+            "dsp": 4096,
+            "bram": 517,
+            "uram": 0,
+        },
+        "new-GEMV-version2(Hybird-Reduction)": {
+            "lut": 409819,
+            "ff": 589327,
+            "carry8": 22697,
+            "dsp": 6416,
+            "bram": 517,
+            "uram": 0,
+        },
+    }
+
+    source_files = (
+        "src/GEMV.cpp",
+        "src/GEMV.h",
+        "src/u55C.cfg",
+        "src/W4A4_P.cpp",
+        "src/W4A4_P.json",
+        "src/W4A4_P.v",
+        "src/W4A4_P_wrapper.v",
+    )
+    forbidden_directories = {
+        ".Xil",
+        ".ipcache",
+        "__pycache__",
+        "_x",
+        "synth",
+        "ooc_implement",
+    }
+    forbidden_suffixes = {
+        ".bit",
+        ".dcp",
+        ".jou",
+        ".pyc",
+        ".str",
+        ".wdb",
+        ".xclbin",
+        ".xo",
+    }
+
+    def report_integer(text: str, label: str) -> int:
+        match = re.search(
+            rf"^\|\s*{re.escape(label)}\s*\|\s*(\d+)\s*\|",
+            text,
+            flags=re.MULTILINE,
+        )
+        assert match, f"missing utilization row: {label}"
+        return int(match.group(1))
+
+    # Resource publication is intentionally scoped to gemv_kernel. Direct-core
+    # and timing/route summaries are not part of these two public result sets.
+    checked_resource_reports = 0
+    checked_logs = 0
+    for release_name, expected_resources in releases.items():
+        release = require(release_name)
+        readme = require(f"{release_name}/README.md").read_text(encoding="utf-8")
+        assert not re.search(
+            r"(?i)\b(?:WNS|WHS|slack|timing closure|timing issue)\b",
+            readme,
+        ), f"README contains timing discussion: {release_name}"
+        assert "| Scope |" not in readme, (
+            f"resource table must remain under results: {release_name}"
+        )
+        for relative in source_files:
+            assert (release / relative).is_file(), (
+                f"missing fully pipelined GEMV source: {release_name}/{relative}"
+            )
+
+        config_path = release / "config/hls.cfg"
+        config = config_path.read_text(encoding="utf-8")
+        assert "freqhz=200000000" in config
+        assert "syn.top=gemv_kernel" in config
+        config_references = [
+            line.split("=", 1)[1].strip()
+            for line in config.splitlines()
+            if line.startswith(("syn.file=", "syn.blackbox.file=", "tb.file="))
+        ]
+        assert len(config_references) == 5
+        for reference in config_references:
+            resolved = (config_path.parent / reference).resolve()
+            assert resolved.is_relative_to(release.resolve())
+            assert resolved.is_file(), (
+                f"missing HLS configuration input: {release_name}/{reference}"
+            )
+
+        metadata_path = release / "src/W4A4_P.json"
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        assert metadata["rtl_performance"] == {"latency": "8", "II": "1"}
+        metadata_references = [
+            entry["c_file"] for entry in metadata["c_files"]
+        ] + list(metadata["rtl_files"])
+        assert len(metadata_references) == 3
+        for reference in metadata_references:
+            assert not Path(reference).is_absolute()
+            resolved = (metadata_path.parent / reference).resolve()
+            assert resolved.is_relative_to(release.resolve())
+            assert resolved.is_file(), (
+                f"missing black-box input: {release_name}/{reference}"
+            )
+
+        shell_scripts = sorted(release.glob("*.sh"))
+        assert len(shell_scripts) >= 4
+        for script in shell_scripts:
+            text = script.read_text(encoding="utf-8")
+            assert "set -euo pipefail" in text, f"non-strict shell script: {script}"
+            assert 'dirname "${BASH_SOURCE[0]}"' in text, (
+                f"shell script is not location independent: {script}"
+            )
+
+        kernel_report = (
+            release / "results/hls/gemv_kernel_csynth.rpt"
+        ).read_text(encoding="utf-8", errors="replace")
+        assert re.search(
+            r"\|\s*139\|\s*142\|[^|\n]+\|[^|\n]+\|\s*36\|\s*36\|\s*dataflow\|",
+            kernel_report,
+        ), f"full-kernel interval is not 36 in {release_name}"
+        assert {
+            path.name for path in (release / "results/hls").glob("*.rpt")
+        } == {"gemv_kernel_csynth.rpt"}, (
+            f"only the gemv_kernel HLS report may be published: {release_name}"
+        )
+
+        simulation_logs = sorted((release / "results/simulation").glob("*.log"))
+        assert simulation_logs
+        for log in simulation_logs:
+            assert "PASS:" in log.read_text(encoding="utf-8", errors="replace"), (
+                f"simulation evidence has no PASS marker: {log}"
+            )
+            checked_logs += 1
+
+        summary_path = release / "results/resource_summary.csv"
+        with summary_path.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        assert len(rows) == 1
+        row = rows[0]
+        assert row["scope"] == "gemv_kernel"
+        assert set(row) == {
+            "scope",
+            "lut",
+            "ff",
+            "carry8",
+            "dsp",
+            "bram",
+            "uram",
+            "utilization_report",
+        }
+        for field in ("lut", "ff", "carry8", "dsp", "bram", "uram"):
+            assert int(row[field]) == expected_resources[field], (
+                f"kernel resource summary mismatch: {release_name}/{field}"
+            )
+
+        utilization_path = (
+            summary_path.parent / row["utilization_report"]
+        ).resolve()
+        assert utilization_path.is_relative_to((release / "results").resolve())
+        assert utilization_path.is_file(), (
+            f"missing gemv_kernel utilization report: {release_name}"
+        )
+        utilization = utilization_path.read_text(
+            encoding="utf-8", errors="replace"
+        )
+        parsed_utilization = {
+            "lut": report_integer(utilization, "CLB LUTs"),
+            "ff": report_integer(utilization, "CLB Registers"),
+            "carry8": report_integer(utilization, "CARRY8"),
+            "dsp": report_integer(utilization, "DSPs"),
+            "bram": report_integer(utilization, "Block RAM Tile"),
+            "uram": report_integer(utilization, "URAM"),
+        }
+        assert parsed_utilization == expected_resources, (
+            f"gemv_kernel utilization report mismatch: {release_name}"
+        )
+        assert not (release / "results/direct_core").exists()
+        assert not (release / "results/full_kernel").exists()
+        checked_resource_reports += 1
+
+        all_paths = list(release.rglob("*"))
+        assert not any(
+            path.is_dir() and path.name in forbidden_directories
+            for path in all_paths
+        ), f"generated directory was packaged in {release_name}"
+        assert not any(
+            path.is_file() and path.suffix.lower() in forbidden_suffixes
+            for path in all_paths
+        ), f"generated binary was packaged in {release_name}"
+
+    print(
+        "FULLY_PIPELINED_GEMV_PASS "
+        f"releases={len(releases)} kernel_resource_reports={checked_resource_reports} "
+        f"simulation_logs={checked_logs}"
+    )
+
+
 def _verify_table7_noncanonical_archive() -> None:
     """Historical development-log gate retained for maintenance only.
 
@@ -1627,6 +1830,7 @@ def main() -> int:
     verify_fpga_model()
     verify_rtl_summary()
     verify_table3_implementation_sources()
+    verify_fully_pipelined_gemv_sources()
     verify_ooc_extraction()
     verify_table6_archive_and_config()
     verify_table6_fresh_gate()

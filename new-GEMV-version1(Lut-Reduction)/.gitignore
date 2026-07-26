@@ -1,0 +1,14 @@
+.Xil/
+.ipcache/
+_x/
+synth/
+ooc_implement/
+tests/.*/
+tests/results/
+*.dcp
+*.jou
+*.str
+*.wdb
+*.xo
+*.xclbin
+*.bit

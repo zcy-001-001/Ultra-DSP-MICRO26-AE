@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# xsim v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Jul 24 13:53:58 2026
+# Process ID: 3527226
+# Current directory: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/.pair_lut6_2_work
+# Command line: xsim -log ../results/pair_add_lut6_2_xsim.log -mode tcl -source {xsim.dir/pair_lut6_2_sim/xsim_script.tcl}
+# Log file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/.pair_lut6_2_work/../results/pair_add_lut6_2_xsim.log
+# Journal file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/.pair_lut6_2_work/xsim.jou
+# Running On: <REMOTE_HOST>, OS: Linux, CPU Frequency: 2200.000 MHz, CPU Physical cores: 27, Host memory: 2164186 MB
+#-----------------------------------------------------------
+source xsim.dir/pair_lut6_2_sim/xsim_script.tcl
+# xsim {pair_lut6_2_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: pair-add variants are equivalent
+$finish called at time : 10 us : File "<REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/test_pair_add_variants.v" Line 328
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Jul 24 13:54:02 2026...

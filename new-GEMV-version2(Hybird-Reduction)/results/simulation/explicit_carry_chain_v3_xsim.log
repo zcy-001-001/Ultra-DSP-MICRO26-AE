@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# xsim v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Jul 24 13:42:13 2026
+# Process ID: 3509471
+# Current directory: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/.syntax_work_explicit_carry_v3
+# Command line: xsim -log ../results/explicit_carry_chain_v3_xsim.log -mode tcl -source {xsim.dir/explicit_carry_chain_sim/xsim_script.tcl}
+# Log file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/.syntax_work_explicit_carry_v3/../results/explicit_carry_chain_v3_xsim.log
+# Journal file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/.syntax_work_explicit_carry_v3/xsim.jou
+# Running On: <REMOTE_HOST>, OS: Linux, CPU Frequency: 2200.000 MHz, CPU Physical cores: 29, Host memory: 2164186 MB
+#-----------------------------------------------------------
+source xsim.dir/explicit_carry_chain_sim/xsim_script.tcl
+# xsim {explicit_carry_chain_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: FOUR12 chain latency=4, LUT tree latency=2, II=1
+$finish called at time : 245 ns : File "<REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/test_overlap_dsp_chains.v" Line 130
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Jul 24 13:42:17 2026...

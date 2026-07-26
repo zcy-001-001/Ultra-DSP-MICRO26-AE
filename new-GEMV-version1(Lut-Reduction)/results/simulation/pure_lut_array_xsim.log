@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# xsim v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Jul 24 15:14:58 2026
+# Process ID: 3647399
+# Current directory: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4-Pure-LUT-Reduction/tests/.pure_lut_xsim
+# Command line: xsim -log ../results/pure_lut_array_xsim.log -mode tcl -source {xsim.dir/pure_lut_array_sim/xsim_script.tcl}
+# Log file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4-Pure-LUT-Reduction/tests/.pure_lut_xsim/../results/pure_lut_array_xsim.log
+# Journal file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4-Pure-LUT-Reduction/tests/.pure_lut_xsim/xsim.jou
+# Running On: <REMOTE_HOST>, OS: Linux, CPU Frequency: 1054.398 MHz, CPU Physical cores: 31, Host memory: 2164186 MB
+#-----------------------------------------------------------
+source xsim.dir/pure_lut_array_sim/xsim_script.tcl
+# xsim {pure_lut_array_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: full 64x64x9 array accepts consecutive GEMVs and stalls cleanly
+$finish called at time : 262500 ps : File "<REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4-Pure-LUT-Reduction/tests/test_overpacked_wrapper.v" Line 244
+run: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:56 . Memory (MB): peak = 1681.781 ; gain = 0.000 ; free physical = 948384 ; free virtual = 1843944
+exit
+INFO: xsimkernel Simulation Memory Usage: 3086908 KB (Peak: 3262024 KB), Simulation CPU Usage: 66200 ms
+INFO: [Common 17-206] Exiting xsim at Fri Jul 24 15:16:08 2026...

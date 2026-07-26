@@ -1,0 +1,2 @@
+scope,lut,ff,carry8,dsp,bram,uram,utilization_report
+gemv_kernel,409819,589327,22697,6416,517,0,gemv_kernel/utilization_implemented.rpt

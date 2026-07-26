@@ -1,0 +1,56 @@
+{
+  "c_function_name": "W4A4_P",
+  "rtl_top_module_name": "W4A4_P",
+  "c_files": [
+    {
+      "c_file": "../src/W4A4_P.cpp",
+      "cflag": ""
+    }
+  ],
+  "rtl_files": [
+    "../src/W4A4_P_wrapper.v",
+    "../src/W4A4_P.v"
+  ],
+  "c_parameters": [
+    {"c_name": "w1g0", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w1g0"}},
+    {"c_name": "w1g1", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w1g1"}},
+    {"c_name": "w1g2", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w1g2"}},
+    {"c_name": "w1g3", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w1g3"}},
+    {"c_name": "w2g0", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w2g0"}},
+    {"c_name": "w2g1", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w2g1"}},
+    {"c_name": "w2g2", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w2g2"}},
+    {"c_name": "w2g3", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w2g3"}},
+    {"c_name": "w3g0", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w3g0"}},
+    {"c_name": "w3g1", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w3g1"}},
+    {"c_name": "w3g2", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w3g2"}},
+    {"c_name": "w3g3", "c_port_direction": "in", "rtl_ports": {"data_read_in": "w3g3"}},
+    {"c_name": "a1", "c_port_direction": "in", "rtl_ports": {"data_read_in": "a1"}},
+    {"c_name": "a2", "c_port_direction": "in", "rtl_ports": {"data_read_in": "a2"}},
+    {"c_name": "a3", "c_port_direction": "in", "rtl_ports": {"data_read_in": "a3"}}
+  ],
+  "c_return": {
+    "c_port_direction": "out",
+    "rtl_ports": {"data_write_out": "ap_return"}
+  },
+  "rtl_common_signal": {
+    "module_clock": "ap_clk",
+    "module_reset": "ap_rst",
+    "module_clock_enable": "ap_ce",
+    "ap_ctrl_chain_protocol_idle": "",
+    "ap_ctrl_chain_protocol_start": "",
+    "ap_ctrl_chain_protocol_ready": "",
+    "ap_ctrl_chain_protocol_done": "",
+    "ap_ctrl_chain_protocol_continue": ""
+  },
+  "rtl_performance": {
+    "latency": "8",
+    "II": "1"
+  },
+  "rtl_resource_usage": {
+    "FF": "261184",
+    "LUT": "235008",
+    "BRAM": "0",
+    "URAM": "0",
+    "DSP": "6416"
+  }
+}

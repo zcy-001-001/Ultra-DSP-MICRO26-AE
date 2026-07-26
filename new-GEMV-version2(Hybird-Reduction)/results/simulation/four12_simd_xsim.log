@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# xsim v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun Jul 19 22:39:49 2026
+# Process ID: 1961398
+# Current directory: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/xsim_fifo_simd
+# Command line: xsim -mode tcl -source {xsim.dir/fifo_simd_sim/xsim_script.tcl}
+# Log file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/xsim_fifo_simd/xsim.log
+# Journal file: <REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/xsim_fifo_simd/xsim.jou
+# Running On: <REMOTE_HOST>, OS: Linux, CPU Frequency: 800.376 MHz, CPU Physical cores: 29, Host memory: 2164186 MB
+#-----------------------------------------------------------
+source xsim.dir/fifo_simd_sim/xsim_script.tcl
+# xsim {fifo_simd_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+PASS: DSP48E2 FOUR12 boundary and 2000 consecutive random vectors
+$finish called at time : 10108500 ps : File "<REMOTE_WORKSPACE>/A-MICRO26-DSP-Packing/A_New_Baseline/Ultra-DSP-MAX/W4A4/tests/test_simd_dsp_add.v" Line 109
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Jul 19 22:39:53 2026...
